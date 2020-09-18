@@ -5,13 +5,16 @@ liip_imagine:
 
     filter_sets:
         # filter name
+        logo_thumb:
+            filter:
+                thumbnail:
+                    size: [400, 51]
+                    mode: outbound
+    
         squared_thumb_normal:
             filters:
-                # use and setup the "thumbnail" filter
                 thumbnail:
-                    # set the thumbnail pixels size
                     size: [540, 540]
-                    # crop the input image, if required
                     mode: outbound
 
         squared_thumb_medium:
