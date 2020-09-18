@@ -1,0 +1,41 @@
+/*------------------------------
+  Footer: Top
+-------------------------------*/
+footer {
+  position: relative;
+  margin-top: 0;
+  background-color: #d9d1c3;
+  padding: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  .footer-content {
+    padding: 20px 0;
+    h4 {
+      font-size: 19px;
+    }
+    .list-icons {
+      list-style: none;
+      padding: 0;
+      li {
+        padding: 5px 0;
+        i {
+          min-width: 25px;
+          text-align: center;
+        }
+      }
+      .text-default {
+        color: #cc3423;
+      }
+    }
+  }
+  .undergroundfooter {
+    color: #c8c8c8;
+    border: 0;
+    font-size: 14px;
+    line-height: 1.3;
+    padding: 25px 0;
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

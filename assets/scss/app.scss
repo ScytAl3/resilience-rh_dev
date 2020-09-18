@@ -1,0 +1,50 @@
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap";
+
+/* fontawesome 5 free */
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+
+
+/* import external URL font - Google font */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap");
+
+/* header & footer */
+@import "./layouts/header";
+@import "./layouts/footer";
+/* variables */
+@import "./shared/variables";
+
+/*------------------------------
+            Global
+-------------------------------*/
+body {
+  font-family: $primary-font, sans-serif;
+  background-color: #e4e4e4;
+  padding-top: 60px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $title-font, sans-serif;
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+/*------------------------------
+          Home page
+-------------------------------*/
