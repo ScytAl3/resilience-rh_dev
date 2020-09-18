@@ -2,9 +2,18 @@ vich_uploader:
     db_driver: orm
 
     mappings:
-       publication_image:
+        publication_image:
            uri_prefix: /uploads/publications
            upload_destination: '%kernel.project_dir%/public/uploads/publications'
+           namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+           # Configure the lifecycle events
+           inject_on_load: false
+           delete_on_update: true
+           delete_on_remove: true
+
+        formation_image:
+           uri_prefix: /uploads/formations
+           upload_destination: '%kernel.project_dir%/public/uploads/formations'
            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
            # Configure the lifecycle events
            inject_on_load: false
