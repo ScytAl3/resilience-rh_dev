@@ -5,10 +5,10 @@ liip_imagine:
 
     filter_sets:
         # filter name
-        logo_thumb:
-            filter:
+        rectangular_logo_thumb:
+            filters:
                 thumbnail:
-                    size: [400, 51]
+                    size: [400, 50]
                     mode: outbound
     
         squared_thumb_normal:
