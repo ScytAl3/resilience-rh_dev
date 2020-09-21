@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+
+    <head>
+        {# Default meta tags #}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Franck Jakubowski">
+        <meta name="description"
+              content="Site vitrine du cabinet conseil résilience-rh spécialisédans la Formation, l’Evaluation, le Recrutement et l’Accompagnement dans la recherche d’Emploi.">
+        {#  Favicons #}
+
+        {# Title #}
+        <title>
+            {% block title %} {{ project.name }} {% endblock %}
+        </title>
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+
+    <body>
+        <header>
+            {% block header %}
+                {# Navbar import #}
+                {{ include('layouts/partials/_nav.html.twig') }}        
+            {% endblock %}
+        </header>
+
+        {# Message flash area #}
+        {{ include('layouts/partials/_flash_messages.html.twig') }}
+        {# /Message flash area #}
+
+        <main role="main">
+            {% block body %}{% endblock %}
+        </main>
+
+        <footer  class="p-3">
+            {% block footer %}
+                {# footer import #}
+                {{ include('layouts/partials/_footer.html.twig') }}
+                {# /footer import #}
+            {% endblock %}
+        </footer>
+
+        {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+
+        {% endblock %}
+    </body>
+
+</html>
