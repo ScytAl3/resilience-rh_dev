@@ -1,8 +1,11 @@
+/* variables */
+@import "./shared/variables";
+
 /*------------------------------
   Header: Navbar
 -------------------------------*/
 nav {
   &.bg-custom-navbar {
-    background-color: #294a87;
+    background-color: $header-color;
   }
 }

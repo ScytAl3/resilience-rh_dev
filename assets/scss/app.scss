@@ -22,7 +22,7 @@
 -------------------------------*/
 body {
   font-family: $primary-font, sans-serif;
-  background-color: #e4e4e4;
+  background-color: #fff;
   padding-top: 68px;
 }
 
@@ -33,6 +33,7 @@ h4,
 h5,
 h6 {
   font-family: $title-font, sans-serif;
+  color: $title-color !important;
 }
 
 input[type="number"] {
@@ -48,3 +49,6 @@ input[type="number"]::-webkit-outer-spin-button {
 /*------------------------------
           Home page
 -------------------------------*/
+#carousel-custom-bg {
+  background-color: $header-color;
+}

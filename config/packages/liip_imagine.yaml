@@ -10,6 +10,12 @@ liip_imagine:
                 thumbnail:
                     size: [400, 50]
                     mode: outbound
+        
+        carousel_container_thumb:
+            filters:
+                thumbnail:
+                    size: [1110, 413]
+                    mode: outbound
     
         squared_thumb_normal:
             filters:
