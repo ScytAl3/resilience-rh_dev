@@ -16,13 +16,26 @@
     {% set clients_count = clients | length %}
     {# Si la tables Clients n'est pas vide on affiche les clients #}
     {% if clients_count > 0 %}
-        {% for client in clients %}
-            {{ dump(client)}}
-        {% endfor %}
-    {% else %}
-        <div class="alert alert-danger mt-5 text-center">
-            <p class="lead mt-3">Il y a {{ clients_count }} Clients à afficher pour le moment.</p>
+    {% for row in clients|batch(5) %}
+    <div class="row justify-content-around my-5">
+        {% for client in row %}
+        <div class="mx-2">
+            <article class="bg-white h-100 rounded shadow">
+                <div class="mw-100 rounded-top overflow-hidden client">
+                    <a href="{{ client.url }}" target="_blank">
+                        <img src="{{ (client.imageName ? vich_uploader_asset(client) : asset('build/images/placeholder.jpg')) | imagine_filter("squared_thumb_small") }}"
+                             class="w-100" alt="{{client.title}} Logo">
+                    </a>
+                </div>
+            </article>
         </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="alert alert-danger mt-5 text-center">
+        <p class="lead mt-3">Il y a {{ clients_count }} Clients à afficher pour le moment.</p>
+    </div>
     {% endif %}
 </div>
 {% endblock %}
