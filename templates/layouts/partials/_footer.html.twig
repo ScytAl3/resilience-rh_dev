@@ -1,39 +1,90 @@
+{# Footer: top #}
 <div class="container">
     <div class="row">
+        {# Left part #}
         <div class="col-lg-6">
-            <h4>Résilience-RH</h4>
-            <p class="font-weight-bold">organisme de formation</p>
-            {# Icones réseaux sociaux #}
-            <ul class="list-inline">
-                <li>
-                    <a href="">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </li>
-            </ul>
+            <div class="footer-content">
+                <h4 class="pl-2">Résilience-RH</h4>
+                <p class="font-weight-bold pl-2">organisme de formation</p>
+                {# Left part: Address #}
+                <ul class="list-icons pl-2">
+                    <li>
+                        <i class="fa fa-map-marker pr-1 text-default"></i>
+                        6, place au bois
+                        57100 Thionville
+                    </li>
+                    <li>
+                        <i class="fa fa-phone pr-1 text-default"></i>
+                        (+33) 3 82 56 62 67
+                    </li>
+                    <li>
+                        <i class="fa fa-envelope-o pr-1 text-default"></i>
+                        <a href="{{ path('app_contact_us') }}">
+                            Contactez nous
+                        </a>
+                    </li>
+                </ul>
+                {# Left part: social network #}
+                <ul class="social-links list-inline pl-2">
+                    <li class="linkedin">
+                        <a href="https://www.linkedin.com/in/davidsauvageotresiliencerh" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span class="sr-only">Lien vers le profil Linkedin</span>
+                        </a>
+                    </li>
+                    <li class="facebook">
+                        <a href="http://www.facebook.com" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                            <span class="sr-only">Lien vers le profil Facebook</span>
+                        </a>
+                    </li>
+                    <li class="twitter">
+                        <a href="http://www.twitter.com" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                            <span class="sr-only">Lien vers le profil Twitter</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
+        {# Middle: useful links #}
         <div class="col-lg-3">
-            <h4>Liens utiles</h4>
+            <div class="footer-content">
+                <h4>Liens utiles</h4>
+                <ul class="list-icons footer-link">
+                    <li><a href="#">Formations</a></li>
+                    <li><a href="#">Bilan de compétences</a></li>
+                    <li><a href="https://parlonscode.com/contact">Espace carrière</a></li>
+                    <li><a href="#">Publication</a></li>
+                </ul>
+            </div>
         </div>
+        {# Right: other links #}
         <div class="col-lg-3">
-            <h4>Autres</h4>
+            <div class="footer-content">
+                <h4>Autres</h4>
+                <ul class="list-icons footer-link">
+                    <li><a href="#">A propos</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="https://parlonscode.com/terms">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-    <hr>
-    <p class="text-muted">
-        <small>
-            &copy; {{ 'now'|date('Y') }} &middot; Made with <i style="color: red;" class="fa fa-heart"></i> by <a
-               href="#">f** Agency</a>
-        </small>
-    </p>
 </div>
+{# /Footer: top #}
+
+{# Footer: bottom #}
+<div class="undergroundfooter bg-dark">
+    <div class="container">
+        <p class="text-muted text-center">
+            &copy; Copyright {{ 'now'|date('Y') }} &middot;
+            <span class="text-uppercase">
+                {{ project.name }}.
+            </span>
+            Tous droits réservés.
+        </p>
+    </div>
+</div>
+{# /Footer: bottom #}
