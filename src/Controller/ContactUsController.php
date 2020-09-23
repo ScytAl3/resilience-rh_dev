@@ -8,11 +8,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContactUsController extends AbstractController
 {
     /**
-     * @Route("/contact-us", name="app_contact_us")
+     * @Route("/contact", name="app_contact")
      */
     public function index()
     {
-        return $this->render('contact_us/index.html.twig', [
+        return $this->render('contact/index.html.twig', [
             'controller_name' => 'ContactUsController',
         ]);
     }
