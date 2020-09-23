@@ -4,19 +4,30 @@ liip_imagine:
     driver: "gd"
 
     filter_sets:
-        # filter name
+        # Filter for the logo
         rectangular_logo_thumb:
             filters:
                 thumbnail:
                     size: [400, 50]
                     mode: outbound
-        
+        # Filter for the carousel
         carousel_container_thumb:
             filters:
                 thumbnail:
                     size: [1110, 413]
                     mode: outbound
-    
+        # Filters for the about us page
+        rectangular_img_thumb:
+            filters:
+                thumbnail:
+                    size: [512, 342]
+                    mode: outbound
+        rectangular_thumb_small:
+            filters:
+                thumbnail:
+                    size: [150, 60]
+                    mode: outbound
+        # Filters for squared thumbnail
         squared_thumb_normal:
             filters:
                 thumbnail:

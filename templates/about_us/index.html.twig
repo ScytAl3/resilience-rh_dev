@@ -1,0 +1,173 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %} A propos | {{ parent() }} {% endblock %}
+
+{% block body %}
+{# Conteneur de la page #}
+<div class="container">
+    {# Page header #}
+    <div class="page-header">
+        <h1 class="text-center">
+            <i class="fas fa-comment-alt"></i>
+            À propos de
+            <span class="text-uppercase">
+                {{ project.name }}
+            </span>
+        </h1>
+        <p class="text-center text-muted">
+            Organisme de formation
+        </p>
+    </div>
+
+    {# Section: About us #}
+    <section>
+        <div class="row">
+            {# Image #}
+            <div class="col-md-12 text-center mt-3 mb-4">
+                <img src="{{ asset('build/images/about-us/about_us.jpg') | imagine_filter("rectangular_img_thumb") }}"
+                     class="img-thumbnail" alt="Photo de David Sauvageot">
+            </div>
+
+            {# Texte #}
+            <div class="col-md-9 mx-auto text-muted">
+                <p class="text-justify">
+                    Le domaine de l’Entreprise, tout comme l’individu, est une entité complexe.
+                </p>
+                <p>
+                    L’ambition de <strong class="text-uppercase">{{ project.name }}</strong> est de vous accompagner
+                    dans
+                    vos projets individuels mais aussi dans les projets et problématiques d’Entreprise et ce, de façon
+                    durable.
+                </p>
+                <p>
+                    A dimension humaine, <strong class="text-uppercase">{{ project.name }}</strong> peut vous proposer
+                    des
+                    solutions souples et adaptées correspondant à vos besoins et attentes.
+                </p>
+                <p>
+                    Chaque mission en Entreprise débute par un audit afin d’identifier précisément la demande et pouvoir
+                    ainsi apporter une réponse adéquate et réaliste.
+                </p>
+                <P>
+                    Le concept d’Accompagnement est le socle de cette structure ; allié à l’écoute, la confidentialité,
+                    l’éthique, et une méthodologie rigoureuse qui s’appuie sur des outils éprouvés et reconnus.
+                </P>
+                <P>
+                    Après 15 années dans des fonctions Ressources Humaines et de Management, j’ai créé ce Cabinet
+                    Conseil en
+                    2014 spécialisé dans la Formation, l’Evaluation, le Recrutement et l’Accompagnement dans la
+                    recherche
+                    d’Emploi.
+                </P>
+                <P class="mb-5">
+                    Psychologue du Travail, je souhaite mettre mes connaissances, mes compétences et mon expérience au
+                    service des Individus et des Entreprises.
+                </P>
+                {# Signature #}
+                <div>
+                    <P class="mb-1">
+                        <strong>
+                            David SAUVAGEOT
+                        </strong>
+                    </P>
+                    <p>
+                        <strong>
+                            Fondateur et Directeur de {{ project.name }}
+                        </strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    {# Section: Certification et validation #}
+    <section class="my-5">
+        <h2 class="text-center">
+            Référencé et certifié
+        </h2>
+        <div class="row justify-content-around text-center mt-5">
+            {# I-cert #}
+            <div class="col-md-5">
+                <div class="card h-100 rounded shadow">
+                    <img src="{{ asset('build/images/about-us/i-cert.png') | imagine_filter("rectangular_thumb_small") }}"
+                         class="img-fluid mx-auto my-2" alt="I-Cert Logo">
+
+                    <div class="card-body">
+                        <p class="card-text">
+                            <strong class="text-uppercase">{{ project.name }}</strong>, organisme de formation satisfait
+                            aux éxigences du dispostif de certification FAC relatif à la qualité des
+                            actions de la formaiton professionnelle continue.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {# Datadock #}
+            <div class="col-md-5">
+                <div class="card h-100 rounded shadow">
+                    <img src="{{ asset('build/images/about-us/datadock.png') | imagine_filter("rectangular_thumb_small") }}"
+                         class="img-fluid mx-auto my-2" alt="Datadock Logo">
+
+                    <div class="card-body">
+                        <p class="card-text">
+                            <strong class="text-uppercase">{{ project.name }}</strong>, organisme de formation validé et
+                            référencé sur la base Datadock.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    {# Section: Nos partenaires & clients #}
+    <section class="my-5">
+        <h2 class="text-center">
+            Ils nous font confiance
+        </h2>
+        <div class="row justify-content-around text-center mt-5">
+            {# I-cert #}
+            <div class="col-md-5">
+                <div class="card h-100 rounded shadow">
+                    {# Icon #}
+                    <div class="card-header bg-transparent">
+                        <i class="far fa-handshake fa-3x"></i>
+                    </div>
+                    {# Titre #}
+                    <div class="card-body">
+                        <h5 class="card-title">Nos Partenaires</h5>
+                    </div>
+                    {# Button #}
+                    <div class="p-2">
+                        <a href="#" class="btn btn-info btn-lg btn-block">
+                            Voir
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {# Datadock #}
+            <div class="col-md-5">
+                <div class="card h-100 rounded shadow">
+                    {# Icon #}
+                    <div class="card-header bg-transparent">
+                        <i class="fas fa-user-check fa-3x"></i>
+                    </div>
+                    {# Titre #}
+                    <div class="card-body">
+                        <h5 class="card-title">Nos Clients</h5>
+                    </div>
+                    {# Button #}
+                    <div class="p-2">
+                        <a href="#" class="btn btn-info btn-lg btn-block">
+                            Voir
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}

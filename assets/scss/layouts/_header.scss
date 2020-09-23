@@ -9,3 +9,8 @@ nav {
     background-color: $header-color;
   }
 }
+
+.dropdown-menu > a:hover {
+    background-color: #0088cc;
+    background-image: none;
+  }

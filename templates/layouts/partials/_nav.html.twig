@@ -29,6 +29,18 @@
                             Accueil
                         </a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuAbout" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            {{ project.name }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuAbout">
+                            <a class="dropdown-item" href="{{ path('app_about_us') }}">À propos</a>
+                            <a class="dropdown-item" href="#">Témoignages</a>
+                            <a class="dropdown-item" href="#">Nos Clients</a>
+                            <a class="dropdown-item" href="#">Nos Partenaires</a>
+                        </div>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             page1
