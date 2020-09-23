@@ -12,5 +12,17 @@
             Nos Clients
         </h1>
     </div>
+    {# Clients list #}
+    {% set clients_count = clients | length %}
+    {# Si la tables Clients n'est pas vide on affiche les clients #}
+    {% if clients_count > 0 %}
+        {% for client in clients %}
+            {{ dump(client)}}
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-danger mt-5 text-center">
+            <p class="lead mt-3">Il y a {{ clients_count }} Clients à afficher pour le moment.</p>
+        </div>
+    {% endif %}
 </div>
 {% endblock %}
