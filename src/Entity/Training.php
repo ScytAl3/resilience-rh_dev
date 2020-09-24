@@ -1,0 +1,162 @@
+<?php
+
+namespace App\Entity;
+
+use Cocur\Slugify\Slugify;
+use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Traits\Timestampable;
+use App\Repository\TrainingRepository;
+// Validates that a particular field (or fields) in a Doctrine entity is (are) unique
+use Symfony\Component\HttpFoundation\File\File;
+// Link the upload mapping to Product entity
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
+/**
+ * @ORM\Entity(repositoryClass=TrainingRepository::class)
+ * @ORM\Table(name="trainings")
+ * @Vich\Uploadable
+ * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity("title")
+ */
+class Training
+{
+    use Timestampable;
+    
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 50,
+     *      minMessage = "The name of the product must be at least {{ limit }} characters long",
+     *      maxMessage = "The name of the product cannot be longer than {{ limit }} characters",
+     *      allowEmptyString = false
+     * )
+     */
+    private $title;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 10,
+     *      minMessage = "The description of the product must be at least {{ limit }} characters long",
+     *      allowEmptyString = false
+     * )
+     */
+    private $description;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * 
+     * @Vich\UploadableField(mapping="training_pdf", fileNameProperty="pdfFilename")
+     * @Assert\File(
+     *      maxSize="1M",
+     * )
+     * 
+     * @var File|null
+     */
+    private $pdfFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $pdfFilename;
+
+    /**
+     * @ORM\Column(type="boolean", options={"default": true})
+     */
+    private $humanResources;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getSlug(): string
+    {
+        return (new Slugify())->slugify($this->title);
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setPdfFile(?File $pdfFile = null): void
+    {
+        $this->pdfFile = $pdfFile;
+
+        if (null !== $pdfFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->setUpdatedAt(new \DateTimeImmutable);
+        }
+    }
+
+    public function getPdfFile(): ?File
+    {
+        return $this->pdfFile;
+    }
+
+    public function getPdfFilename(): ?string
+    {
+        return $this->pdfFilename;
+    }
+
+    public function setPdfFilename(?string $pdfFilename): self
+    {
+        $this->pdfFilename = $pdfFilename;
+
+        return $this;
+    }
+
+    public function getHumanResources(): ?bool
+    {
+        return $this->humanResources;
+    }
+
+    public function setHumanResources(bool $humanResources): self
+    {
+        $this->humanResources = $humanResources;
+
+        return $this;
+    }
+}
