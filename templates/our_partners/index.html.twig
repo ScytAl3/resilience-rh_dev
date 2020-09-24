@@ -12,5 +12,30 @@
             Nos Partenaires
         </h1>
     </div>
+    {# Partners list #}
+    {% set clients_count = clients | length %}
+    {# Si la tables Partners n'est pas vide on affiche les partners #}
+    {% if partners_count > 0 %}
+    {% for row in partners|batch(5) %}
+    <div class="row justify-content-around my-5">
+        {% for partner in row %}
+        <div class="mx-2">
+            <article class="bg-white h-100 rounded shadow">
+                <div class="mw-100 rounded-top overflow-hidden client-partner">
+                    <a href="{{ partner.url }}" target="_blank">
+                        <img src="{{ (partner.imageName ? vich_uploader_asset(partner) : asset('build/images/placeholder.jpg')) | imagine_filter("squared_thumb_small") }}"
+                             class="w-100" alt="{{partner.title}} Logo">
+                    </a>
+                </div>
+            </article>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="alert alert-danger mt-5 text-center">
+        <p class="lead mt-3">Il y a {{ partners_count }} Partenaires à afficher pour le moment.</p>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

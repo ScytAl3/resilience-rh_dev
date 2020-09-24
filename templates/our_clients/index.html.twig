@@ -21,7 +21,7 @@
         {% for client in row %}
         <div class="mx-2">
             <article class="bg-white h-100 rounded shadow">
-                <div class="mw-100 rounded-top overflow-hidden client">
+                <div class="mw-100 rounded-top overflow-hidden client-partner">
                     <a href="{{ client.url }}" target="_blank">
                         <img src="{{ (client.imageName ? vich_uploader_asset(client) : asset('build/images/placeholder.jpg')) | imagine_filter("squared_thumb_small") }}"
                              class="w-100" alt="{{client.title}} Logo">
