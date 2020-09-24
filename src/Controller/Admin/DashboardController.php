@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Client;
+use App\Entity\Partner;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -37,6 +38,8 @@ class DashboardController extends AbstractDashboardController
 
         // Section relative à la gestion des entités
         yield MenuItem::linkToCrud('Nos Clients', 'fa fa-th-list', Client::class)
+                    ->setDefaultSort(['title' => 'ASC']);
+        yield MenuItem::linkToCrud('Nos Partenairess', 'fa fa-th-list', Partner::class)
                     ->setDefaultSort(['title' => 'ASC']);
 
         // Section relative à la navigation sur le site

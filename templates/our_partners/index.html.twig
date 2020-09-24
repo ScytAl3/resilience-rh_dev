@@ -13,7 +13,7 @@
         </h1>
     </div>
     {# Partners list #}
-    {% set clients_count = clients | length %}
+    {% set partners_count = partners | length %}
     {# Si la tables Partners n'est pas vide on affiche les partners #}
     {% if partners_count > 0 %}
     {% for row in partners|batch(5) %}
