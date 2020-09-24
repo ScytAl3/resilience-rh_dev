@@ -55,7 +55,7 @@ class Partner
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
-     * @Vich\UploadableField(mapping="client_image", fileNameProperty="imageName")
+     * @Vich\UploadableField(mapping="partenaire_image", fileNameProperty="imageName")
      * @Assert\Image(
      *      maxSize="1M",
      * )
