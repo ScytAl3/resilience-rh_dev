@@ -46,7 +46,6 @@ class Training
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Assert\NotBlank
      * @Assert\Length(
      *      min = 10,
      *      minMessage = "The description of the product must be at least {{ limit }} characters long",
@@ -59,10 +58,8 @@ class Training
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
      * @Vich\UploadableField(mapping="training_pdf", fileNameProperty="pdfFilename")
-     * @Assert\File(
-     *     maxSize = "1024k",
-     *     mimeTypes = {"application/pdf", "application/x-pdf"},
-     *     mimeTypesMessage = "Please upload a valid PDF"
+     * @Assert\Image(
+     *      maxSize="1M",
      * )
      * @var File|null
      */
@@ -119,7 +116,7 @@ class Training
      * must be able to accept an instance of 'File' as the bundle will inject one here
      * during Doctrine hydration.
      *
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $pdfFile
      */
     public function setPdfFile(?File $pdfFile = null): void
     {

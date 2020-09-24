@@ -39,12 +39,11 @@ vich_uploader:
          delete_on_remove: true
 
       # Mapping for PDF file upload
-      training_pdf:
-         uri_prefix: /uploads/trainings
-         upload_destination: "%kernel.project_dir%/public/uploads/trainings"
+      formation_pdf:
+         uri_prefix: /uploads/formations
+         upload_destination: "%kernel.project_dir%/public/uploads/formations"
          namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
          # Configure the lifecycle events
          inject_on_load: false
          delete_on_update: true
          delete_on_remove: true
-         
