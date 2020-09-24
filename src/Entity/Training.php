@@ -60,9 +60,10 @@ class Training
      * 
      * @Vich\UploadableField(mapping="training_pdf", fileNameProperty="pdfFilename")
      * @Assert\File(
-     *      maxSize="1M",
+     *     maxSize = "1024k",
+     *     mimeTypes = {"application/pdf", "application/x-pdf"},
+     *     mimeTypesMessage = "Please upload a valid PDF"
      * )
-     * 
      * @var File|null
      */
     private $pdfFile;
