@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %} Nos Formation | {{ parent() }} {% endblock %}
+
+{% block body %}
+{# Conteneur de la page #}
+<div class="container">
+    {# Page header #}
+    <div class="page-header">
+        <h1 class="text-center">
+            <i class="far fa-handshake"></i>
+            Nos Formations
+        </h1>
+    </div>
+    {# Partners list #}
+    {% set trainings_count = trainings | length %}
+    {# Si la tables Partners n'est pas vide on affiche les partners #}
+    {% if trainings_count > 0 %}
+    {% for row in trainings|batch(5) %}
+    <div class="row justify-content-around my-5">
+        {% for training in row %}
+        <!-- <div class="mx-2">
+            <article class="bg-white h-100 rounded shadow">
+                <div class="mw-100 rounded-top overflow-hidden client-partner">
+                    
+                </div>
+            </article>
+        </div> -->
+            {{ dump(training) }}
+        {% endfor %}
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="alert alert-danger mt-5 text-center">
+        <p class="lead mt-3">Il y a {{ trainings_count }} Formations à afficher pour le moment.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
