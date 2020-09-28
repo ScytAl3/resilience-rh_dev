@@ -6,7 +6,7 @@
 {# Zone du carousel avec backgroung #}
 <div id="carousel-custom-bg" class="shadow">
     {# Carousel #}
-    <div id="carouselExampleIndicators" class="carousel slide container" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -71,42 +71,50 @@
     {# /Carousel #}
 </div>
 
-{# Container de la page #}
-<div class="container">
-    {# Introduction #}
-    <div class="text-center my-5">
-        <h2 class="h4 text-muted mb-5">
-            <em>
-                Vous accompagner durablement
-            </em>
-        </h2>
-        <h2 class="h4 text-muted mb-5">
-            <em>
-                dans vos projets d'entreprise ou individuels
-            </em>
-        </h2>
-        <h2 class="h4 text-muted mb-5">
-            <em>
-                en vous proposant des solutions souples et adaptées
-            </em>
-        </h2>
+{# Content section : presentation #}
+<section class="py-5">
+    <div class="container">
+        {# Introduction #}
+        <div class="text-center">
+            <h2 class="h4 text-muted mb-5">
+                <em>
+                    Vous accompagner durablement
+                </em>
+            </h2>
+            <h2 class="h4 text-muted mb-5">
+                <em>
+                    dans vos projets d'entreprise ou individuels
+                </em>
+            </h2>
+            <h2 class="h4 text-muted">
+                <em>
+                    en vous proposant des solutions souples et adaptées
+                </em>
+            </h2>
+        </div>
     </div>
+</section>
 
-    <hr>
-
-    {# Section formation #}
-    <section class="my-5">
-        <h2>
+{# Image element : training #}
+<div class="py-5 bg-img-training bg-image-full">
+    <div class="h2 caption">
+        <span class="border text-uppercase">
             Nos formations
-        </h2>
-        <h6 class="text-center mt-3">
+        </span>
+    </div>
+</div>
+
+{# Content section : trainings links #}
+<section class="py-5">
+    <div class="container">
+        <h6 class="text-center">
             Organisme de formation référencé sur dataDock et certifié Qualité.
         </h6>
         {# Cards formation #}
         <div class="row justify-content-around text-center mt-5">
             {# Card formations RH #}
-            <div class="col-md-5">
-                <div class="card h-100 border-primary">
+            <div class="col-md-5 mb-3">
+                <div class="card h-100 border-primary rounded shadow">
                     <div class="card-header bg-transparent">
                         <i class="fas fa-users fa-3x"></i>
                     </div>
@@ -117,18 +125,18 @@
                             dans le domaine de la Formation en Ressources Humaines, de l'ingénierie pédagogique à
                             l'animation.
                         </p>
-
+    
                     </div>
                     <div class="p-2">
                         <a href="#" class="btn btn-info btn-lg btn-block">
-                            Voir nos formations
+                            Voir ces formations
                         </a>
                     </div>
                 </div>
             </div>
             {# Card formations autres #}
-            <div class="col-md-5">
-                <div class="card h-100 border-primary">
+            <div class="col-md-5 mb-3">
+                <div class="card h-100 border-primary rounded shadow">
                     <div class="card-header bg-transparent">
                         <i class="fas fa-chalkboard-teacher fa-3x"></i>
                     </div>
@@ -142,24 +150,131 @@
                     </div>
                     <div class="p-2">
                         <a href="#" class="btn btn-info btn-lg btn-block">
-                            Voir nos formations
+                            Voir ces formations
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <hr>
+{# Image element : our solutions #}
+<div class="py-5 bg-img-oursolutions bg-image-full">
+    <div class="h2 caption">
+        <span class="border text-uppercase">
+            Nos solutions
+        </span>
+    </div>
+</div>
 
-    {# Section témoignages #}
-    <section class="my-5">
-        <h2 class="text-center">
+{# Content section : other solutions #}
+<section class="py-5">
+    <div class="container">
+        {# Cards our solutions #}
+        <div class="row row-cols-1 row-cols-md-3 justify-content-around text-center">
+            {# Card Recrutement #}
+            <div class="col-md-4 mb-5">
+                <div class="card h-100 border-primary rounded shadow">
+                    <div class="card-header bg-transparent">
+                        <i class="fas fa-newspaper fa-3x"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Espaces Recrutement</h5>                        
+                    </div>
+                    <div class="p-2">
+                        <a href="#" class="btn btn-info btn-lg btn-block">
+                            Voir
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {# Card Skills assessment #}
+            <div class="col-md-4 mb-5">
+                <div class="card h-100 border-primary rounded shadow">
+                    <div class="card-header bg-transparent">
+                        <i class="fas fa-question-circle fa-3x"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Bilan de compétences</h5>
+                    </div>
+                    <div class="p-2">
+                        <a href="#" class="btn btn-info btn-lg btn-block">
+                            Voir
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {# Card Carreer #}
+            <div class="col-md-4 mb-5">
+                <div class="card h-100 border-primary rounded shadow">
+                    <div class="card-header bg-transparent">
+                        <i class="fas fa-file-pdf fa-3x"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Espace Carrière</h5>
+                    </div>
+                    <div class="p-2">
+                        <a href="#" class="btn btn-info btn-lg btn-block">
+                            Voir
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {# Card Orientation #}
+            <div class="col-md-4 mb-5">
+                <div class="card h-100 border-primary rounded shadow">
+                    <div class="card-header bg-transparent">
+                        <i class="fas fa-map-signs fa-3x"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Espace Orientation</h5>
+                    </div>
+                    <div class="p-2">
+                        <a href="#" class="btn btn-info btn-lg btn-block">
+                            Voir
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {# Card Job opportunities #}
+            <div class="col-md-4 mb-5">
+                <div class="card h-100 border-primary rounded shadow">
+                    <div class="card-header bg-transparent">
+                        <i class="fas fa-user-tie fa-3x"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Offre(s) d'Emploi</h5>
+                    </div>
+                    <div class="p-2">
+                        <a href="#" class="btn btn-info btn-lg btn-block">
+                            Voir
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# Image element : feedback #}
+<div class="py-5 bg-img-feedback bg-image-full">
+    <div class="h2 caption">
+        <span class="border text-uppercase">
+            Témoignages
+        </span>
+    </div>
+</div>
+
+{# Content section : feedback #}
+<section class="py-5">
+    <div class="container">
+        <h6 class="text-center">
             Voici ce qu'ils en disent...
-        </h2>
+        </h6>
         {# Affichage de quelques témoignages #}
         <div class="row justify-content-around text-center mt-5">
-            <div class="col-sm-3">
+            <div class="col-md-3">
                 <div class="card bg-light">
                     <div class="card-body">
                         <h5 class="card-title">Jone Doe</h5>
@@ -173,7 +288,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-md-3">
                 <div class="card bg-light">
                     <div class="card-body">
                         <h5 class="card-title">Jane Doe</h5>
@@ -185,7 +300,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-md-3">
                 <div class="card bg-light">
                     <div class="card-body">
                         <h5 class="card-title">Nobody</h5>
@@ -202,7 +317,7 @@
             </div>
         </div>
         {# Bouton de redirection vers la page des témoignages #}
-        <div class="row text-center mt-4">
+        <div class="row text-center mt-5">
             <div class="col-md-12">
                 <a href="" class="btn btn-lg btn-outline-primary">
                     Pas encore sûr ? Découvrez plus de témoignages
@@ -210,7 +325,7 @@
                 </a>
             </div>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
 {% endblock %}
