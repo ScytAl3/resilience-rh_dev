@@ -1,0 +1,238 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %} Recrutement | {{ parent() }} {% endblock %}
+
+{% block body %}
+{# Conteneur de la page #}
+<div class="container">
+    {# Page header #}
+    <div class="page-header">
+        <h1 class="text-center">
+            <i class="fas fa-newspaper"></i>
+            Partenaire de votre Entreprise
+        </h1>
+    </div>
+    {# Section : Introduction #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div class="text-muted">
+                <p>
+                    Le recrutement est le premier acte de management. De plus, la notoriété d’une entreprise se
+                    construit
+                    également par l’image qu’elle peut renvoyer lors de ses recrutements.
+                </p>
+                <p>
+                    Le recrutement est, et sera toujours, une prise de risque. L’objectif de
+                    <strong class="text-uppercase">
+                        {{ project.name }}
+                    </strong>
+                    est de vous accompagner dans vos
+                    recrutements, et ainsi limiter les risques en évitant un recrutement inopportun.
+                </p>
+                <p>
+                    Le coût d’une embauche inadéquate, pour une entreprise, n’est pas que financier : perte de confiance
+                    dans les équipes, image de la société, perte de temps, perte de compétences...
+                </p>
+                <p>
+                    <strong class="text-uppercase">
+                        {{ project.name }}
+                    </strong>
+                    vous accompagne dans vos recrutements, dans le respect de la déontologie et de la confidentialité ;
+                    en
+                    proposant des solutions souples et adaptées à vos contraintes, pour cela vous pouvez opter pour
+                    l’une de
+                    ces 3 solutions :
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    {# Section : Accompagnement partiel #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div>
+                {# Titre #}
+                <h2>
+                    Accompagnement partiel dans vos recrutements
+                </h2>
+                {# Description #}
+                <p class="text-muted mt-4">
+                    L’intérêt de cette solution est la souplesse.
+                    <strong class="text-uppercase">
+                        {{ project.name }}
+                    </strong>
+                    n’intervient qu’en appui dans votre processus de
+                    recrutement. Le soutien intervient en fonction de votre besoin dans votre processus de recrutement.
+                    RESILIENCE-RH peut vous accompagner dans :
+                </p>
+                {# Liste #}
+                <ul class="text-muted mt-4">
+                    <li>
+                        la définition du profil à rechercher
+                    </li>
+                    <li>
+                        la rédaction de l’annonce et de sa diffusion
+                    </li>
+                    <li>
+                        la sélection des candidats à recevoir en entretien
+                    </li>
+                    <li>
+                        la réalisation des entretiens de recrutement
+                    </li>
+                    <li>
+                        l’éclairage supplémentaire apporté par les tests (inventaire de personnalité, tests d’aptitudes
+                        cognitives, numériques, verbales, abstraites, pensée critique, intérêts professionnels,
+                        valeurs...)
+                    </li>
+                    <li>
+                        la prise de décision
+                    </li>
+                    <li>
+                        la réponse apportée aux candidats non retenus et/ou non sélectionnés
+                    </li>
+                    <li>
+                        l’intégration dans votre entreprise du candidat retenu
+                    </li>
+                </ul>
+                <p class="text-muted">
+                    Avec un accompagnement partiel, RESILIENCE-RH vous libère d’une ou plusieurs étapes dans le
+                    processus de recrutement.
+                </p>
+                {# Button : Contact #}
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <p class="text-muted">
+                            N’hésitez pas à nous contacter pour une étude de votre besoin.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn btn-lg btn-secondary btn-block" href="{{ path('app_contact') }}">
+                            Nous contacter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    {# Section : Accompagnement total #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div>
+                {# Titre #}
+                <h2>
+                    Accompagnement total dans vos recrutements
+                </h2>
+                {# Description #}
+                <div class="text-muted mt-4">
+                    <p>
+                        L’intérêt de cette solution est que vous n’intervenez qu’à la fin du processus de recrutement
+                        lors de la validation des candidats présentés.
+                    </p>
+                    <p>
+                        Suite à un audit précis de votre besoin et du contexte,
+                        <strong class="text-uppercase">
+                            {{ project.name }}
+                        </strong>
+                        se charge de vous proposer
+                        une sélection de candidats répondant à vos attentes.
+                    </p>
+                    <p>
+                        Chaque candidat proposé aura été validé par un entretien approfondi et ses références vérifiées.
+                    </p>
+                    <p>
+                        <strong class="text-uppercase">
+                            {{ project.name }}
+                        </strong>
+                        a, à sa disposition, tout un protocole de tests (croisés avec un entretien, les tests sont de
+                        bons indicateurs de réussite professionnelle) permettant d’affiner le profil du candidat :
+                        inventaire de personnalité, tests d’aptitudes cognitives, numériques, verbales, abstraites,
+                        pensée critique, intérêts professionnels, valeurs...).
+                    </p>
+                    <p>
+                        Ces tests permettent de balayer une population d’employé(e), agent de maîtrise, cadre,
+                        manager...
+                    </p>
+                    <p>
+                        Avec un accompagnement total,
+                        <strong class="text-uppercase">
+                            {{ project.name }}
+                        </strong>
+                        se charge entièrement de votre recrutement : de la diffusion de l’annonce à
+                        la présentation d’une sélection de candidats correspondant à votre besoin.
+                    </p>
+                </div>
+                {# Button : Contact #}
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <p class="text-muted">
+                            N’hésitez pas à nous contacter pour une étude de votre besoin.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn btn-lg btn-secondary btn-block" href="{{ path('app_contact') }}">
+                            Nous contacter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    {# Section : Approche directe #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div>
+                {# Titre #}
+                <h2>
+                    Approche directe
+                </h2>
+                {# Description #}
+                <div class="text-muted mt-4">
+                    <p>
+                        L’intérêt de cette solution est d’approcher des candidats qui ne se seraient pas spontanément
+                        manifestés suite à la parution de votre offre, elle vous permet d’attendre des candidats que
+                        vous n’auriez pas atteint avec des techniques de recherche plus traditionnelles.
+                    </p>
+                    <p>
+                        Dans le respect de la confidentialité et après un audit précis de votre besoin,
+                        <strong class="text-uppercase">
+                            {{ project.name }}
+                        </strong>
+                        se met en relation avec les profils susceptibles de correspondre à vos attentes.
+                    </p>
+                    <p>
+                        Chaque candidat proposé sera validé par un entretien approfondi.
+                    </p>
+                    <p>
+                        Avec un recrutement par approche directe,
+                        <strong class="text-uppercase">
+                            {{ project.name }}
+                        </strong>
+                        vous propose des candidats correspondant à votre besoin.
+                    </p>
+                </div>
+                {# Button : Contact #}
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <p class="text-muted">
+                            N’hésitez pas à nous contacter pour une étude de votre besoin.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn btn-lg btn-secondary btn-block" href="{{ path('app_contact') }}">
+                            Nous contacter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
