@@ -49,7 +49,7 @@ liip_imagine:
         squared_thumb_smaller:
             filters:
                 thumbnail:
-                    size: [100, 100]
+                    size: [128, 128]
                     mode: outbound
 
         squared_thumb_xsmall:

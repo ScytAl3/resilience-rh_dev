@@ -1,0 +1,586 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %} Carrière | {{ parent() }} {% endblock %}
+
+{% block body %}
+{# Conteneur de la page #}
+<div class="container">
+    {# Page header #}
+    <div class="page-header">
+        <h1 class="text-center">
+            <i class="fas fa-file-pdf"></i>
+            Partenaire de votre Carrière : Boostez la !
+        </h1>
+    </div>
+    {# Section : Introduction #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div class="text-muted">
+                <p>
+                    Avec
+                    <strong class="text-uppercase">
+                        {{ project.name }}
+                    </strong>
+                    , vous bénéficiez d’un accompagnement individuel avec un spécialiste des Ressources Humaines, expert
+                    en recrutement dans le but d’optimiser votre employabilité.
+                </p>
+                {# Cards our solutions #}
+                <div class="pt-5">
+                    <div class="row row-cols-1 row-cols-md-3 justify-content-around text-center">
+                        {# Card Evaluation of your resume #}
+                        <div class="col-md-4 mb-5">
+                            <div class="card h-100 rounded shadow">
+                                <h5 class="card-header bg-transparent">
+                                    Évaluation de votre CV
+                                </h5>
+                                <div class="card-body">
+                                    <img src="{{ asset('build/images/career/cv-evaluation.png') | imagine_filter("squared_thumb_smaller") }}"
+                                         alt="Icone Evaluation de votre CV">
+                                </div>
+                                <div class="p-2">
+                                    <a href="{{ path('app_career', {'_fragment': 'anchor-evaluation'}) }}"
+                                       class="btn btn-info btn-lg btn-block">
+                                        Voir
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {# Card Optimization of your resume #}
+                        <div class="col-md-4 mb-5">
+                            <div class="card h-100 rounded shadow">
+                                <h5 class="card-header bg-transparent">
+                                    Optimisation de votre CV
+                                </h5>
+                                <div class="card-body">
+                                    <img src="{{ asset('build/images/career/cv-optimisation.png') | imagine_filter("squared_thumb_smaller") }}"
+                                         alt="Icone Optimisation de votre CV">
+                                </div>
+                                <div class="p-2">
+                                    <a href="{{ path('app_career', {'_fragment': 'anchor-optimisation'}) }}"
+                                       class="btn btn-info btn-lg btn-block">
+                                        Voir
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {# Card Writing your resume #}
+                        <div class="col-md-4 mb-5">
+                            <div class="card h-100 rounded shadow">
+                                <h4 class="card-header bg-transparent">
+                                    Rédaction de votre CV
+                                </h4>
+                                <div class="card-body">
+                                    <img src="{{ asset('build/images/career/cv-redaction.png') | imagine_filter("squared_thumb_smaller") }}"
+                                         alt="Icone Rédaction de votre CV">
+                                </div>
+                                <div class="p-2">
+                                    <a href="{{ path('app_career', {'_fragment': 'anchor-redaction'}) }}"
+                                       class="btn btn-info btn-lg btn-block">
+                                        Voir
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {# Card Job interview coaching #}
+                        <div class="col-md-4 mb-5">
+                            <div class="card h-100 rounded shadow">
+                                <h4 class="card-header bg-transparent">
+                                    Coaching d'entretien d'embauche
+                                </h4>
+                                <div class="card-body">
+                                    <img src="{{ asset('build/images/career/coaching-entretien.png') | imagine_filter("squared_thumb_smaller") }}"
+                                         alt="Icone oaching d'entretien d'embauche">
+                                </div>
+                                <div class="p-2">
+                                    <a href="{{ path('app_career', {'_fragment': 'anchor-entretien'}) }}"
+                                       class="btn btn-info btn-lg btn-block">
+                                        Voir
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {# Card Professional Diagnosis #}
+                        <div class="col-md-4 mb-5">
+                            <div class="card h-100 rounded shadow">
+                                <h4 class="card-header bg-transparent">
+                                    Diagnostic Professionnel
+                                </h4>
+                                <div class="card-body">
+                                    <img src="{{ asset('build/images/career/diagnostic-pro.png') | imagine_filter("squared_thumb_smaller") }}"
+                                         alt="Icone Diagnostic Professionnel">
+                                </div>
+                                <div class="p-2">
+                                    <a href="{{ path('app_career', {'_fragment': 'anchor-diagnostic'}) }}"
+                                       class="btn btn-info btn-lg btn-block">
+                                        Voir
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {# Card Social network #}
+                        <div class="col-md-4 mb-5">
+                            <div class="card h-100 rounded shadow">
+                                <h4 class="card-header bg-transparent">
+                                    Optimisez votre image sur les réseaux sociaux
+                                </h4>
+                                <div class="card-body">
+                                    <img src="{{ asset('build/images/career/social-network.png') | imagine_filter("squared_thumb_smaller") }}"
+                                         alt="Icone Optimisez votre image sur les réseaux sociaux">
+                                </div>
+                                <div class="p-2">
+                                    <a href="{{ path('app_career', {'_fragment': 'anchor-optimiser'}) }}"
+                                       class="btn btn-info btn-lg btn-block">
+                                        Voir
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr id="anchor-evaluation">
+
+    {# Section : Evaluation of your resume #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div>
+                {# Titre #}
+                <h2>
+                    Évaluation de votre CV
+                </h2>
+                {# Description #}
+                <div class="text-muted mt-4">
+                    <p>
+                        <strong class="text-uppercase">
+                            {{ project.name }}
+                        </strong>
+                        propose de réaliser l’évaluation de votre CV.
+                    </p>
+                    <p>
+                        Cette évaluation repose sur l’audit précis de votre CV par un expert en recrutement en étudiant
+                        121
+                        critères factuels regroupés en 5 items majeurs.
+                    </p>
+                    <p>
+                        Après audit de votre CV, une cotation (sur 10) est attribuée à votre CV. Plus cette cotation est
+                        proche de 10, plus votre CV aura un impact fort sur le lecteur de votre CV.
+                    </p>
+                    <p>
+                        Vous recevrez par mail un compte rendu d’évaluation de votre CV, incluant une représentation
+                        graphique de l’impact par item majeur de votre CV.
+                    </p>
+                    <p>
+                        Les items majeurs sont les suivants :
+                    </p>
+                    {# Liste #}
+                    <ul>
+                        <li>
+                            La Présentation (choix de présentation, lisibilité, typographie, ...)
+                        </li>
+                        <li>
+                            La Pertinence (expérience, formation, compétences, ...)
+                        </li>
+                        <li>
+                            La Qualité de l’Expression (vocabulaire, syntaxe, orthographe ...)
+                        </li>
+                        <li>
+                            L’Objectif (cible identifiée, réseaux sociaux, ...)
+                        </li>
+                        <li>
+                            L’Adéquation (le temps de lecture du CV et le temps du recruteur, ...)
+                        </li>
+                    </ul>
+                    <p>
+                        Vous avez le choix entre 2 options :
+                    </p>
+                    <ul>
+                        <li>
+                            l’option «Classique» sous 10 jours maximum
+                        </li>
+                        <li>
+                            l’option «Express» sous 3 jours maximum
+                        </li>
+                    </ul>
+                </div>
+                {# Button : Contact #}
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <p class="text-muted">
+                            Un processus simple en quelques étapes (quelque soit l’option choisie : Classique ou
+                            Express)
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn btn-lg btn-secondary btn-block" href="{{ path('app_contact') }}">
+                            Nous contacter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr id="anchor-optimisation">
+
+    {# Section : Optimization of your resume #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div>
+                {# Titre #}
+                <h2>
+                    Optimisation de votre CV
+                </h2>
+                {# Description #}
+                <div class="text-muted mt-4">
+                    <p>
+                        L’objectif de cette solution est d’apporter un ensemble de préconisations sur des pistes
+                        d’amélioration de la qualité du CV. La modification du CV en fonction des préconisations
+                        formulées
+                        incombe au client.
+                        Vous avez le choix entre 2 options :
+                    </p>
+                    {# Liste #}
+                    <ul>
+                        <li>
+                            l’option «Classique» sous 10 jours maximum
+                        </li>
+                        <li>
+                            l’option «Express» sous 3 jours maximum
+                        </li>
+                    </ul>
+                </div>
+                {# Button : Contact #}
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <p class="text-muted">
+                            Un processus simple en quelques étapes (quelque soit l’option choisie : Classique ou
+                            Express)
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn btn-lg btn-secondary btn-block" href="{{ path('app_contact') }}">
+                            Nous contacter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr id="anchor-redaction">
+
+    {# Section : Writing your resume #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div>
+                {# Titre #}
+                <h2>
+                    Rédaction de votre CV
+                </h2>
+                {# Description #}
+                <div class="text-muted mt-4">
+                    <p>
+                        L’objectif de cette solution est de fournir en fonction de vos souhaits (2 formules : Simple ou
+                        Premium) la rédaction de votre CV.
+                    </p>
+                    {# Liste #}
+                    <ul>
+                        <li>
+                            <u>La formule Simple :</u>
+                        </li>
+                    </ul>
+                    <div class="pl-5">
+                        <p>
+                            Votre CV est retravaillé sur la base de votre CV existant, pour permettre d’apporter de la
+                            plus-value à votre CV, il vous suffit de renvoyer le questionnaire rempli que vous recevrez
+                            après votre commande.
+                        </p>
+                        <p>
+                            Vous bénéficiez d’une assistance gratuite de 7 jours.
+                            Un processus simple en quelques étapes (quelque soit l’option choisie : Classique ou
+                            Express)
+                        </p>
+                    </div>
+                    <ul>
+                        <li>
+                            <u>La formule Premium :</u>
+                        </li>
+                    </ul>
+                    <div class="pl-5">
+                        <p>
+                            Votre CV est créé sur base de votre CV et à partir des éléments que vous fournissez via le
+                            questionnaire, que vous recevrez après votre commande.
+                            <br>
+                            En plus de l’assistance gratuite de 7 jours, vous bénéficiez d’un entretien conseil
+                            particulier (via skype ou téléphone)
+                        </p>
+                    </div>
+                </div>
+                {# Button : Contact #}
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <p class="text-muted">
+                            Un processus simple en quelques étapes (quelque soit l’option choisie : Classique ou
+                            Express)
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn btn-lg btn-secondary btn-block" href="{{ path('app_contact') }}">
+                            Nous contacter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr id="anchor-entretien">
+
+    {# Section : Coaching d'entretien d'embauche #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div>
+                {# Titre #}
+                <h2>
+                    Coaching d'entretien d'embauche
+                </h2>
+                {# Description #}
+                <div class="text-muted mt-4">
+                    <p>
+                        <strong class="text-uppercase">
+                            {{ project.name }}
+                        </strong>
+                        vous propose de vous accompagner et de vous préparer à vos futurs entretiens, que ce soit pour
+                        une embauche, un stage.
+                        <br>
+                        L’objectif est de travailler avec vous sur la manière la plus adéquate et la plus performante de
+                        se présenter.
+                        <br>
+                        Différents aspects seront ainsi balayer avec vous, comme : expliquer son parcours professionnel,
+                        exprimer sa motivation, travailler son intonation de voix, choisir un vocabulaire approprié...
+                        <br>
+                        Vous pourrez ainsi augmenter votre capital confiance et gagner en assurance.
+                        <br>
+                        Le temps consacré à une préparation est d’environ une heure, cependant, en fonction de votre
+                        parcours et/ou de vos attentes, il est envisageable d’y consacrer plus de temps.
+                    </p>
+                    <p>
+                        Vous avez le choix entre 2 formules :
+                    </p>
+                    {# Liste #}
+                    <ul>
+                        <li>
+                            la formule « Simple » :
+                        </li>
+                        <ul>
+                            <li>
+                                Commande de la prestation
+                            </li>
+                            <li>
+                                Un consultant vous contacte pour analyse de votre demande et du contexte
+                            </li>
+                            <li>
+                                Prise de RDV pour la phase de préparation
+                            </li>
+                            <li>
+                                RDV (via un entretien skype)
+                            </li>
+                        </ul>
+                        <li>
+                            la formule « Premium » :
+                        </li>
+                        <ul>
+                            <li>
+                                Commande de la prestation
+                            </li>
+                            <li>
+                                Un consultant vous contacte pour analyse de votre demande et du contexte
+                            </li>
+                            <li>
+                                Prise de RDV pour la phase de préparation
+                            </li>
+                            <li>
+                                RDV (via un entretien en face à face)
+                            </li>
+                        </ul>
+                    </ul>
+                </div>
+                {# Button : Contact #}
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <p class="text-muted">
+                            Un processus simple en quelques étapes (quelque soit l’option choisie : Classique ou
+                            Express)
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn btn-lg btn-secondary btn-block" href="{{ path('app_contact') }}">
+                            Nous contacter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr id="anchor-diagnostic">
+
+    {# Section : Professional Diagnosis #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div>
+                {# Titre #}
+                <h2>
+                    Diagnostic Professionnel
+                </h2>
+                {# Description #}
+                <div class="text-muted mt-4">
+                    <p>
+                        <strong class="text-uppercase">
+                            {{ project.name }}
+                        </strong>
+                        vous accompagne pour établir avec vous un diagnostic professionnel.
+                        <br>
+                        Ce diagnostic repose sur la passation d’un inventaire de personnalité et d’un test d’aptitudes
+                        cognitives (test de raisonnement).
+                        <br>
+                        Avec ce diagnostic vous pourrez ainsi mieux préparer votre carrière, vous connaîtrez vos points
+                        forts et vos axes de progrès.
+                        <br>
+                        Le temps consacré à ce diagnostic professionnel est d’environ trois heures, et se décompose en
+                        deux temps :
+                    </p>
+                    {# Liste #}
+                    <ol>
+                        <li>
+                            vous passez les deux épreuves (inventaire de personnalité et test d’aptitudes cognitives).
+                            Cette passation (2 heures environ) s’effectue en face à face.
+                        </li>
+                        <li>
+                            restitution (environ 1 heure) des conclusions des deux épreuves et préconisations. Cette
+                            restitution s’effectue via Skype (formule simple) ou en face à face (formule premium).
+                        </li>
+                    </ol>
+                    <p>
+                        Vous avez le choix entre 2 formules :
+                    </p>
+                    <ul>
+                        <li>
+                            la formule «Simple» : passation + restitution via skype
+                        </li>
+                        <li>
+                            la formule «Premium» : passation + restitution en face à face
+                        </li>
+                    </ul>
+                </div>
+                {# Button : Contact #}
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <p class="text-muted">
+                            Un processus simple en quelques étapes (quelque soit l’option choisie : Classique ou
+                            Express)
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn btn-lg btn-secondary btn-block" href="{{ path('app_contact') }}">
+                            Nous contacter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr id="anchor-optimiser">
+
+    {# Section : Optimization of your resume #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div>
+                {# Titre #}
+                <h2>
+                    Optimisez votre image sur les réseaux sociaux
+                </h2>
+                {# Description #}
+                <div class="text-muted mt-4">
+                    <p>
+                        <strong class="text-uppercase">
+                            {{ project.name }}
+                        </strong>
+                        vous propose de vous accompagner dans l’optimisation de votre image sur les réseaux sociaux
+                        professionnels (LinkedIn ou Viadéo).
+                    </p>
+                    <p>
+                        L’objectif, pour vous, est d’augmenter votre visibilité sur les réseaux sociaux et ainsi
+                        augmenter vos chances d’être sollicité par un recruteur.
+                    </p>
+                    <p>
+                        Les réseaux sociaux professionnels sont un canal de recherche de plus en plus utilisé par les
+                        recruteurs puisqu’ils constituent une extraordinaire base de données. Pour être sollicité par un
+                        recruteur, il est primordial de respecter quelques grands principes.
+                    </p>
+                    <p>
+                        Le temps consacré à une optimisation d’image sur les réseaux sociaux professionnels
+                        personnalisée est d’environ une heure, cependant, en fonction de votre parcours et/ou de vos
+                        attentes, il est envisageable d’y consacrer plus de temps.
+                    </p>
+                    <p>
+                        Vous avez le choix entre 2 formules :
+                    </p>
+                    {# Liste #}
+                    <ul>
+                        <li>
+                            la formule « Simple » :
+                        </li>
+                        <ul>
+                            <li>
+                                Commande de la prestation
+                            </li>
+                            <li>
+                                Un consultant vous contacte pour une prise de RDV
+                            </li>
+                            <li>
+                                RDV (via un entretien skype)
+                            </li>
+                        </ul>
+                        <li>
+                            la formule « Premium » :
+                        </li>
+                        <ul>
+                            <li>
+                                Commande de la prestation
+                            </li>
+                            <li>
+                                Un consultant vous contacte pour analyse de votre demande et du contexte
+                            </li>
+                            <li>
+                                Un consultant vous contacte pour une prise de RDV
+                            </li>
+                            <li>
+                                RDV (via un entretien en face à face)
+                            </li>
+                        </ul>
+                    </ul>
+                </div>
+                {# Button : Contact #}
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <p class="text-muted">
+                            Un processus simple en quelques étapes (quelque soit l’option choisie : Classique ou
+                            Express)
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn btn-lg btn-secondary btn-block" href="{{ path('app_contact') }}">
+                            Nous contacter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
