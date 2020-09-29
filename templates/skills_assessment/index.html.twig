@@ -1,0 +1,196 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %} Bilan compétences | {{ parent() }} {% endblock %}
+
+{% block body %}
+{# Conteneur de la page #}
+<div class="container">
+    {# Page header #}
+    <div class="page-header">
+        <h1 class="text-center">
+            <i class="fas fa-question-circle"></i>
+            Bilan de Compétences
+        </h1>
+    </div>
+    {# Section : Introduction #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div class="text-muted">
+                <p>
+                    Les métiers évoluent sans cesse comme vos attentes professionnelles. Pour changer de branche
+                    d’activité, évoluer dans votre entreprise, retrouver un emploi ou simplement faire le point, le
+                    <strong>
+                        bilan de compétences
+                    </strong>
+                    est souvent une étape utile.
+                    Il permet d’identifier vos connaissances, votre savoir-être et votre savoir-faire, et vous donne des
+                    pistes pour construire votre avenir professionnel.
+                </p>
+                {# Button : Contact #}
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <p class="text-muted">
+                            <strong class="text-uppercase">
+                                {{ project.name }}
+                            </strong>
+                            est référencé et habilité centre de bilan de compétences par la
+                            <strong>
+                                FAFSEA Nord-est
+                            </strong>
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn btn-lg btn-secondary btn-block" href="{{ path('app_contact') }}">
+                            Nous contacter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    {# Section : Qu'est-ce que c'est #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div>
+                {# Titre #}
+                <h2>
+                    Qu'est ce qu'un bilan de compétences ?
+                </h2>
+                {# Description #}
+                <p class="text-muted mt-4">
+                    C’est un protocole d’évaluation, mené par un consultant spécialisé, qui se déroule en trois phases :
+                </p>
+                {# Liste #}
+                <ul class="text-muted mt-4">
+                    <li>
+                        <u>Une phase préliminaire</u> : pour définir
+                        <strong>vos besoins</strong>, et vous présenter les méthodes et techniques utilisées lors de
+                        l’évaluation
+                    </li>
+                    <li>
+                        <u>Une phase d’investigation</u> : pour analyser
+                        <strong>vos motivations</strong>, identifier
+                        <strong>vos compétences</strong> et déterminer vos possibilités d’évolution professionnelle
+                    </li>
+                    <li>
+                        <u>Une phase de conclusion</u> : pour établir un <strong>projet professionnel réaliste</strong>
+                        et prévoir les étapes de sa mise en œuvre
+                    </li>
+                </ul>
+                <p class="text-muted">
+                    A la fin du bilan, vous recevrez un document de synthèse accompagné des résultats détaillés de
+                    l’évaluation.
+                    Enfin, sachez que la déontologie des centres de bilan est très stricte : sauf indication contraire
+                    de votre part, les résultats de votre bilan resteront confidentiels.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    {# Section : Pourquoi #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div>
+                {# Titre #}
+                <h2>
+                    Pourquoi faire un Bilan de compétences ?
+                </h2>
+                {# Description #}
+                <div class="text-muted mt-4">
+                    <ul>
+                        <li>
+                            <strong>Pour &#171; faire le point &#187;</strong>
+                        </li>
+                    </ul>
+                    <p>
+                        Vous ressentez le besoin de faire une pause pour réfléchir à votre passé et mieux vous projeter
+                        dans l’avenir ? Vous avez une décision importante à prendre concernant votre carrière ? Vous
+                        désirez changer d’environnement professionnel ?
+                    </p>
+                    <p>
+                        Profitez d’un avis qualifié !
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Pour vous aider à traverser une période difficile</strong>
+                        </li>
+                    </ul>
+                    <p>
+                        Vous êtes ennuyé, démotivé, vous manquez de perspectives ? Vous vous êtes trop sévèrement remis
+                        en question ou avez vécu trop d’échecs ?
+                    </p>
+                    <p>
+                        Dépassez ce sentiment pour aller à nouveau de l’avant !
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Pour vous aider à traverser une période de transition</strong>
+                        </li>
+                    </ul>
+                    <p>
+                        Votre environnement professionnel change et vous ressentez le besoin de trouver une nouvelle
+                        identité ? Vous vous demandez quels nouveaux savoirs vous devriez acquérir pour assurer vos
+                        nouvelles fonctions ?
+                    </p>
+                    <p>
+                        Un bilan constitue une base solide sur laquelle vous appuyer !
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    {# Section : Que vous apporte #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div>
+                {# Titre #}
+                <h2>
+                    Que vous apporte un Bilan de Compétences ?
+                </h2>
+                {# Description #}
+                <p class="text-muted mt-4">
+                    Tout d’abord, une <strong>meilleure connaissance de soi</strong>, puisque le bilan de compétences
+                    implique une démarche d’introspection et d’analyse objective de vos compétences.
+                    <br>
+                    Le bilan de compétences aboutit aussi à une meilleure <strong>connaissance de
+                        l’environnement</strong> et des possibilités professionnelles qui vous sont offertes.
+                    <br>
+                    Bien sûr, les résultats, en termes de projet professionnel, varient selon les bénéficiaires : une
+                    personne en recherche d’emploi, un salarié souhaitant progresser dans son entreprise, un autre
+                    désirant changer de secteur d’activité, n’auront pas les mêmes attentes. On retrouve toutefois
+                    certains éléments communs :
+                </p>
+                {# Liste #}
+                <ul class="text-muted mt-4">
+                    <li>
+                        Une confiance en soi renforcée : vous comprenez les raisons de vos échecs passés et pouvez
+                        désormais les surmonter, vous découvrez en vous des ressources inattendues, des compétences dont
+                        vous n’aviez pas conscience auparavant
+                    </li>
+                    <li>
+                        Une autre image du rapport au travail : vous discutez de vos rêves d’enfant, devenus
+                        inaccessibles ou obsolètes. Vous apprenez à tourner la page et passez à des objectifs moins
+                        idéalistes. Vous êtes prêt à construire à partir de votre situation actuelle
+                    </li>
+                    <li>
+                        La construction d’un projet professionnel clair et réaliste : vous imaginez les grandes lignes
+                        de votre avenir sans vous enfermer dans une vision cadrée et définitive, vous êtes ouvert à
+                        l’inconnu et prêt à saisir les nouvelles opportunités
+                    </li>
+                </ul>
+                <p class="text-muted">
+                    Le bilan de compétences est parfois l’occasion de donner une <strong>nouvelle orientation</strong> à sa vie professionnelle : commencer de nouvelles études, entreprendre une démarche de Validation des Acquis de l’Expérience, changer de branche ou monter sa propre entreprise…
+                    Dans d’autres cas, il s’agira de travailler sur des choses plus fines, d’accompagner une évolution plutôt qu’une révolution. Le bilan de compétence est aussi un outil de <strong>maturation professionnelle</strong>.
+                </p>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
