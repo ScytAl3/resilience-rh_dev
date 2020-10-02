@@ -27,6 +27,12 @@ liip_imagine:
                 thumbnail:
                     size: [150, 60]
                     mode: outbound
+        # Filter for the publication page
+        rectangular_publication_thumb:
+            filters:
+                thumbnail:
+                    size: [900, 300]
+                    mode: outbound
         # Filters for squared thumbnail
         squared_thumb_normal:
             filters:

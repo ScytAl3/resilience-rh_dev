@@ -8,26 +8,60 @@
     {# Page header #}
     <div class="page-header">
         <h1 class="text-center">
-            <i class="fas fa-user-tie"></i>
-            Offre(s) d'emploi
+            <i class="fas fa-thumbtack"></i>
+            <strong class="text-uppercase">
+                {{ project.name }}
+            </strong>
+            communique et partage...
         </h1>
     </div>
 
-    {# Section : Introduction #}
+    {# Section : Publication list #}
     <section class="my-5 p-2">
-        <div class="text-muted">
-            <p>
-                <strong class="text-uppercase">
+        <div class="row">
+            {% set publications_count = publications | length %}
+            {# Si la tables Publications n'est pas vide on affiche les publications #}
+            {% if publications_count > 0 %}
+            {% for publication in publications %}
+            <article class="mb-4">
+                {# Date #}
+                <p class="lead">
+                    Publié le
+                    <time datetime="{{ publication.createdAt|date('Y-m-d') }}">
+                        {{ publication.createdAt | date('Y-m-d') }}
+                    </time>
+                </p>                
+
+                {# Title #}
+                <h2>
+                    {{ publication.title }}
+                </h2>
+                
+                {# Author #}
+                <p class="blockquote-footer">
+                    par
                     {{ project.name }}
-                </strong>
-                ne propose pas actuellement d'opportunité de carrière ; vous pouvez remplir le questionnaire ci-dessous
-                pour une candidature spontanée.
-            </p>
-            <h2 class="text-center mt-4">
-                <u>
-                    Candidature spontanée
-                </u>
-            </h2>
+                </p>
+
+                <hr>                
+
+                {# Image #}
+                <img src="{{ (publication.imageName ? vich_uploader_asset(publication) : asset('build/images/default/placeholder.jpg')) | imagine_filter("rectangular_publication_thumb") }}"
+                     class="w-100 shadow rounded" alt="Image pour illustrer {{publication.title}}">
+
+                <hr>
+
+                {# Contenu #}
+                <div class="mb-5">
+                    {{ publication.description |raw }}
+                </div>
+            </article>
+            {% endfor %}
+            {% else %}
+            <div class="alert alert-danger mt-5 text-center">
+                <p class="lead mt-3">Il y a {{ publications_count }} publications à afficher pour le moment.</p>
+            </div>
+            {% endif %}
         </div>
     </section>
 </div>
