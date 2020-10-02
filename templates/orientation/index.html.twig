@@ -1,0 +1,269 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %} Orientation | {{ parent() }} {% endblock %}
+
+{% block body %}
+{# Conteneur de la page #}
+<div class="container">
+    {# Page header #}
+    <div class="page-header">
+        <h1 class="text-center">
+            <i class="fas fa-map-signs"></i>
+            Partenaire de votre orientation
+        </h1>
+    </div>
+
+    {# Section : Introduction #}
+    <section class="my-5 p-2">
+        <div class="text-muted">
+            <p>
+                <strong class="text-uppercase">
+                    {{ project.name }}
+                </strong>
+                , vous accompagne dans votre orientation.
+                <br>
+                En effet, le choix de l’orientation est un facteur déterminant qui aura un impact fort sur
+                l’épanouissement personnel.
+            </p>
+            <p>
+                <strong class="text-uppercase">
+                    {{ project.name }}
+                </strong>
+                met en place un accompagnement individuel et personnalisé destiné aux :
+            </p>
+            {# Cards orientation support #}
+            <div class="pt-5">
+                <div class="row row-cols-1 row-cols-md-3 justify-content-around text-center">
+                    {# Card Schoolchildren #}
+                    <div class="col-md-3 mb-5">
+                        <div class="card h-100 rounded shadow">
+                            <h5 class="card-header bg-transparent">
+                                Collégiens
+                            </h5>
+                            <div class="card-body">
+                                <i class="fas fa-school fa-3x"></i>
+                            </div>
+                            <div class="p-2">
+                                <a href="{{ path('app_orientation', {'_fragment': 'anchor-school'}) }}"
+                                   class="btn btn-info btn-lg btn-block">
+                                    Voir
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {# Card High school students #}
+                    <div class="col-md-3 mb-5">
+                        <div class="card h-100 rounded shadow">
+                            <h5 class="card-header bg-transparent">
+                                Lycéens
+                            </h5>
+                            <div class="card-body">
+                                <i class="fas fa-university fa-3x"></i>
+                            </div>
+                            <div class="p-2">
+                                <a href="{{ path('app_orientation', {'_fragment': 'anchor-highschool'}) }}"
+                                   class="btn btn-info btn-lg btn-block">
+                                    Voir
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {# Card Students #}
+                    <div class="col-md-3 mb-5">
+                        <div class="card h-100 rounded shadow">
+                            <h6 class="card-header bg-transparent">
+                                Étudiants
+                            </h6>
+                            <div class="card-body">
+                                <i class="fas fa-graduation-cap fa-3x"></i>
+                            </div>
+                            <div class="p-2">
+                                <a href="{{ path('app_orientation', {'_fragment': 'anchor-studient'}) }}"
+                                   class="btn btn-info btn-lg btn-block">
+                                    Voir
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {# Alert - success #}
+            <div class="alert alert-success text-muted" role="alert">
+                <p>
+                    Réaliser une bonne ou une mauvaise orientation a des impacts sur l’avenir professionnel.
+                </p>
+                <p>
+                    Réaliser un choix pertinent de son orientation, et donc ce que l’on peut qualifier de « bonne
+                    orientation », permet d’obtenir facilement son premier emploi et s’y épanouir professionnellement et
+                    donc personnellement.
+                </p>
+                <hr>
+                <p class="mb-0">
+                    Le métier choisi correspondant à ses motivations personnelles, à sa personnalité.
+                </p>
+            </div>
+            {# Alert - danger #}
+            <div class="alert alert-danger text-muted" role="alert">
+                <p>
+                    A l’inverse, un choix inapproprié de son orientation ne permettra cet épanouissement. Les chances de
+                    trouver rapidement un emploi seront réduites.
+                </p>
+                <hr>
+                <p class="mb-0">
+                    Le métier ne correspondant pas à ses motivations personnelles et sa personnalité, il correspondra à
+                    une
+                    situation « imposée » et « non choisie ».
+                </p>
+            </div>
+            <p class="h5 mt-4">
+                <strong>
+                    Le choix d’une bonne orientation est donc crucial !!!
+                </strong>
+            </p>
+        </div>
+    </section>
+
+    <hr id="anchor-school">
+
+    {# Section : Schoolchildren #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div>
+                {# Titre #}
+                <h2>
+                    Orientation pour collégiens
+                </h2>
+                {# Description #}
+                <div class="text-muted mt-4">
+                    <p>
+                        La période du collège pose les prémisses de l’orientation future qu’il faudra choisir.
+                    </p>
+                    <p>
+                        Arriver à se projeter dans un projet professionnel dès le collège permet d’entamer le lycée avec
+                        sérénité. Les années de collège correspondent aux années où des choix d’orientation peuvent être
+                        primordiaux, notamment en choisissant une orientation technique.
+                    </p>
+                    <p>
+                        Le choix de s’orienter dans certaines filières se fait dès le collège.
+                    </p>
+                    <p>
+                        Le choix d’une orientation technique correspond-elle réellement aux aspirations personnelles et
+                        professionnelles du collégien ? La filière choisie est-elle une filière porteuse de débouchés
+                        professionnels ?
+                    </p>
+                </div>
+                {# Button : Contact #}
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <p class="text-muted">
+                            Grâce à des outils reconnus et validés alliés à des entretiens individuels, il sera donc
+                            aisé de définir avec le collégien, quelle orientation lui correspond le plus.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn btn-lg btn-secondary btn-block" href="{{ path('app_contact') }}">
+                            Nous contacter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr id="anchor-highschool">
+
+    {# Section : High school students #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div>
+                {# Titre #}
+                <h2>
+                    Orientation pour lycéens
+                </h2>
+                {# Description #}
+                <div class="text-muted mt-4">
+                    <p>
+                        Le lycée est une période clé dans le choix de l’orientation. Certains choix faits à cette
+                        période peuvent être lourds de conséquences sur l’avenir professionnel et donc personnel.
+                        <br>
+                        Le choix de son orientation conditionne le parcours post-bac, mais bien plus encore. En effet,
+                        ce serait une erreur de
+                        penser que le choix d’une orientation se résume au choix d’une école, d’une filière...
+                        <br>
+                        Ce choix aura des répercussions également sur le mode de vie. Il est primordial de lier les
+                        aspirations personnelles (motivations, personnalité ...) aux aspirations professionnelles.
+                        <br>
+                        Pour cela,
+                        <strong class="text-uppercase">
+                            {{ project.name }}
+                        </strong>
+                        met en place un accompagnement individuel et personnalisé avec le
+                        lycéen afin définir au mieux, <span class="text-uppercase">ET AVEC LUI</span>, quelle
+                        orientation lui correspond le mieux.
+                        <br>
+                        Grâce à des outils reconnus et validés alliés à des entretiens individuels, il sera donc aisé de
+                        définir avec le lycéen quelle orientation lui correspond le plus.
+                    </p>
+                </div>
+                {# Button : Contact #}
+                <div class="col-md-4 ml-auto">
+                    <a class="btn btn-lg btn-secondary btn-block" href="{{ path('app_contact') }}">
+                        Nous contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr id="anchor-studient">
+
+    {# Section : Students #}
+    <section class="my-5 p-2">
+        <div class="row">
+            <div>
+                {# Titre #}
+                <h2>
+                    Orientation pour Étudiants
+                </h2>
+                {# Description #}
+                <div class="text-muted mt-4">
+                    <p>
+                        On peut trouver de nombreuses filières dans les études supérieures. Par définition, les études
+                        supérieures sont la conséquence des choix d’orientation faits au lycée.
+                        <br>
+                        Il y a donc deux cas de figure :
+                    </p>
+                    <ul>
+                        <li>
+                            Soit l’étudiant est en phase avec les choix réalisés au lycée.
+                        </li>
+                        <li>
+                            Soit l’étudiant constate un décalage avec ses choix d’orientation initiaux, et ce pour
+                            diverses raisons : manque de réflexion sur l’orientation choisie, manque d’information lors
+                            de la prise de décision, « pression » sociale...
+                        </li>
+                    </ul>
+                    <p>
+                        Dans ce cas, il est important de réaliser un bilan personnel et de connaître réellement ses
+                        véritables aspirations, ses moteurs. Une fois le nouveau cap déterminé, il n’est pas forcément
+                        nécessaire de changer totalement d’orientation. En effet, il existe de nombreuses passerelles
+                        qui permettent de changer de filière sans perdre le bénéfice des acquis.
+                        <br>
+                        Grâce à des outils reconnus et validés alliés à des entretiens individuels, il sera donc aisé de
+                        définir avec l’étudiant quelle orientation lui correspond le plus.
+                    </p>
+                </div>
+                {# Button : Contact #}
+                <div class="col-md-4 ml-auto">
+                    <a class="btn btn-lg btn-secondary btn-block" href="{{ path('app_contact') }}">
+                        Nous contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+</div>
+{% endblock %}
