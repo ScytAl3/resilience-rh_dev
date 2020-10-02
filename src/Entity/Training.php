@@ -36,9 +36,7 @@ class Training
      * @Assert\NotBlank
      * @Assert\Length(
      *      min = 3,
-     *      max = 50,
      *      minMessage = "The title of the training must be at least {{ limit }} characters long",
-     *      maxMessage = "The title of the training cannot be longer than {{ limit }} characters",
      *      allowEmptyString = false
      * )
      */

@@ -35,9 +35,7 @@ class Publication
      * @Assert\NotBlank
      * @Assert\Length(
      *      min = 3,
-     *      max = 50,
      *      minMessage = "The title of the publication must be at least {{ limit }} characters long",
-     *      maxMessage = "The title of the publication cannot be longer than {{ limit }} characters",
      *      allowEmptyString = false
      * )
      */
