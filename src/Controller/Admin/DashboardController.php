@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Client;
 use App\Entity\Partner;
+use App\Entity\Publication;
 use App\Entity\Training;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,7 +24,7 @@ class DashboardController extends AbstractDashboardController
         // redirect to some CRUD controller
         $routeBuilder = $this->get(CrudUrlGenerator::class)->build();
 
-        return $this->redirect($routeBuilder->setController(ClientCrudController::class)->generateUrl());
+        return $this->redirect($routeBuilder->setController(PublicationCrudController::class)->generateUrl());
     }
 
     public function configureDashboard(): Dashboard
@@ -38,11 +39,13 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Dashboard', 'fa fa-table');
 
         // Section relative à la gestion des entités
-        yield MenuItem::linkToCrud('Nos Formation', 'fas fa-graduation-cap', Training::class)
+        yield MenuItem::linkToCrud('Publications', 'fas fa-thumbtack', Publication::class)
             ->setDefaultSort(['title' => 'ASC']);
-        yield MenuItem::linkToCrud('Nos Clients', 'fas fa-user-check', Client::class)
+        yield MenuItem::linkToCrud('Formations', 'fas fa-graduation-cap', Training::class)
             ->setDefaultSort(['title' => 'ASC']);
-        yield MenuItem::linkToCrud('Nos Partenairess', 'far fa-handshake', Partner::class)
+        yield MenuItem::linkToCrud('Clients', 'fas fa-user-check', Client::class)
+            ->setDefaultSort(['title' => 'ASC']);
+        yield MenuItem::linkToCrud('Partenairess', 'far fa-handshake', Partner::class)
             ->setDefaultSort(['title' => 'ASC']);
 
         // Section relative à la navigation sur le site
