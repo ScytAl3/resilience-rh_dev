@@ -5,11 +5,11 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Traits\Timestampable;
 use App\Repository\ClientRepository;
-// Validates that a particular field (or fields) in a Doctrine entity is (are) unique
 use Symfony\Component\HttpFoundation\File\File;
-// Link the upload mapping to Product entity
+// Link the upload mapping to Client entity
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
+// Validates that a particular field (or fields) in a Doctrine entity is (are) unique
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
