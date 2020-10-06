@@ -1,0 +1,125 @@
+<h1>
+    {{ subject }} : demande de renseignements
+</h1>
+
+<table class="body" border="0" cellspacing="0" cellpadding="0" width="100%" style="max-width: 680px; min-width: 300px;">
+    <tr>
+        <td>
+            {# padding #}
+        </td>
+    </tr>
+    {# Header #}
+    <tr>
+        <td align="center" bgcolor="#ffffff">
+            {# padding #}
+            <table width="90%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td align="center">
+                        <img class="d-inline-block align-center"
+                             src="{{ asset('build/images/default/r-rh-logo.png') | imagine_filter('rectangular_logo_thumb') }}"
+                             width="250" alt="Logo {{ project.name }}" border="0" /></font>
+                    </td>
+                    <td align="right">
+                    </td>
+                </tr>
+            </table>
+            {# padding #}
+        </td>
+    </tr>
+    {# /Header #}
+
+    {# Content #}
+    <tr>
+        <td align="center" bgcolor="#fbfcfd">
+            <font face="Arial, Helvetica, sans-serif" size="4" color="#57697e" style="font-size: 15px;">
+                <table width="90%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <p><b>Bonjour,</b></p>
+                        <p><b>Un nouveau contact vous a envoyé un message.</b></p>
+                        <br>
+                        <hr>
+                        <br>
+                    </tr>
+                    {# Firstname #}
+                    <tr>
+                        <td>
+                            <b>Prénom</b>&nbsp;:
+                        </td>
+                        <td>
+                            {{ firstname }}
+                        </td>
+                    </tr>
+                    {# Lastname #}
+                    <tr>
+                        <td>
+                            <b>Nom</b>&nbsp;:
+                        </td>
+                        <td>
+                            {{ lastname }}
+                        </td>
+                    </tr>
+                    {# Phone #}
+                    <tr>
+                        <td>
+                            <b>Tél</b>&nbsp;:
+                        </td>
+                        <td>
+                            {{ phone }}
+                        </td>
+                    </tr>
+                    {# Email #}
+                    <tr>
+                        <td>
+                            <b>Mail</b>&nbsp;:
+                        </td>
+                        <td>
+                            {{ mail }}
+                        </td>
+                    </tr>
+                    {# Message #}
+                    <tr>
+                        <td>
+                            <b>Message</b>&nbsp;:
+                        </td>
+                        <td>
+                            <p>
+                                {{ message }}
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </font>
+        </td>
+    </tr>
+    {# /Content #}
+
+
+    {# Footer #}
+    <tr>
+        <td class="iage_footer" align="center" bgcolor="#ffffff">
+
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td align="center" style="padding:20px;float:left;width:100%; text-align:center;">
+                        <font face="Arial, Helvetica, sans-serif" size="3" color="#96a5b5" style="font-size: 13px;">
+                            <span style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #96a5b5;">
+                                {{ 'now'|date('Y') }} &copy; Copyright &middot;
+                                <span class="text-uppercase">
+                                    {{ project.name }}.
+                                </span>
+                                Tous droits réservés.
+                            </span>
+                        </font>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    {# /Footer #}
+    <tr>
+        <td>
+
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,92 @@
+{{ form_start(contactForm) }}
+
+{# Row: firstname and lastname #}
+<div class="row mb-3">
+    {# Firstname #}
+    <div class="col-md-6">
+        <div>
+            {{ form_row(contactForm.firstName) }}
+        </div>
+    </div>
+
+    {# Lastname #}
+    <div class="col-md-6">
+        <div>
+            {{ form_row(contactForm.lastName) }}
+        </div>
+    </div>
+</div>
+
+{# Row: phone and email #}
+<div class="row mb-3">
+    {# Phone #}
+    <div class="col-md-6">
+        <div>
+            {{ form_row(contactForm.phone) }}
+        </div>
+    </div>
+
+    {# Email #}
+    <div class="col-md-6">
+        <div>
+            {{ form_row(contactForm.email) }}
+        </div>
+    </div>
+</div>
+
+{# Row: subject #}
+<div class="row mb-3">
+    <div class="col-md-12">
+        <div>
+            {{ form_row(contactForm.subject) }}
+        </div>
+    </div>
+</div>
+
+{# Row: upload #}
+<div class="row mb-3">
+    <div class="col-md-12">
+        <div>
+            <div class="row mx-0">
+                {{ form_label(contactForm.uploadFile, null, {
+                                'label_attr': {'class': 'mr-2'}
+                            }) }}
+                {{ form_help(contactForm.uploadFile) }}
+            </div>
+            {{ form_widget(contactForm.uploadFile, {'attr': {'class': 'foo'}}) }}
+
+            <div class="form-error">
+                {{ form_errors(contactForm.uploadFile) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{# Row: message #}
+<div class="row mb-3">
+    <div class="col-md-12">
+        <div class="row mx-0">
+            {{ form_label(contactForm.message, null, {
+                'label_attr': {'class': 'mr-2'}
+            }) }}
+            {{ form_help(contactForm.message) }}
+        </div>
+        {{ form_widget(contactForm.message) }}
+
+        <div class="form-error">
+            {{ form_errors(contactForm.message) }}
+        </div>
+    </div>
+</div>
+
+{# Button: send #}
+<div class="row justify-content-around mt-4 mx-0">
+    <input class="btn btn-primary btn-lg w-25" type="submit" value="Envoyer">
+
+    </input>
+    <input class="btn btn-light btn-lg w-25" type="reset" value="Effacer">
+
+    </input>
+</div>
+
+{{ form_end(form) }}

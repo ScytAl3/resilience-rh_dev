@@ -3,18 +3,76 @@
 {% block title %} Contact | {{ parent() }} {% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container">
+    {# Page header #}
+    <div class="page-header">
+        <h1 class="text-center">
+            <i class="fas fa-paper-plane"></i>
+            Contact
+        </h1>
+    </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {# Section : Find us #}
+    <section class="my-5 p-2">
+        <div class="text-muted">
+            <h2>
+                Où nous trouver ?
+            </h2>
+            <div class="row" style="height: 300px;">
+                <div class="col-md-9">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/symfony/resilience-rh_dev/src/Controller/ContactUsController.php'|file_link(0) }}">src/Controller/ContactUsController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/symfony/resilience-rh_dev/templates/contact_us/index.html.twig'|file_link(0) }}">templates/contact_us/index.html.twig</a></code></li>
-    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <i class="fas fa-map-marker-alt fa-lg"></i>
+                            <p>
+                                <strong class="text-uppercase">
+                                    {{ project.name }}
+                                </strong>
+                                <br>
+                                6, place au bois
+                                <br>
+                                57100 Thionville
+                            </p>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone fa-lg mt-4"></i>
+                            <p>(+33) 3 82 56 62 67</p>
+                        </li>
+                        <li>
+                            <i class="fab fa-skype fa-lg mt-4"></i>
+                            <p class="mb-0">
+                                resliencerh
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    {# Section : Contact us #}
+    <section class="my-5 p-2">
+        <div class="text-muted">
+            <h2>
+                Nous contacter
+            </h2>
+            <p>
+                Pour joindre
+                <strong class="text-uppercase">
+                    {{ project.name }}
+                </strong>
+                , ou obtenir des informations complémentaires ; vous pouvez remplir le formulaire ci-dessous, nous
+                reprendrons contact avec vous.
+            </p>
+        </div>
+        {# Contact form include #}
+        <div class="my-5">
+            {{ include('contact/_form.html.twig', {form: contactForm})  }}
+        </div>
+    </section>
 </div>
 {% endblock %}

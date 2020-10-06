@@ -6,14 +6,20 @@
 parameters:
     app.project_name: 'Résilience-rh'
     locale: 'fr'
-    # Directory in which the order PDF should be stored
-    order_directory: '%kernel.project_dir%/public/uploads/formations'
+    # List of supported locales
+    app_locales: en|fr|
+    # Directory in which the formation PDF should be stored
+    training_directory: '%kernel.project_dir%/public/uploads/formations'
+    # Directory in which the contatc uploaded file should be stored
+    contact_directory: '%kernel.project_dir%/public/uploads/contact'
 
 services:
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            $uploadDirectory: "%contact_directory%"
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -33,3 +39,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    # service pour la generation et l enregistrement du PDF
+    # App\Service\Order\OrderService:
+    #     arguments: 
+    #         $pdfDirectory: '%order_directory%'
