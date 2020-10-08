@@ -23,7 +23,10 @@ class ContactType extends AbstractType
             ->add('lastName', TextType::class, [
                 'label' => 'Votre nom',
             ])
-            ->add('email', EmailType::class)
+            ->add('email', EmailType::
+            class, [
+                'label' => 'Votre email',
+            ])
             ->add('phone', TextType::class, [
                 'label' => 'Votre numéro de téléphone',
             ])
@@ -43,7 +46,7 @@ class ContactType extends AbstractType
             ->add('uploadFile', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => 'Fichier',
+                'label' => 'Votre fichier',
                 'help' => 'Vous pouvez ajouter une piece jointe à votre demande (maxi 2 GO)',
             ])
             ->add('message', TextareaType::class, [

@@ -33,14 +33,14 @@ class Contact
     private $lastName;
 
     /**
-     * @var string
+     * @var string|null
      * @Assert\NotBlank
      * @Assert\Email()
      */
     private $email;
 
     /**
-     * @var string
+     * @var string|null
      * @Assert\NotBlank
      * @Assert\Regex(
      *      pattern = "/^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$/",
@@ -67,7 +67,7 @@ class Contact
     private $subject;
 
     /**
-     * @var string
+     * @var string|null
      * @Assert\NotBlank
      * @Assert\Length(
      *      min = 10,
@@ -130,7 +130,7 @@ class Contact
     /**
      * Get the value of email
      *
-     * @return  string
+     * @return  string|null
      */
     public function getEmail()
     {
@@ -154,7 +154,7 @@ class Contact
     /**
      * Get pattern = "/^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$/",
      *
-     * @return  string
+     * @return  string|null
      */
     public function getPhone()
     {
@@ -202,7 +202,7 @@ class Contact
     /**
      * Get the value of message
      *
-     * @return  string
+     * @return  string|null
      */
     public function getMessage()
     {

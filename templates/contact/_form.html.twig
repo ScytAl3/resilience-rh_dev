@@ -53,7 +53,11 @@
                             }) }}
                 {{ form_help(contactForm.uploadFile) }}
             </div>
-            {{ form_widget(contactForm.uploadFile, {'attr': {'class': 'foo'}}) }}
+            {{ form_widget(contactForm.uploadFile, {
+                'attr':  {
+                    'placeholder': 'Choisissez un fichier',
+                }
+            }) }}
 
             <div class="form-error">
                 {{ form_errors(contactForm.uploadFile) }}
