@@ -13,41 +13,43 @@
     </div>
 
     {# Section : Find us #}
-    <section class="my-5 p-2">
-        <div class="text-muted">
+    <section class="text-muted my-5 p-2">
+        <div class="row ">
             <h2>
                 Où nous trouver ?
             </h2>
-            <div class="row" style="height: 300px;">
-                <div class="col-md-9">
-
-                </div>
-                <div class="col-md-3">
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <i class="fas fa-map-marker-alt fa-lg"></i>
-                            <p>
-                                <strong class="text-uppercase">
-                                    {{ project.name }}
-                                </strong>
-                                <br>
-                                6, place au bois
-                                <br>
-                                57100 Thionville
-                            </p>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone fa-lg mt-4"></i>
-                            <p>(+33) 3 82 56 62 67</p>
-                        </li>
-                        <li>
-                            <i class="fab fa-skype fa-lg mt-4"></i>
-                            <p class="mb-0">
-                                resliencerh
-                            </p>
-                        </li>
-                    </ul>
-                </div>
+            {# Google map iframe #}
+            <div class="col-md-9" style="height: 400px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2598.663147088341!2d6.1643636!3d49.3585239!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47952529f850e881%3A0x4624a8c07297fdd8!2s6%20Place%20au%20Bois%2C%2057100%20Thionville!5e0!3m2!1sfr!2sfr!4v1602167996895!5m2!1sfr!2sfr"
+                        width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""
+                        aria-hidden="false" tabindex="0">
+                </iframe>
+            </div>
+            <div class="col-md-3">
+                <ul class="list-unstyled mb-0">
+                    <li>
+                        <i class="fas fa-map-marker-alt fa-lg"></i>
+                        <p>
+                            <strong class="text-uppercase">
+                                {{ project.name }}
+                            </strong>
+                            <br>
+                            6, place au bois
+                            <br>
+                            57100 Thionville
+                        </p>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone fa-lg mt-4"></i>
+                        <p>(+33) 3 82 56 62 67</p>
+                    </li>
+                    <li>
+                        <i class="fab fa-skype fa-lg mt-4"></i>
+                        <p class="mb-0">
+                            resliencerh
+                        </p>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
