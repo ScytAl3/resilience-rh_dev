@@ -1,0 +1,230 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %} Mentions-legales | {{ parent() }} {% endblock %}
+
+{% block body %}
+<div class="container mb-5">
+    {# Page header #}
+    <div class="page-header">
+        <h1 class="text-center">
+            <i class="fas fa-book"></i>
+            Mentions légales
+        </h1>
+    </div>
+
+    {# Conditions générales : Titre #}
+    <h5>
+        Conditions Générales
+    </h5>
+    {# Conditions générales : Contenu #}
+    <div>
+        <p>
+            L'utilisateur de ce site reconnait disposer de la compétences et des moyens nécessaires pour accéder et
+            utliser ce site.
+            <br>
+            Toute reproduction pour représentation, en tout ou partie, à d'autres fins sur un quelconque support est
+            interdite sans l'autorisation expresse et préalable de la société
+            <strong class="text-uppercase">
+                {{ project.name }}
+            </strong> et constituerait une contrefaçon au sens des articles
+            <strong>L 335-2</strong> et suivants du code de la apropiété intellectuelle. Le non respect de cette
+            interdiction constitue une cntrafçocn pouvant enagager la responsabilité civile et pénale du contrefacteur.
+            <br>
+            Les informations contenues sur ce site sont non contractuelles et peuvent être sujettes à modifications sans
+            préavis.
+            <br>
+            Les liens hypertextes mis en oeuvre au sein du site
+            <strong class="text-uppercase">
+                {{ project.name }}
+            </strong>
+            en direction d'autres sites et d'une manière générale vers toutes ressources existantes sur internet ne
+            sauraient engager la responsabilité de la société
+            <strong class="text-uppercase">
+                {{ project.name }}
+            </strong>, n'ayant aucun contrôle quant au contenu de tous les sites accéssibles à partir du site de la
+            société
+            <strong class="text-uppercase">
+                {{ project.name }}
+            </strong>.
+            <br>
+            La société
+            <strong class="text-uppercase">
+                {{ project.name }}
+            </strong> ne pourrait être tenue responsale des
+            dommages qui pourraien être subis par l'environnement technique de l'utilisateur et notamment ses
+            ordinaters, équipements réseaux et tout autre matériel utlisé pour accéder ou utiliser le service et/ou les
+            informations. Il est rappelé que le fait d'accéder ou de
+            se maintenir fauduleusement dans un système informatique, d'entraver ou de fausser le focntionnement d'un
+            tel système, d'introduire ou de modifier frauduleusement des données dans un système informatique
+            constituent de délits passibles de sanctions pénales. L'accès au site est gratuit. Les frais d'accès et
+            d'utilisation du réseau de télélcommunication sont à la charge de l'utilisateur.
+        </p>
+    </div>
+
+    {# Délais prestations : Titre #}
+    <h5>
+        Les Délais de Prestations
+    </h5>
+    {# Délais prestations : Contenu #}
+    <div>
+        <p>
+            Tous les délais avancés s'entendant en jours ouvrés et ne débutent que le lendemain de la réception par
+            <strong class="text-uppercase">
+                {{ project.name }}
+            </strong> des éléments nécessaires à la bonne exécution de la prestation. En cas de mauvaise adresse mail,
+            <strong class="text-uppercase">
+                {{ project.name }}
+            </strong> ne peut être tenue responsable du non respect des délais.
+        </p>
+    </div>
+
+    {# Reproduction papier : Titre #}
+    <h5>
+        La repoduction sur Support Papier
+    </h5>
+    {# Reproduction papier : Contenu #}
+    <div>
+        <p>
+            A l'execption de l'iconographie, l'impression papier est autorisée aux fins de copie privée, à l'usage
+            exclusif
+            du copiste au sens de l'article
+            <strong>L.122-5 2° du code de la propriété intellectuelle</strong>, sous réserve du respect des trois
+            conditions suivantes :
+        </p>
+        <ul>
+            <li>
+                gratuité de la diffusion
+            </li>
+            <li>
+                respect de l'intégrité des documents reproduits (aucune modification, ni altéraiton d'acune sorte)
+            </li>
+            <li>
+                citation explicite du site <strong><em>www.resilience-rh.com</em></strong> comme source et mention que
+                les droits de reproduction sont réservés et strictement limités.
+            </li>
+        </ul>
+    </div>
+
+    {# Liens site : Titre #}
+    <h5>
+        Création de Liens vers le Site www.resilience-rh.com
+    </h5>
+    {# Liens site : Contenu #}
+    <div>
+        <p>
+            La société
+            <strong class="text-uppercase">
+                {{ project.name }}
+            </strong> autorise la mise en place d'un lien hyertexte pointant vers son contenu, sous réserve
+            de : ne pas utiliser la technique du lien profond ("deep linking"), c'est à dire que les pages du site
+            <strong><em>www.resilience-rh.com</em></strong> ne doivent pas être imbriquées à l'intérieur des pages d'un
+            autre site, mais accessibles par l'ouverture d'une fenêtre. Mentionner la source qui pointera grâce à un
+            lien hyperttexte directement sur le contenu visé. Les informations utilisées ne doivent l'être qu'à des fins
+            personnelles, associatives ou professionnelles, toute utilisation à des fins commerciales ou publicitaires
+            est exclue. Attention, cette autorisation ne s'applique pas aux sites internet diffusant des informations à
+            carcatère polémique, pornographique, xénophobe ou pouvant dans une plus slarge mesure porter atteinte à la
+            sensibilité du plus grand nombre. Pour toute autre utilisation, merci de nous consulter :
+            <br>
+            <a href="{{ path('app_contact') }}">
+                contact@reslience-rh.com
+            </a>.
+        </p>
+    </div>
+
+    {# Reproduction électronique : Titre #}
+    <h5>
+        La Reproduction sur Support Electronique
+    </h5>
+    {# Reproduction électronique : Contenu #}
+    <div>
+        <p>
+            La reproduction de tout ou partie de ce site sur un support électronqiue est autorisée sous réserve de
+            l'ajout de façon claire et lisible de la source <strong><em>www.resilience-rh.com</em></strong> et de la
+            mention "droits réservés". Les informations utlisées ne doivent l'être qu'à des fins personnelles,
+            associatives ou professionnelles ; toute utilisation à des fins commerciales ou publicitaires est exclue.
+        </p>
+    </div>
+
+    {# Protection & données personnelles : Titre #}
+    <h5>
+        Confidentialité et Protection des Données Personnelles
+    </h5>
+    {# Protection & données personnelles : Contenu #}
+    <div>
+        <p>
+            Conformément à la loi <strong>informatique et libertés n° 78-17 du 06 janvier 1978</strong>, les
+            informations vous conernant que vous pourriez déposer sur le site sont strictement confidentielles, la
+            société
+            <strong class="text-uppercase">
+                {{ project.name }}
+            </strong> s'engage à les protéger. Vous disposez d'un droit d'accès, de modification, de rectification et de
+            suppression des données qui vous concernent (<strong>Article 34 de la loi "informatique et
+                libertés"</strong>). Vous pouvez exercer ce droit en nous contactant :
+            <br>
+            <a href="{{ path('app_contact') }}">
+                contact@reslience-rh.com
+            </a>.
+        </p>
+    </div>
+
+    {# Contact : Titre #}
+    <h5>
+        Contact
+    </h5>
+    {# Contact : Contenu #}
+    <div>
+        <p>
+            Pour toute question, commentaire ou information complémentaire, veuillez contacter la société
+            <strong class="text-uppercase">
+                {{ project.name }}
+            </strong> en adressant un e-mail à :
+            <br>
+            <a href="{{ path('app_contact') }}">
+                contact@reslience-rh.com
+            </a>.
+        </p>
+    </div>
+
+    {# Siège social #}
+    <h5>
+        Siège Social
+    </h5>
+    <div>
+        <span class="text-uppercase">
+            {{ project.name }}
+        </span>, 6 place au bois, 57100 Thionville
+        <br>
+        <strong>
+            RCS Thionville :
+        </strong> TI 80112390
+        <br>
+        <strong>
+            Numéro de TVA Intracom :
+        </strong> FR09801123290
+        <br>
+        SARL au capital de 2000€
+        <br>
+        <strong>
+            SIREN :
+        </strong> 801123290
+        <br> 
+        <strong>
+            APE :
+        </strong> 7022Z & 8299Z
+        <br>
+        <strong>
+            Numéro de la DIRECCTE :
+        </strong> 41570337557
+        <br>
+        <strong>
+            Numéro DataDock :
+        </strong> 0004750
+        <br>
+        <strong>
+            Responsable de la publication :
+        </strong> <span class="text-uppercase">{{ project.name }}</span>
+        <br>
+        Site hébergé par OVH
+    </div>
+</div>
+{% endblock %}

@@ -5,13 +5,13 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class OrientationController extends AbstractController
+class LegalNoticeController extends AbstractController
 {
     /**
-     * @Route("/orientation", name="app_orientation")
+     * @Route("/mentions-legales", name="app_legal_notice")
      */
     public function index()
     {
-        return $this->render('orientation/index.html.twig', []);
+        return $this->render('legal_notice/index.html.twig', []);
     }
 }
