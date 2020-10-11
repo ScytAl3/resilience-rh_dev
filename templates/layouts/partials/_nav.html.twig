@@ -4,9 +4,9 @@
     {% else %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-custom-navbar fixed-top py-0">
         {% endif %}
-        <div class="container col-12 pt-1 pb-3">
+        <div class="container pt-1 pb-3">
             {# navbar brand & logo #}
-            <a class="navbar-brand text-uppercase" href="{{ path('app_home') }}">
+            <a class="navbar-brand" href="{{ path('app_home') }}">
                 <img class="d-inline-block align-center"
                      src="{{ asset('build/images/default/r-rh-logo.png') | imagine_filter('rectangular_logo_thumb') }}"
                      alt="Logo {{ project.name }}">
@@ -22,13 +22,15 @@
 
             {# collapsible content #}
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                {# Left side of the navigation bar #}
+                {# Navigation bar menu #}
                 <ul class="navbar-nav mr-auto">
+                    {# Accueil #}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_home') }}">
                             Accueil
                         </a>
                     </li>
+                    {# Resilence-rh dropdown #}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuAbout" role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
@@ -40,7 +42,8 @@
                             <a class="dropdown-item" href="{{ path('app_our_clients') }}">Nos Clients</a>
                             <a class="dropdown-item" href="{{ path('app_our_partners') }}">Nos Partenaires</a>
                         </div>
-                    </li>                    
+                    </li>
+                    {# Nos solutions #}                
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,11 +58,13 @@
                             <a class="dropdown-item" href="{{ path('app_job_offer') }}">Offre(s) d'Emploi</a>
                         </div>
                     </li>
+                    {# Publication #}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_publication') }}">
                             Publication
                         </a>
                     </li>
+                    {# Contact #}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_contact') }}">
                             Contact
