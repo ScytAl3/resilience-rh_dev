@@ -1,0 +1,43 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %} Témoignages | {{ parent() }} {% endblock %}
+
+{% block body %}
+{# Conteneur de la page #}
+<div class="container">
+    {# Page header #}
+    <div class="page-header">
+        <h1 class="text-center">
+            <i class="fas fa-comment-dots"></i>
+            Témoignages
+        </h1>
+    </div>
+
+    {# Solutions list #}
+    {% set solutions_count = solutions | length %}
+    {# Si la tables Solutions n'est pas vide on affiche les boutons de sélection des Solutions #}
+    {% if solutions_count > 0 %}
+    {% for row in solutions|batch(4) %}
+    <div class="row justify-content-around my-5">
+        {% for solution in row %}
+        <div class="mx-2">
+            <a class="btn btn-outline-primary btn-lg"
+               href="{{ path('app_testimonies', {'_fragment': 'anchor-'~ solution.slug}) }}" role="button">
+                {{ solution.label }}
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="alert alert-danger mt-5 text-center">
+        <p class="lead mt-3">
+            Il y a {{ solutions_count }} Solutions à afficher pour le moment.
+        </p>
+    </div>
+    {% endif %}
+
+    {# Testimonies list #}
+</div>
+
+{% endblock %}

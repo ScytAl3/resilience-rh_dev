@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\SolutionRepository;
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+use App\Repository\SolutionRepository;
 // Validates that a particular field (or fields) in a Doctrine entity is (are) unique
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
@@ -50,5 +51,10 @@ class Solution
         $this->label = $label;
 
         return $this;
+    }
+
+    public function getSlug(): string
+    {
+        return (new Slugify())->slugify($this->label);
     }
 }
