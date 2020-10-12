@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Cocur\Slugify\Slugify;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\SolutionRepository;
 // Validates that a particular field (or fields) in a Doctrine entity is (are) unique
@@ -36,6 +38,16 @@ class Solution
      */
     private $label;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Testimonial::class, mappedBy="solution")
+     */
+    private $testimonials;
+
+    public function __construct()
+    {
+        $this->testimonials = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -56,5 +68,36 @@ class Solution
     public function getSlug(): string
     {
         return (new Slugify())->slugify($this->label);
+    }
+
+    /**
+     * @return Collection|Testimonial[]
+     */
+    public function getTestimonials(): Collection
+    {
+        return $this->testimonials;
+    }
+
+    public function addTestimonial(Testimonial $testimonial): self
+    {
+        if (!$this->testimonials->contains($testimonial)) {
+            $this->testimonials[] = $testimonial;
+            $testimonial->setSolution($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTestimonial(Testimonial $testimonial): self
+    {
+        if ($this->testimonials->contains($testimonial)) {
+            $this->testimonials->removeElement($testimonial);
+            // set the owning side to null (unless already changed)
+            if ($testimonial->getSolution() === $this) {
+                $testimonial->setSolution(null);
+            }
+        }
+
+        return $this;
     }
 }
