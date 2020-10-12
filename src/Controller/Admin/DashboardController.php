@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Client;
 use App\Entity\Partner;
 use App\Entity\Publication;
+use App\Entity\Solution;
 use App\Entity\Training;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -43,6 +44,7 @@ class DashboardController extends AbstractDashboardController
             ->setDefaultSort(['title' => 'ASC']);
         yield MenuItem::linkToCrud('Formations', 'fas fa-graduation-cap', Training::class)
             ->setDefaultSort(['title' => 'ASC']);
+        yield MenuItem::linkToCrud('Solutions', 'fas fa-list-ol', Solution::class);
         yield MenuItem::linkToCrud('Clients', 'fas fa-user-check', Client::class)
             ->setDefaultSort(['title' => 'ASC']);
         yield MenuItem::linkToCrud('Partenairess', 'far fa-handshake', Partner::class)
