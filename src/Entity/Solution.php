@@ -100,4 +100,13 @@ class Solution
 
         return $this;
     }
+
+    /**
+     * Permet de recupérer le nom des Styles
+     * @return string 
+     */
+    public function __toString()
+    {
+        return $this->label;
+    }
 }
