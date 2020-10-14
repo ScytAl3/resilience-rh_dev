@@ -13,31 +13,86 @@
         </h1>
     </div>
 
-    {# Solutions list #}
-    {% set solutions_count = solutions | length %}
-    {# Si la tables Solutions n'est pas vide on affiche les boutons de sélection des Solutions #}
-    {% if solutions_count > 0 %}
-    {% for row in solutions|batch(4) %}
-    <div class="row justify-content-around my-5">
-        {% for solution in row %}
-        <div class="mx-2">
-            <a class="btn btn-outline-primary btn-lg"
-               href="{{ path('app_testimonies', {'_fragment': 'anchor-'~ solution.slug}) }}" role="button">
-                {{ solution.label }}
-            </a>
+    {# Section : Solutions buttons #}
+    <section class="my-3 p-2">
+        <p class="text-muted">
+            Appuyez sur une de nos solutions pour afficher les témoignages correspondants
+        </p>
+        {# Récupération du nombre de solutions #}
+        {% set solutions_count = solutions | length %}
+        {# Si la tables Solutions n'est pas vide on affiche les boutons de sélection des Solutions #}
+        {% if solutions_count > 0 %}
+        {# Boucle pour afficher les boutons associés aux solutions #}
+        {% for row in solutions|batch(4) %}
+        <div class="row justify-content-around my-5">
+            {% for solution in row %}
+            <div class="mx-2 mb-2">
+                <a class="btn btn-outline-primary btn-lg" href="{{ path('app_testimonies', {id: solution.id}) }}"
+                   role="button">
+                    {{ solution.label }}
+                </a>
+            </div>
+            {% endfor %}
         </div>
         {% endfor %}
-    </div>
-    {% endfor %}
-    {% else %}
-    <div class="alert alert-danger mt-5 text-center">
-        <p class="lead mt-3">
-            Il y a {{ solutions_count }} Solutions à afficher pour le moment.
-        </p>
-    </div>
-    {% endif %}
+        {# Sinon on affiche un message #}
+        {% else %}
+        <div class="alert alert-danger mt-5 text-center">
+            <p class="lead mt-3">
+                Il y a {{ solutions_count }} Solutions à afficher pour le moment.
+            </p>
+        </div>
+        {% endif %}
+    </section>
 
-    {# Testimonies list #}
+    <hr>
+
+    {# Section : Testimonies list #}
+    <section class="my-3 p-2">
+        <h2>
+            {{ title }}
+        </h2>
+
+        {# {{ dump(testimonies) }} #}
+
+        {# Récupération du nombre de témoignages #}
+        {% set testimonies_count = testimonies | length %}
+        {# Si la tables Témoignages n'est pas vide on affiche les témoignages #}
+        {% if testimonies_count > 0 %}
+        <div class="row">
+            {# Affichage des témoignages correspondants #}
+            {% for testimonial in testimonies %}
+            <div class="card border-0  my-3">
+                <div class="card-body">
+                    <h5 class="card-title mb-1">
+                        {{ testimonial.initials }}
+                    </h5>
+                    <p class="card-text">
+                        <em class="text-muted">
+                            {{ testimonial.job }}
+                        </em>
+                    </p>
+                    <p>
+                        <i class="fas fa-quote-left"></i>
+                    </p>
+                    <div class="text-muted">
+                        {{ testimonial.testimony|raw }}
+                    </div>
+                    <p class="text-right">
+                        <i class="fas fa-quote-right"></i>
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="alert alert-danger mt-5 text-center">
+            <p class="lead mt-3">
+                Il y a {{ testimonies_count }} Témoignages à afficher pour le moment.
+            </p>
+        </div>
+        {% endif %}
+    </section>
 </div>
 
 {% endblock %}
