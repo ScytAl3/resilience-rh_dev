@@ -43,6 +43,7 @@ class Publication
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      * @Assert\Length(
      *      min = 10,
      *      minMessage = "The description of the publication must be at least {{ limit }} characters long",
