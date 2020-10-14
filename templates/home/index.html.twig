@@ -272,65 +272,48 @@
         <h6 class="text-center">
             Voici ce qu'ils en disent...
         </h6>
-        {# Affichage de quelques témoignages #}
+
+        {# Récupération du nombre de témoignages #}
+        {% set testimonies_count = testimonies | length %}
+        {# Si la tables Témoignages n'est pas vide on affiche les témoignages #}
+        {% if testimonies_count > 0 %}
+        {# Affichage de 3 témoignages #}
         <div class="row justify-content-around text-center mt-5">
+            {% for testimonial in testimonies %}
             <div class="col-md-3 mb-3">
                 <div class="card border-0">
                     <div class="card-body">
-                        <h5 class="card-title">Jone Doe</h5>
-                        <p class="card-text text-right"><small class="text-muted">(Assistante de Direction)</small></p>
-                        <p class="card-text">
-                            "Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Inventore
-                            perferendis aspernatur nihil nulla, dolorem expedita mollitia itaque deserunt reprehenderit
-                            accusamus blanditiis dignissimos obcaecati, nam ducimus quasi exercitationem, amet repellat.
-                            Dolor."
+                        <h5 class="card-title">
+                            {{ testimonial.initials }}
+                        </h5>
+                        <p class="card-text text-right">
+                            <small class="text-muted">
+                                {{ testimonial.job }}
+                            </small>
                         </p>
+                        <div class="card-text text-muted">
+                            {{ testimonial.testimony|raw }}
+                        </div>
                         <p>
                             <i class="fas fa-quote-right"></i>
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 mb-3">
-                <div class="card border-0">
-                    <div class="card-body">
-                        <h5 class="card-title">Jane Doe</h5>
-                        <p class="card-text text-right"><small class="text-muted">(Professionnel de la Santé)</small>
-                        </p>
-                        <p class="card-text">
-                            "With supporting text below as a natural lead-in to additional content."
-                        </p>
-                        <p>
-                            <i class="fas fa-quote-right"></i>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mb-3">
-                <div class="card border-0">
-                    <div class="card-body">
-                        <h5 class="card-title">Nobody</h5>
-                        <p class="card-text text-right"><small class="text-muted">(Professionnel de la Santé)</small>
-                        </p>
-                        <p class="card-text">
-                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-                            velit modi rem. Commodi molestias explicabo asperiores quos aliquam accusamus reprehenderit
-                            dolores voluptatum placeat expedita doloribus, possimus, a dolorum at id!Voluptates quae
-                            quos labore quas ad voluptatem, qui quisquam sapiente cumque ab quo omnis fuga ut nulla
-                            aliquam."
-                        </p>
-                        <p>
-                            <i class="fas fa-quote-right"></i>
-                        </p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
+        {% else %}
+        <div class="alert alert-danger mt-5 text-center">
+            <p class="lead mt-3">
+                Il y a {{ testimonies_count }} Témoignages à afficher pour le moment.
+            </p>
+        </div>
+        {% endif %}
+
         {# Bouton de redirection vers la page des témoignages #}
         <div class="row text-center mt-5">
             <div class="col-md-12">
-                <a href="{{ path('app_testimonies') }}" class="btn btn-lg btn-outline-primary">
+                <a href="{{ path('app_testimonies', {id: 0}) }}" class="btn btn-lg btn-outline-primary">
                     Pas encore sûr ? Découvrez plus de témoignages
                     <i class="fas fa-angle-double-right ml-2"></i>
                 </a>

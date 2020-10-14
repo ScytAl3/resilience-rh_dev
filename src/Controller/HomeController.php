@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\TestimonialRepository;
 use LogicException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,8 +17,14 @@ class HomeController extends AbstractController
      * @throws LogicException 
      * @throws UnexpectedValueException 
      */
-    public function index(): Response
+    public function index(TestimonialRepository $repo): Response
     {
-        return $this->render('home/index.html.twig', []);
+        // Récupération des 3 derniers témoignages
+        $testimonies = $repo->findLastTestimonies();
+        // dd($testimonies);
+
+        return $this->render('home/index.html.twig', [
+            'testimonies' => $testimonies,
+        ]);
     }
 }
