@@ -1,114 +1,83 @@
 {# navbar #}
-{% if is_granted('ROLE_ADMIN') %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-0">
-    {% else %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-custom-navbar fixed-top py-0">
-        {% endif %}
-        <div class="container pt-1 pb-3">
-            {# navbar brand & logo #}
+<nav class="navbar navbar-expand-lg navbar-dark bg-custom-navbar ">
+    <div class="container py-2">
+        {# navbar brand & logo #}
+        <div class="logo-container">
             <a class="navbar-brand" href="{{ path('app_home') }}">
-                <img class="d-inline-block align-center"
-                     src="{{ asset('build/images/default/r-rh-logo.png') | imagine_filter('rectangular_logo_thumb') }}"
-                     alt="Logo {{ project.name }}">
+                <img class="img-fluid" src="{{ asset('build/images/default/Resilience-RH_small.png') | imagine_filter('rectangular_logo_thumb') }}"  alt="Logo {{ project.name }}">
             </a>
-            {# /navbar brand & logo #}
-
-            {# collapse button #}
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            {# /collapse button #}
-
-            {# collapsible content #}
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                {# Navigation bar menu #}
-                <ul class="navbar-nav mr-auto">
-                    {# Accueil #}
-                    <li class="nav-item {{ set_active_route('app_home') }}">
-                        <a class="nav-link" href="{{ path('app_home') }}">
-                            Accueil
-                        </a>
-                    </li>
-                    {# Resilence-rh dropdown #}
-                    <li
-                        class="nav-item dropdown {{ set_active_route('app_about_us') }} {{ set_active_route('app_testimonies') }} {{ set_active_route('app_our_clients') }} {{ set_active_route('app_our_partners') }}">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuAbout" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ project.name }}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuAbout">
-                            <a class="dropdown-item" href="{{ path('app_about_us') }}">À propos</a>
-                            <a class="dropdown-item" href="{{ path('app_testimonies', {id: 0}) }}">Témoignages</a>
-                            <a class="dropdown-item" href="{{ path('app_our_clients') }}">Nos Clients</a>
-                            <a class="dropdown-item" href="{{ path('app_our_partners') }}">Nos Partenaires</a>
-                        </div>
-                    </li>
-                    {# Nos solutions #}
-                    <li
-                        class="nav-item dropdown {{ set_active_route('app_training') }} {{ set_active_route('app_recruitment') }} {{ set_active_route('app_skills_assessment') }} {{ set_active_route('app_career') }} {{ set_active_route('app_orientation') }} {{ set_active_route('app_job_offer') }}">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Nos Solutions
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="{{ path('app_training') }}">Espace Formation</a>
-                            <a class="dropdown-item" href="{{ path('app_recruitment') }}">Espace Recrutement</a>
-                            <a class="dropdown-item" href="{{ path('app_skills_assessment') }}">Bilan de Compétences</a>
-                            <a class="dropdown-item" href="{{ path('app_career') }}">Espace Carrière</a>
-                            <a class="dropdown-item" href="{{ path('app_orientation') }}">Espace Orientation</a>
-                            <a class="dropdown-item" href="{{ path('app_job_offer') }}">Offre(s) d'Emploi</a>
-                        </div>
-                    </li>
-                    {# Publication #}
-                    <li class="nav-item {{ set_active_route('app_publication') }}">
-                        <a class="nav-link" href="{{ path('app_publication') }}">
-                            Publication
-                        </a>
-                    </li>
-                    {# Contact #}
-                    <li class="nav-item {{ set_active_route('app_contact') }}">
-                        <a class="nav-link" href="{{ path('app_contact') }}">
-                            Contact
-                        </a>
-                    </li>
-                    {# this link is only visible to an admin #}
-                    {% if is_granted('ROLE_ADMIN') %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">GodMod
-                        </a>
-                    </li>
-                    {% endif %}
-                </ul>
-                {# /Left side of the navigation bar #}
-
-                {# /Right side of the navigation bar #}
-                <ul class="navbar-nav justify-content-end">
-                    {# the links are only visible to a authenticated user #}
-                    {% if is_granted('ROLE_USER') %}
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">
-                            <i class="fas fa-user-circle"></i>
-                            <span class="ml-2">{{ app.user.firstName }} {{ app.user.lastName }}</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-item" href="#">
-                            <i class="fas fa-door-open mr-2" aria-hidden="true"></i>
-                            Logout
-                        </a>
-                    </li>
-                    {% else %}
-                    {# Login icon link #}
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">
-                            <i class="far fa-user" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    {% endif %}
-                </ul>
-                {# /Right side of the navigation bar #}
-            </div>
         </div>
-    </nav>
-    {# /navbar #}
+        {# /navbar brand & logo #}
+
+        {# collapse button #}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        {# /collapse button #}
+
+        {# collapsible content #}
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {# Navigation bar menu #}
+            <ul class="navbar-nav ml-auto">
+                {# Accueil #}
+                <li class="nav-item {{ set_active_route('app_home') }}">
+                    <a class="nav-link" href="{{ path('app_home') }}">
+                        Accueil
+                    </a>
+                </li>
+                {# Resilence-rh dropdown #}
+                <li
+                    class="nav-item dropdown {{ set_active_route('app_about_us') }} {{ set_active_route('app_testimonies') }} {{ set_active_route('app_our_clients') }} {{ set_active_route('app_our_partners') }}">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuAbout" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ project.name }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuAbout">
+                        <a class="dropdown-item" href="{{ path('app_about_us') }}">À propos</a>
+                        <a class="dropdown-item" href="{{ path('app_testimonies', {id: 0}) }}">Témoignages</a>
+                        <a class="dropdown-item" href="{{ path('app_our_clients') }}">Nos Clients</a>
+                        <a class="dropdown-item" href="{{ path('app_our_partners') }}">Nos Partenaires</a>
+                    </div>
+                </li>
+                {# Nos solutions #}
+                <li
+                    class="nav-item dropdown {{ set_active_route('app_training') }} {{ set_active_route('app_recruitment') }} {{ set_active_route('app_skills_assessment') }} {{ set_active_route('app_career') }} {{ set_active_route('app_orientation') }} {{ set_active_route('app_job_offer') }}">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Nos Solutions
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{ path('app_training') }}">Espace Formation</a>
+                        <a class="dropdown-item" href="{{ path('app_recruitment') }}">Espace Recrutement</a>
+                        <a class="dropdown-item" href="{{ path('app_skills_assessment') }}">Bilan de Compétences</a>
+                        <a class="dropdown-item" href="{{ path('app_career') }}">Espace Carrière</a>
+                        <a class="dropdown-item" href="{{ path('app_orientation') }}">Espace Orientation</a>
+                        <a class="dropdown-item" href="{{ path('app_job_offer') }}">Offre(s) d'Emploi</a>
+                    </div>
+                </li>
+                {# Publication #}
+                <li class="nav-item {{ set_active_route('app_publication') }}">
+                    <a class="nav-link" href="{{ path('app_publication') }}">
+                        Publication
+                    </a>
+                </li>
+                {# Contact #}
+                <li class="nav-item {{ set_active_route('app_contact') }}">
+                    <a class="nav-link" href="{{ path('app_contact') }}">
+                        Contact
+                    </a>
+                </li>
+                {# this link is only visible to an admin #}
+                {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">GodMod
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+            {# Navigation bar menu #}
+        </div>
+    </div>
+</nav>
+{# /navbar #}

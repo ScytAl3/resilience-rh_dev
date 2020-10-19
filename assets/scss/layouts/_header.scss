@@ -8,9 +8,14 @@ nav {
   &.bg-custom-navbar {
     background-color: $header-color;
   }
+  @media screen and (max-width: 500px) {
+    .logo-container {
+      max-width: 207px;
+    }
+  }
 }
 
 .dropdown-menu > a:hover {
-    background-color: #0088cc;
-    background-image: none;
-  }
+  background-color: #0088cc;
+  background-image: none;
+}

@@ -4,7 +4,7 @@
     <head>
         {# Default meta tags #}
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Franck Jakubowski">
         <meta name="description"
               content="Site vitrine du cabinet conseil résilience-rh spécialisédans la Formation, l’Evaluation, le Recrutement et l’Accompagnement dans la recherche d’Emploi.">
@@ -27,28 +27,30 @@
     </head>
 
     <body>
-        <header>
-            {% block header %}
-                {# Navbar import #}
-                {{ include('layouts/partials/_nav.html.twig') }}        
-            {% endblock %}
-        </header>
-
-        {# Message flash area #}
-        {{ include('layouts/partials/_flash_messages.html.twig') }}
-        {# /Message flash area #}
-
-        <main role="main">
-            {% block body %}{% endblock %}
-        </main>
-
-        <footer>
-            {% block footer %}
-                {# footer import #}
-                {{ include('layouts/partials/_footer.html.twig') }}
-                {# /footer import #}
-            {% endblock %}
-        </footer>
+        <div id="page-container" style="padding-top: 89px; overflow-y: hidden; margin-top: -1px;">
+            <header class="fixed-top py-0">
+                {% block header %}
+                    {# Navbar import #}
+                    {{ include('layouts/partials/_nav.html.twig') }}        
+                {% endblock %}
+            </header>
+    
+            {# Message flash area #}
+            {{ include('layouts/partials/_flash_messages.html.twig') }}
+            {# /Message flash area #}
+    
+            <main role="main">
+                {% block body %}{% endblock %}
+            </main>
+    
+            <footer>
+                {% block footer %}
+                    {# footer import #}
+                    {{ include('layouts/partials/_footer.html.twig') }}
+                    {# /footer import #}
+                {% endblock %}
+            </footer>
+        </div>
 
         {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
