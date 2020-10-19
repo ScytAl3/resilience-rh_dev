@@ -39,6 +39,24 @@ h6 {
   color: $title-color !important;
 }
 
+.btn-custom-color {
+  color: #fff;
+  background-color: $header-color;
+  border-color: $header-color;
+}
+
+.btn-outline-custom,
+.btn-outline-custom:hover {
+  color: $header-color;
+  border-color: $header-color;
+}
+
+.btn-outline-custom:hover {
+  color: #fff;
+  background-color: $header-color;
+  border-color: $header-color;
+}
+
 input[type="number"] {
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
