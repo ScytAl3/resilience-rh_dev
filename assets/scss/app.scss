@@ -41,20 +41,25 @@ h6 {
 
 .btn-custom-color {
   color: #fff;
-  background-color: $header-color;
-  border-color: $header-color;
+  background-color: $btn-color;
+  border-color: $btn-color;
+}
+.btn-custom-color:hover {
+  color: #fff;
+  background-color: $btn-color-hover;
+  border-color: $btn-color-hover;
 }
 
 .btn-outline-custom,
 .btn-outline-custom:hover {
-  color: $header-color;
-  border-color: $header-color;
+  color: $btn-color;
+  border-color: $btn-color;
 }
 
 .btn-outline-custom:hover {
   color: #fff;
-  background-color: $header-color;
-  border-color: $header-color;
+  background-color: $btn-color;
+  border-color: $btn-color;
 }
 
 input[type="number"] {
@@ -112,6 +117,10 @@ input[type="number"]::-webkit-outer-spin-button {
   min-height: 700px;
 }
 
+.presentation {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
 /*------------------------------
         Our Clients page
 -------------------------------*/
