@@ -8,7 +8,7 @@ liip_imagine:
         rectangular_logo_thumb:
             filters:
                 thumbnail:
-                    size: [300, 43]
+                    size: [267, 46]
                     mode: outbound
         # Filter for the carousel
         carousel_container_thumb:
