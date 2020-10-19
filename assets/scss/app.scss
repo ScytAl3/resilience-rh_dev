@@ -79,48 +79,53 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: $header-color;
 }
 
-.bg-image-full {
-  position: relative;
-  opacity: 0.75;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-}
-
-.caption {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 100%;
-  text-align: center;
-  span.border {
-    background-color: #000;
-    color: #fff;
-    padding: 18px;
-    font-size: 25px;
-    letter-spacing: 10px;
+section {
+  &.presentation {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .content-layout {
+    padding: 50px 80px;
+    text-align: justify;
+  }
+  .parallax {
+    position: relative;
+    opacity: 0.75;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    span.border {
+      background-color: #000;
+      color: #fff;
+      padding: 18px;
+      font-size: 25px;
+      letter-spacing: 10px;
+    }
   }
 }
 
 .bg-img-training {
   background-image: url($bg-img-1);
-  min-height: 700px;
+  min-height: 600px;
 }
 .bg-img-oursolutions {
   background-image: url($bg-img-2);
-  min-height: 700px;
+  min-height: 350px;
 }
 .bg-img-feedback {
   background-image: url($bg-img-3);
-  min-height: 700px;
+  min-height: 350px;
 }
 
-.presentation {
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
 /*------------------------------
         Our Clients page
 -------------------------------*/

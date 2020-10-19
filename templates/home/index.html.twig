@@ -71,7 +71,7 @@
     {# /Carousel #}
 </div>
 
-{# Content section : presentation #}
+{# Section : presentation #}
 <section class="presentation">
     <div class="container">
         {# Introduction #}
@@ -95,18 +95,17 @@
     </div>
 </section>
 
-{# Image element : training #}
-<div class="py-5 bg-img-training bg-image-full">
-    <div class="h2 caption">
-        <span class="border text-uppercase">
-            Nos formations
-        </span>
+{# Parallax start : training #}
+<section>
+    <div class="bg-img-training parallax">
+        <div class="h2 caption">
+            <span class="border text-uppercase">
+                Nos formations
+            </span>
+        </div>
     </div>
-</div>
-
-{# Content section : trainings links #}
-<section class="py-5">
-    <div class="container">
+    {# Content section : trainings links #}
+    <div class="container content-layout">
         <h6 class="text-center">
             Organisme de formation référencé sur dataDock et certifié Qualité.
         </h6>
@@ -160,17 +159,16 @@
 </section>
 
 {# Image element : our solutions #}
-<div class="py-5 bg-img-oursolutions bg-image-full">
-    <div class="h2 caption">
-        <span class="border text-uppercase">
-            Nos solutions
-        </span>
+<section>
+    <div class="bg-img-oursolutions parallax">
+        <div class="h2 caption">
+            <span class="border text-uppercase">
+                Nos solutions
+            </span>
+        </div>
     </div>
-</div>
-
-{# Content section : other solutions #}
-<section class="py-5">
-    <div class="container">
+    {# Content section : other solutions #}
+    <div class="container content-layout">
         {# Cards our solutions #}
         <div class="row row-cols-1 row-cols-md-3 justify-content-around text-center">
             {# Card Recrutement #}
@@ -258,21 +256,20 @@
 </section>
 
 {# Image element : feedback #}
-<div class="py-5 bg-img-feedback bg-image-full">
-    <div class="h2 caption">
-        <span class="border text-uppercase">
-            Témoignages
-        </span>
+<section>
+    <div class="bg-img-feedback parallax">
+        <div class="h2 caption">
+            <span class="border text-uppercase">
+                Témoignages
+            </span>
+        </div>
     </div>
-</div>
-
-{# Content section : feedback #}
-<section class="py-5">
-    <div class="container">
+    {# Content section : feedback #}
+    <div class="container content-layout">
         <h6 class="text-center">
             Voici ce qu'ils en disent...
         </h6>
-
+    
         {# Récupération du nombre de témoignages #}
         {% set testimonies_count = testimonies | length %}
         {# Si la tables Témoignages n'est pas vide on affiche les témoignages #}
@@ -309,7 +306,7 @@
             </p>
         </div>
         {% endif %}
-
+    
         {# Bouton de redirection vers la page des témoignages #}
         <div class="row text-center mt-5">
             <div class="col-md-12">
@@ -320,6 +317,12 @@
             </div>
         </div>
     </div>
+</section>
+
+{# Parallax end : training #}
+<section>
+<div class="bg-img-training parallax">
+</div>
 </section>
 
 {% endblock %}
