@@ -22,32 +22,37 @@
         </title>
 
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
 
     <body>
         <div id="page-container">
+            {# Scroll to top button #}
+            <button id="scrollTopBtn" title="Haut de page">
+                <i class="fas fa-arrow-circle-up"></i>
+            </button>
+
             <header class="fixed-top py-0">
                 {% block header %}
-                    {# Navbar import #}
-                    {{ include('layouts/partials/_nav.html.twig') }}        
+                {# Navbar import #}
+                {{ include('layouts/partials/_nav.html.twig') }}
                 {% endblock %}
             </header>
-    
+
             {# Message flash area #}
             {{ include('layouts/partials/_flash_messages.html.twig') }}
             {# /Message flash area #}
-    
+
             <main role="main">
                 {% block body %}{% endblock %}
             </main>
-    
+
             <footer>
                 {% block footer %}
-                    {# footer import #}
-                    {{ include('layouts/partials/_footer.html.twig') }}
-                    {# /footer import #}
+                {# footer import #}
+                {{ include('layouts/partials/_footer.html.twig') }}
+                {# /footer import #}
                 {% endblock %}
             </footer>
         </div>

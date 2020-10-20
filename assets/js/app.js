@@ -16,7 +16,38 @@ import $ from 'jquery';
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
-// Écoute de l'événement associé à l'upload de fichier lors de l'envoi d'un message de contact
+/*
+ *
+ * Gestion du bouton pour retourner en haut de la page
+ *
+ */
+$(document).ready(function () {
+    //Get the button:
+    var mybutton = document.getElementById("scrollTopBtn");
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    $('#scrollTopBtn').on('click', function () {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    })
+})
+
+
+/*
+ *
+ * Écoute de l'événement associé à l'upload de fichier lors de l'envoi d'un message de contact
+ * 
+ */
 $('.custom-file-input').on('change', function (e) {
     // Récupération de l'input
     var inputFile = e.currentTarget;
