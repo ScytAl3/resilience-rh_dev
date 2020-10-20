@@ -72,6 +72,9 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
+.custom-file-input:lang(en)~.custom-file-label:after {
+    content: "Parcourir";
+}
 /*------------------------------
           Home page
 -------------------------------*/
