@@ -27,6 +27,16 @@ body {
     margin: 40px 0 20px;
     border-bottom: 1px solid #eee;
   }
+  #page-container {
+    padding-top: 89px;
+    overflow-y: hidden;
+    margin-top: -1px;
+  }
+  @media screen and (max-width: 500px) {
+    #page-container {
+      padding-top: 76px;
+    }
+  }
 }
 
 h1,
@@ -39,6 +49,7 @@ h6 {
   color: $title-color !important;
 }
 
+/* buttons custom color */
 .btn-custom-color {
   color: #fff;
   background-color: $btn-color;
@@ -62,19 +73,6 @@ h6 {
   border-color: $btn-color;
 }
 
-input[type="number"] {
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield;
-  appearance: textfield;
-}
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-}
-
-.custom-file-input:lang(en)~.custom-file-label:after {
-    content: "Parcourir";
-}
 /*------------------------------
           Home page
 -------------------------------*/
@@ -113,6 +111,11 @@ section {
       font-size: 25px;
       letter-spacing: 10px;
     }
+    @media screen and (max-width: 500px) {
+    span.border {
+      font-size: 15px;
+    }
+  }
   }
 }
 
@@ -130,7 +133,7 @@ section {
 }
 
 /*------------------------------
-        Our Clients page
+    Our Clients/Partners page
 -------------------------------*/
 /* Animation image client & partner */
 .client-partner img {
@@ -139,4 +142,12 @@ section {
   &:hover {
     transform: scale(1.075);
   }
+}
+
+/*------------------------------
+          Contact page
+-------------------------------*/
+/* Input file french label */
+.custom-file-input:lang(en) ~ .custom-file-label:after {
+  content: "Parcourir";
 }
