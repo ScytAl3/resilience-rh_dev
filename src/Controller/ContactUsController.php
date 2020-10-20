@@ -44,6 +44,8 @@ class ContactUsController extends AbstractController
     {
         // On instancie un nouveau Contact
         $contact = new Contact();
+        // Variable pour savoir si un fichier a été uploadé
+        $uploaded = false;
         // On récupère le builder du formulaire associé à l'entité contact
         $contactForm = $this->createForm(ContactType::class, $contact);
         $contactForm->handleRequest($request);
@@ -78,6 +80,7 @@ class ContactUsController extends AbstractController
                     $destination . '/' . $newFilename,
                     $contact->getLastName() . '_' . $contact->getSubject() . '_' . $originalFilename . '.' . $fileExtension
                 );
+                $uploaded = true;
             }
             // Envoi du mail
             $this->mailer->send($contactMail);
@@ -87,11 +90,13 @@ class ContactUsController extends AbstractController
                 'success',
                 'Votre message à bien été envoyé'
             );
-            // suppression du fichier uploadé
-            $filesystem = new Filesystem();
-            $filesystem->remove(
-                $destination . '/' . $newFilename
-            );
+            // Suppression si fichier uploadé
+            if ($uploaded) {
+                $filesystem = new Filesystem();
+                $filesystem->remove(
+                    $destination . '/' . $newFilename
+                );
+            }
             return $this->redirectToRoute('app_contact');
         }
 
