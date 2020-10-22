@@ -29,6 +29,10 @@
                 </u>
             </h2>
         </div>
+        {# Spontaneous application form include #}
+        <div class="my-5">
+            {{ include('job_offer/_form.html.twig', {form: candidatureForm})  }}
+        </div>
     </section>
 </div>
 {% endblock %}

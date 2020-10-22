@@ -75,7 +75,7 @@ class ContactUsController extends AbstractController
                     $newFilename
                 );
 
-                // Ajout du fichier uploadé avec 
+                // Ajout du fichier uploadé 
                 $contactMail->attachFromPath(
                     $destination . '/' . $newFilename,
                     $contact->getLastName() . '_' . $contact->getSubject() . '_' . $originalFilename . '.' . $fileExtension
