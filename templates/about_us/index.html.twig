@@ -87,9 +87,9 @@
         <h2 class="text-center">
             Référencé et certifié
         </h2>
-        <div class="row justify-content-around text-center mt-5">
+        <div class="row row-cols-1 row-cols-md-2 justify-content-around text-center mt-5">
             {# I-cert #}
-            <div class="col-md-5">
+            <div class="col-md-5 mb-4">
                 <div class="card h-100 rounded shadow">
                     <img src="{{ asset('build/images/about-us/i-cert.png') | imagine_filter("rectangular_thumb_small") }}"
                          class="img-fluid mx-auto my-2" alt="I-Cert Logo">
@@ -104,7 +104,7 @@
                 </div>
             </div>
             {# Datadock #}
-            <div class="col-md-5">
+            <div class="col-md-5 mb-4">
                 <div class="card h-100 rounded shadow">
                     <img src="{{ asset('build/images/about-us/datadock.png') | imagine_filter("rectangular_thumb_small") }}"
                          class="img-fluid mx-auto my-2" alt="Datadock Logo">
@@ -113,6 +113,21 @@
                         <p class="card-text">
                             <strong class="text-uppercase">{{ project.name }}</strong>, organisme de formation validé et
                             référencé sur la base Datadock.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {# Qualiopi #}
+            <div class="col-md-5">
+                <div class="card h-100 rounded shadow">
+                    <img src="{{ asset('build/images/about-us/qualiopi.png') | imagine_filter("rectangular_thumb_small") }}"
+                         class="img-fluid mx-auto my-2" alt="Qualiopi Logo">
+
+                    <div class="card-body">
+                        <p class="card-text">
+                            <strong class="text-uppercase">{{ project.name }}</strong>, organisme de formation satisfait
+                            aux exigences du Label Qualité Système qui applique la norme ISO 17021 applicables aux
+                            organismes de certification contrôlés par le COFRAC
                         </p>
                     </div>
                 </div>
@@ -132,7 +147,7 @@
             <div class="col-md-5">
                 <div class="card h-100 rounded shadow">
                     {# Icon #}
-                    <div class="card-header bg-transparent">
+                    <div class="card-header bg-transparent border-0">
                         <i class="far fa-handshake fa-3x"></i>
                     </div>
                     {# Titre #}
@@ -141,7 +156,7 @@
                     </div>
                     {# Button #}
                     <div class="p-2">
-                        <a href="{{ path('app_our_partners') }}" class="btn btn-secondary btn-lg btn-block">
+                        <a href="{{ path('app_our_partners') }}" class="btn btn-custom-color btn-lg btn-block">
                             Voir
                         </a>
                     </div>
@@ -151,7 +166,7 @@
             <div class="col-md-5">
                 <div class="card h-100 rounded shadow">
                     {# Icon #}
-                    <div class="card-header bg-transparent">
+                    <div class="card-header bg-transparent border-0">
                         <i class="fas fa-user-check fa-3x"></i>
                     </div>
                     {# Titre #}
@@ -160,7 +175,7 @@
                     </div>
                     {# Button #}
                     <div class="p-2">
-                        <a href="{{ path('app_our_clients') }}" class="btn btn-secondary btn-lg btn-block">
+                        <a href="{{ path('app_our_clients') }}" class="btn btn-custom-color btn-lg btn-block">
                             Voir
                         </a>
                     </div>
