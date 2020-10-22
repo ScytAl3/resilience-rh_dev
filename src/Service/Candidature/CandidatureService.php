@@ -64,6 +64,7 @@ class CandidatureService
      */
     public function buildMail(Candidature $candidature, Form $candidatureForm): bool
     {
+        // Booléen 
         $isValid = false;
         // Si le formulaire est valide lors de l'envoi
         if ($candidatureForm->isSubmitted() && $candidatureForm->isValid()) {
@@ -115,7 +116,7 @@ class CandidatureService
             $filesystem->remove(
                 $destination . '/' . $newFilename
             );
-            // Passe le booleen à TRUE
+            // Passe le booléen à TRUE
             $isValid = true;
         }
         return $isValid;

@@ -23,10 +23,11 @@ class JobOfferController extends AbstractController
         $candidatureForm->handleRequest($request);
         // Appelle du service pour construire le mail de candidature spontanée
         $sendMail = $candidatureService->buildMail($candidature, $candidatureForm);
+        // Si tout s"est bien déroulé
         if ($sendMail) {
             return $this->redirectToRoute('app_job_offer');
         }
-
+        // Affiche le formulaire 
         return $this->render('job_offer/index.html.twig', [
             'candidatureForm' => $candidatureForm->createView()
         ]);
