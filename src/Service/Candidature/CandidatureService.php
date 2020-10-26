@@ -26,7 +26,7 @@ class CandidatureService
     protected $mailer;
 
     /**
-     * @var mixed
+     * @var string
      */
     protected $uploadDirectory;
 
@@ -41,7 +41,7 @@ class CandidatureService
      * @param mixed $uploadDirectory 
      * @return void 
      */
-    public function __construct(MailerInterface $mailer, $uploadDirectory, FlashBagInterface $flashBag)
+    public function __construct(MailerInterface $mailer, string $uploadDirectory, FlashBagInterface $flashBag)
     {
         $this->mailer = $mailer;
         $this->uploadDirectory = $uploadDirectory;
