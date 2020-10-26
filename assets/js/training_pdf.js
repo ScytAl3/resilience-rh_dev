@@ -1,0 +1,1 @@
+import '../css/training_pdf.css';
