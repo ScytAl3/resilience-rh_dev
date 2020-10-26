@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+
+    <head>
+        {# Default meta tags #}
+        <meta charset="UTF-8">
+        {# Title #}
+        <title>
+            {% block title %}
+            {{ title }} | {{ project.name }}
+            {% endblock %}
+        </title>
+
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('build/training-pdf.css')[1:] }}">
+        {% endblock %}
+    </head>
+
+    <body class="d-flex flex-column">
+
+        {# Footer du tableau #}
+        <footer>
+            <table>
+                <tbody>
+                    <tr class="text-muted">
+                        <td class="column-left border-top-left">
+                            <span class="xsmall">
+                                Certificat de Qualification Professionnelle : Employé de commerce (dominante caisse &
+                                drive)
+                            </span>
+                        </td>
+                        <td class="border-top-right td-vertical-align text-right">
+                            <span class="xsmall">
+                                <a href="http://resilience-rh.com/">
+                                    www.resilience.com
+                                </a>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </footer>
+
+        {# Layout for PDF files #}
+        <main role="main">
+
+            <table>
+                {# Entête du tableau : logos et titres #}
+                <thead>
+                    {# Logos #}
+                    <tr>
+                        <th class="column-left border-top-left pt-2">
+                            {# uncomment the line ;extension=gd2 in the php.in file #}
+                            <img src="{{ asset('build/images/default/Resilience-RH_small.png')[1:] }}" height="80"
+                                 alt="{{ project.name }} logo">
+                        </th>
+                        <th class="border-top-right">
+                            <img src="{{ asset('build/images/default/logo-datadock-pdf.png')[1:] }}" height="90"
+                                 alt="Datadock logo">
+                        </th>
+                    </tr>
+                    {# Titres #}
+                    <tr>
+                        <th class="border-bottom-left">
+                            <h2 class="py-1 m-0">
+                                Certificat de Qualification Professionnelle : Employé de commerce (dominante caisse &
+                                drive)
+                            </h2>
+                        </th>
+                        <th class="border-bottom-right">
+                            <h2 class="text-muted">
+                                Programme de formation
+                            </h2>
+                        </th>
+                    </tr>
+                </thead>
+                {# Corps du tableau #}
+                <tbody>
+                    {# Row : objectifs & lieu #}
+                    <tr>
+                        {# Left : objectifs #}
+                        <td class="td-vertical-align">
+                            <h4 class="mb-1">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&#8226;&nbsp;
+                                Objectifs de la formation
+                            </h4>
+                            <div class="">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, recusandae sit
+                                quibusdam sunt aliquam magni sequi tempora. Libero nesciunt possimus earum praesentium
+                                recusandae! Sit cupiditate officiis error dolores voluptates consequatur.
+                                Accusamus aspernatur debitis deserunt nisi ullam perferendis libero amet magni nulla
+                                aut. Error quisquam vitae quam similique quaerat voluptatem at cupiditate, corrupti
+                                beatae architecto, nesciunt nobis illum laboriosam praesentium consequatur?
+                            </div>
+                        </td>
+                        {# Right : lieu #}
+                        <td class="td-vertical-align">
+                            <h4 class="text-muted">
+                                Lieu :
+                            </h4>
+                            <div class="text-muted">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et cumque explicabo officiis
+                                aliquid perferendis maxime animi repellat quia.
+                            </div>
+                        </td>
+                    </tr>
+                    {# Row : public & nombre d'heures #}
+                    <tr>
+                        {# Left : public #}
+                        <td>
+                            <h4 class="mb-1">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&#8226;&nbsp;
+                                Public
+                            </h4>
+                            <div>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores, est quia. Ab
+                                voluptatem assumenda sapiente vel iure veritatis deleniti eos nemo sed eum at libero rem
+                                numquam aperiam, esse voluptate.
+                            </div>
+                        </td>
+                        {# Right : nombre d'heures #}
+                        <td>
+                            <h4 class="text-muted">
+                                Nombre d'heures de la formation :
+                            </h4>
+                            <div class="text-muted">
+                                1 jour.<br>
+                                8 à 10 participants/session.
+                            </div>
+                        </td>
+                    </tr>
+                    {# Row : pédagogie & langue #}
+                    <tr>
+                        {# Left : pédagogie #}
+                        <td>
+                            <h4 class="mb-1">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&#8226;&nbsp;
+                                Pédagogie, animation, programme
+                            </h4>
+                            <div>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia molestiae, tempore,
+                                inventore provident ut velit voluptate debitis consectetur officiis, dolorum voluptatem
+                                deserunt libero quibusdam dolores quasi praesentium eaque reprehenderit suscipit.Nisi
+                                voluptates veniam mollitia? Laudantium excepturi quia quas! Neque, dolorem nisi, culpa
+                                illum placeat repellat labore veritatis, at deserunt esse exercitationem! Ea minima hic
+                                dolorem laudantium laborum vitae sint quas?
+                            </div>
+                        </td>
+                        {# Right : langue #}
+                        <td>
+                            <h4 class="text-muted">
+                                Langue :
+                            </h4>
+                            <div class="text-muted">
+                                Française.
+                            </div>
+                        </td>
+                    </tr>
+                    {# Row : prérequis & intervenant #}
+                    <tr>
+                        {# Left : prérequis #}
+                        <td>
+                            <h4 class="mb-1">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&#8226;&nbsp;
+                                Prérequis à la formation
+                            </h4>
+                            <div>
+                                Aucun.
+                            </div>
+                        </td>
+                        {# Right : intervenant #}
+                        <td>
+                            <h4 class="text-muted">
+                                Intervenant :
+                            </h4>
+                            <div class="text-muted">
+                                David SAUVAGEOT<br>
+                                (Psychologue du travail)<br>
+                                ou intervenant
+                                <span class="text-uppercase">
+                                    {{ project.name }}
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    {# Row : évaluation & contact #}
+                    <tr>
+                        {# Left : évaluation #}
+                        <td>
+                            <h4 class="mb-1">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&#8226;&nbsp;
+                                Évaluation et/ou qualification
+                            </h4>
+                            <div>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate officia quam neque
+                                hic est dolorum impedit, aut vel velit tenetur, fugiat fugit voluptatum distinctio atque
+                                ratione nihil dignissimos odit consequuntur?Totam et magni ea nemo voluptatem eveniet
+                                numquam perferendis, magnam distinctio voluptatum officia mollitia labore perspiciatis
+                                maxime, temporibus nihil incidunt dolorum cupiditate ducimus. Quam qui, modi nisi
+                                veritatis officia inventore.
+                            </div>
+                        </td>
+                        {# Right : contact #}
+                        <td>
+                            <h4 class="text-muted">
+                                Contact :
+                            </h4>
+                            <div class="text-muted">
+                                <strong>
+                                    <span class="text-uppercase">
+                                        {{ project.name }}
+                                    </span>
+                                </strong>
+                                <br>
+                                <span class="text-uppercase">
+                                    David SAUVAGEOT
+                                </span>
+                                <br>
+                                6, place au bois<br>
+                                57100 Thionville<br>
+                                (+33) 3 82 56 62 67
+                                <a href="">contact@resilience-rh.com</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </main>
+    </body>
+
+</html>
