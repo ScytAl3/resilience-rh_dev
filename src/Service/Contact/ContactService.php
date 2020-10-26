@@ -8,7 +8,9 @@ use Symfony\Component\Mime\Address;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class ContactService
 {
@@ -23,6 +25,11 @@ class ContactService
     protected $uploadDirectory;
 
     /**
+     * @var SluggerInterface
+     */
+    private $slugger;
+
+    /**
      * @var FlashBagInterface
      */
     protected $flashBag;
@@ -33,17 +40,19 @@ class ContactService
      * @param mixed $uploadDirectory 
      * @return void 
      */
-    public function __construct(MailerInterface $mailer, string $uploadDirectory, FlashBagInterface $flashBag)
+    public function __construct(MailerInterface $mailer, string $uploadDirectory, SluggerInterface $slugger, FlashBagInterface $flashBag)
     {
         $this->mailer = $mailer;
         $this->uploadDirectory = $uploadDirectory;
+        $this->slugger = $slugger;
         $this->flashBag = $flashBag;
     }
 
-    public function buildMail(Contact $contact, Form $contactForm)
+    public function buildMail(Contact $contact, Form $contactForm): bool
     {
-        // Booléen
+        // Booléens
         $isValid = false;
+        $uploaded = false;
         // Si le formulaire est valide lors de l'envoi
         if ($contactForm->isSubmitted() && $contactForm->isValid()) {
             // dd($contactForm['uploadFile']->getData());
@@ -72,22 +81,33 @@ class ContactService
                 $destination = $this->uploadDirectory;
                 // Recupère le nom du fichier
                 $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                // Transforme le nom du fichier avec des tirets
+                $safeFilename = $this->slugger->slug($originalFilename);
                 // Recupère l'extension du fichier
                 $fileExtension = $uploadedFile->guessExtension();
                 // Concaténation du nom de fichier avec un id unique
-                $newFilename = $originalFilename . '-' . uniqid() . '.' . $uploadedFile->guessExtension();
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $fileExtension;
                 // Deplace le fichier uploadé dans le dossier contact
-                $uploadedFile->move(
-                    $destination,
-                    $newFilename
-                );
+                try {
+                    $uploadedFile->move(
+                        $destination,
+                        $newFilename
+                    );
+                    // Ajout du fichier uploadé 
+                    $contactMail->attachFromPath(
+                        $destination . '/' . $newFilename,
+                        $contact->getLastName() . '_' . $contact->getSubject() . '_' . $originalFilename . '.' . $fileExtension
+                    );
 
-                // Ajout du fichier uploadé 
-                $contactMail->attachFromPath(
-                    $destination . '/' . $newFilename,
-                    $contact->getLastName() . '_' . $contact->getSubject() . '_' . $originalFilename . '.' . $fileExtension
-                );
-                $uploaded = true;
+                    $uploaded = true;
+
+                } catch (FileException $e) {
+                    // Notification de l'erreur
+                    $this->flashBag->add(
+                        'danger',
+                        'Il y a eu un problème avec le fichier téléchargé ' . $e
+                    );
+                }
             }
             // Envoi du mail
             $this->mailer->send($contactMail);
@@ -105,7 +125,8 @@ class ContactService
                 );
             }
             // Passe le booléen à TRUE
-            return $isValid;
+            $isValid = true;            
         }
+        return $isValid;
     }
 }

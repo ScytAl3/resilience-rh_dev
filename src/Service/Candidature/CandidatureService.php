@@ -2,21 +2,23 @@
 
 namespace App\Service\Candidature;
 
+use Throwable;
 use App\Entity\Candidature;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Mime\Address;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-use Symfony\Component\Filesystem\Exception\IOException;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Form\Exception\LogicException;
-use Symfony\Component\Form\Exception\OutOfBoundsException;
-use Symfony\Component\Form\Exception\RuntimeException;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
+use Symfony\Component\Form\Exception\LogicException;
+use Symfony\Component\Form\Exception\RuntimeException;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\Filesystem\Exception\IOException;
+use Symfony\Component\Form\Exception\OutOfBoundsException;
 use Symfony\Component\Mime\Exception\InvalidArgumentException;
-use Symfony\Component\Mime\Exception\LogicException as ExceptionLogicException;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
-use Throwable;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
+use Symfony\Component\Mime\Exception\LogicException as ExceptionLogicException;
 
 class CandidatureService
 {
@@ -31,6 +33,11 @@ class CandidatureService
     protected $uploadDirectory;
 
     /**
+     * @var SluggerInterface
+     */
+    private $slugger;
+
+    /**
      * @var FlashBagInterface
      */
     protected $flashBag;
@@ -41,10 +48,11 @@ class CandidatureService
      * @param mixed $uploadDirectory 
      * @return void 
      */
-    public function __construct(MailerInterface $mailer, string $uploadDirectory, FlashBagInterface $flashBag)
+    public function __construct(MailerInterface $mailer, string $uploadDirectory, SluggerInterface $slugger, FlashBagInterface $flashBag)
     {
         $this->mailer = $mailer;
         $this->uploadDirectory = $uploadDirectory;
+        $this->slugger = $slugger;
         $this->flashBag = $flashBag;
     }
 
@@ -89,35 +97,46 @@ class CandidatureService
             $destination = $this->uploadDirectory;
             // Recupère le nom du fichier
             $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+            // Transforme le nom du fichier avec des tirets
+            $safeFilename = $this->slugger->slug($originalFilename);
             // Recupère l'extension du fichier
             $fileExtension = $uploadedFile->guessExtension();
             // Concaténation du nom de fichier avec un id unique
-            $newFilename = $originalFilename . '-' . uniqid() . '.' . $uploadedFile->guessExtension();
+            $newFilename = $safeFilename . '-' . uniqid() . '.' . $fileExtension;
             // Deplace le fichier uploadé dans le dossier contact
-            $uploadedFile->move(
-                $destination,
-                $newFilename
-            );
-            // Ajout du CV uploadé 
-            $email->attachFromPath(
-                $destination . '/' . $newFilename,
-                $candidature->getLastName() . '_' . $originalFilename . '.' . $fileExtension
-            );
-            // Envoi du mail
-            $this->mailer->send($email);
-
-            // Notification de l'envoie du mail
-            $this->flashBag->add(
-                'success',
-                'Votre candidature à bien été envoyé'
-            );
-            // Suppression du CV uploadé
-            $filesystem = new Filesystem();
-            $filesystem->remove(
-                $destination . '/' . $newFilename
-            );
-            // Passe le booléen à TRUE
-            $isValid = true;
+            try {
+                $uploadedFile->move(
+                    $destination,
+                    $newFilename
+                );
+                // Ajout du CV uploadé 
+                $email->attachFromPath(
+                    $destination . '/' . $newFilename,
+                    $candidature->getLastName() . '_' . $originalFilename . '.' . $fileExtension
+                );
+                // Envoi du mail
+                $this->mailer->send($email);
+    
+                // Notification de l'envoie du mail
+                $this->flashBag->add(
+                    'success',
+                    'Votre candidature à bien été envoyé'
+                );
+                // Suppression du CV uploadé
+                $filesystem = new Filesystem();
+                $filesystem->remove(
+                    $destination . '/' . $newFilename
+                );
+                // Passe le booléen à TRUE
+                $isValid = true;
+                
+            } catch (FileException $e) {
+                // Notification de l'erreur
+                $this->flashBag->add(
+                    'danger',
+                    'Il y a eu un problème avec le fichier téléchargé ' . $e
+                );
+            }
         }
         return $isValid;
     }
