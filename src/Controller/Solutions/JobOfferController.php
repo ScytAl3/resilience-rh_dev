@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class JobOfferController extends AbstractController
 {
     /**
-     * @Route("/offre-emploi", name="app_job_offer")
+     * @Route("/offre-emploi", name="app_job_offer", methods={"GET", "POST"})
      */
     public function index(Request $request, CandidatureService $candidatureService)
     {

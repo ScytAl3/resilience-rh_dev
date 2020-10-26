@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ContactUsController extends AbstractController
-{   
+{
     /**
      * @Route("/contact", name="app_contact", methods={"GET", "POST"})
      */
@@ -23,7 +23,7 @@ class ContactUsController extends AbstractController
         $contactForm->handleRequest($request);
         // Appelle du service pour construire le mail
         $contactMail = $contactService->buildMail($contact, $contactForm);
-        // Si tout s"est bien déroulé
+        // Si tout s'est bien déroulé
         if ($contactMail) {
             return $this->redirectToRoute('app_contact');
         }
