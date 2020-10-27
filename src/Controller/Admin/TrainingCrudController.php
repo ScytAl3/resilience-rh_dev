@@ -32,11 +32,29 @@ class TrainingCrudController extends AbstractCrudController
             ]);
         $image = ImageField::new('pdfFilename', 'PDF')
             ->setBasePath('uploads/formations');
-        // Training basic information
+        // Informations sur le programme de la formation
         $name = TextField::new('title', 'Nom de la formation');
-        $description = TextEditorField::new('description', 'Description')
+        $rh = BooleanField::new('humanResources', 'Formation RH');
+        $description = TextEditorField::new('description', 'Objectif')
             ->setNumOfRows(7);
-        $rh = BooleanField::new('humanResources', 'RH');
+        $public = TextEditorField::new('public', 'Public')
+            ->setNumOfRows(7);
+        $pedagogie = TextEditorField::new('pedagogie', 'Pédagogie/Animation')
+            ->setNumOfRows(7);
+        $prerequis = TextEditorField::new('prerequis', 'Prérequis')
+            ->setNumOfRows(7);
+        $evaluation = TextEditorField::new('evaluation', 'Évaluation')
+            ->setNumOfRows(7);
+        // Informations sur la logistique de la formation
+        $lieu = TextEditorField::new('lieu', 'Lieu')
+            ->setNumOfRows(7);
+        $duree = TextEditorField::new('duree', 'Durée')
+            ->setNumOfRows(7);
+        $langue = TextField::new('langue', 'Langue de la formation');
+        $intervenant = TextEditorField::new('intervenant', 'Intervenant')
+            ->setNumOfRows(7);
+        $contact = TextEditorField::new('contact', 'Contact')
+            ->setNumOfRows(7);
         // Si page index on affiche les informations que l'on souhaite
         if (Crud::PAGE_INDEX === $pageName) {
             return [$id, $image, $name, $description];
@@ -45,8 +63,10 @@ class TrainingCrudController extends AbstractCrudController
         return [
             FormField::addPanel('Image'),
             $imageFile,
-            FormField::addPanel('Basic information'),
-            $name, $description, $rh
+            FormField::addPanel('Programme de la formation'),
+            $rh, $name, $description, $public, $pedagogie, $prerequis, $evaluation,
+            FormField::addPanel('Logistique de la formation'),
+            $lieu, $duree, $langue, $intervenant, $contact,
         ];
     }
 }
