@@ -127,7 +127,7 @@
 
                     </div>
                     <div class="p-2">
-                        <a href="#" class="btn btn-custom-color btn-lg btn-block">
+                        <a href="{{ path('app_training', {slug: 'rh'}) }}" class="btn btn-custom-color btn-lg btn-block">
                             Voir ces formations
                         </a>
                     </div>
@@ -148,7 +148,7 @@
                         </p>
                     </div>
                     <div class="p-2">
-                        <a href="#" class="btn btn-custom-color btn-lg btn-block">
+                        <a href="{{ path('app_training', {slug: 'other'}) }}" class="btn btn-custom-color btn-lg btn-block">
                             Voir ces formations
                         </a>
                     </div>
@@ -310,7 +310,7 @@
         {# Bouton de redirection vers la page des témoignages #}
         <div class="row text-center mt-5">
             <div class="col-md-12">
-                <a href="{{ path('app_testimonies', {id: 0}) }}" class="btn btn-lg btn-outline-custom">
+                <a href="{{ path('app_testimonies') }}" class="btn btn-lg btn-outline-custom">
                     Pas encore sûr ? Découvrez plus de témoignages
                     <i class="fas fa-angle-double-right ml-2"></i>
                 </a>

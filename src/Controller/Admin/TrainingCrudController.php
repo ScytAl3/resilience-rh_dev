@@ -57,7 +57,7 @@ class TrainingCrudController extends AbstractCrudController
             ->setNumOfRows(7);
         // Si page index on affiche les informations que l'on souhaite
         if (Crud::PAGE_INDEX === $pageName) {
-            return [$id, $image, $name, $description];
+            return [$id, $image, $name, $rh, $description];
         }
 
         return [

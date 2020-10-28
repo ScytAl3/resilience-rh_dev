@@ -42,8 +42,8 @@ h6 {
   text-align: right ;
 }
 
-div {
-  font-size: small;
+div, li {
+  font-size: smaller;
 }
 
 .xsmall {
@@ -103,6 +103,16 @@ a:link {
 .pb-1,
 .py-1 {
   padding-bottom: 0.25rem;
+}
+
+.mb-2,
+.my-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mt-2,
+.my-2 {
+  margin-top: 0.5rem;
 }
 
 .pt-2,

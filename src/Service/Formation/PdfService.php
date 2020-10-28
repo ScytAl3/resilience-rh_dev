@@ -3,6 +3,9 @@
 namespace App\Service\Formation;
 
 // Include Dompdf required namespaces
+
+use App\Entity\Training;
+use App\Repository\TrainingRepository;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
@@ -20,17 +23,38 @@ class PdfService
      */
     protected $pdfDirectory;
 
+    /**
+     * @var string
+     */
     protected $chrootDirectory;
 
-    public function __construct(Environment $twig, string $pdfDirectory, string $chrootDirectory)
+    /**
+     * @var TrainingRepository
+     */
+    protected $repo;
+
+    /**
+     * @param Environment $twig 
+     * @param string $pdfDirectory 
+     * @param string $chrootDirectory 
+     * @param TrainingRepository $repo 
+     * @return void 
+     */
+    public function __construct(Environment $twig, string $pdfDirectory, string $chrootDirectory, TrainingRepository $repo)
     {
         $this->twig = $twig;
         $this->pdfDirectory = $pdfDirectory;
         $this->chrootDirectory = $chrootDirectory;
+        $this->repo = $repo;
     }
 
-    public function getTrainingPdf()
+    public function getTrainingPdf(Training $training)
     {
+        // Récupère les information de la formation sélectionnée
+        $formation = $this->repo->find($training->getId());
+        //
+        // dd($formation);
+        //
         $pdfOptions = new Options();
         $pdfOptions->set('chroot', $this->chrootDirectory);
         $pdfOptions->set('defaultFont', 'Arial');
@@ -42,7 +66,7 @@ class PdfService
 
         // retrieve the HTML generated in the twig file
         $html = $this->twig->render('pdf/formation.html.twig', [
-            'title' => "PDF de la formation"
+            'formation' => $formation,
         ]);
 
         // load HTML to Dompdf
@@ -62,7 +86,7 @@ class PdfService
         //  write the file in the public directory set in config/services.yaml
         $publicDirectory = $this->pdfDirectory;
         // concatenate the name with the facture id
-        $pdfFilepath =  $publicDirectory . '/formation-test.pdf';
+        $pdfFilepath =  $publicDirectory . '/' . $formation->getSlug() . '.pdf';
 
         // write file to the desired path
         file_put_contents($pdfFilepath, $output);

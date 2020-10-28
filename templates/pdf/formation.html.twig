@@ -7,7 +7,7 @@
         {# Title #}
         <title>
             {% block title %}
-            {{ title }} | {{ project.name }}
+            {{ formation.slug}} | {{ project.name }}
             {% endblock %}
         </title>
 
@@ -25,8 +25,7 @@
                     <tr class="text-muted">
                         <td class="column-left border-top-left">
                             <span class="xsmall">
-                                Certificat de Qualification Professionnelle : Employé de commerce (dominante caisse &
-                                drive)
+                                {{ formation.title }}
                             </span>
                         </td>
                         <td class="border-top-right td-vertical-align text-right">
@@ -63,12 +62,11 @@
                     <tr>
                         <th class="border-bottom-left">
                             <h2 class="py-1 m-0">
-                                Certificat de Qualification Professionnelle : Employé de commerce (dominante caisse &
-                                drive)
+                                {{ formation.title }}
                             </h2>
                         </th>
                         <th class="border-bottom-right">
-                            <h2 class="text-muted">
+                            <h2 class="text-muted py-1 m-0">
                                 Programme de formation
                             </h2>
                         </th>
@@ -77,35 +75,29 @@
                 {# Corps du tableau #}
                 <tbody>
                     {# Row : objectifs & lieu #}
-                    <tr>
+                    <tr class="td-vertical-align">
                         {# Left : objectifs #}
-                        <td class="td-vertical-align">
+                        <td>
                             <h4 class="mb-1">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&#8226;&nbsp;
                                 Objectifs de la formation
                             </h4>
                             <div class="">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, recusandae sit
-                                quibusdam sunt aliquam magni sequi tempora. Libero nesciunt possimus earum praesentium
-                                recusandae! Sit cupiditate officiis error dolores voluptates consequatur.
-                                Accusamus aspernatur debitis deserunt nisi ullam perferendis libero amet magni nulla
-                                aut. Error quisquam vitae quam similique quaerat voluptatem at cupiditate, corrupti
-                                beatae architecto, nesciunt nobis illum laboriosam praesentium consequatur?
+                                {{ formation.description | raw }}
                             </div>
                         </td>
                         {# Right : lieu #}
-                        <td class="td-vertical-align">
-                            <h4 class="text-muted">
+                        <td>
+                            <h5 class="text-muted  mb-2">
                                 Lieu :
-                            </h4>
+                            </h5>
                             <div class="text-muted">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et cumque explicabo officiis
-                                aliquid perferendis maxime animi repellat quia.
+                                {{ formation.lieu | raw }}
                             </div>
                         </td>
                     </tr>
                     {# Row : public & nombre d'heures #}
-                    <tr>
+                    <tr class="td-vertical-align">
                         {# Left : public #}
                         <td>
                             <h4 class="mb-1">
@@ -113,51 +105,43 @@
                                 Public
                             </h4>
                             <div>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores, est quia. Ab
-                                voluptatem assumenda sapiente vel iure veritatis deleniti eos nemo sed eum at libero rem
-                                numquam aperiam, esse voluptate.
+                                {{ formation.public | raw }}
                             </div>
                         </td>
                         {# Right : nombre d'heures #}
                         <td>
-                            <h4 class="text-muted">
+                            <h5 class="text-muted mb-2">
                                 Nombre d'heures de la formation :
-                            </h4>
+                            </h5>
                             <div class="text-muted">
-                                1 jour.<br>
-                                8 à 10 participants/session.
+                                {{ formation.duree | raw }}
                             </div>
                         </td>
                     </tr>
                     {# Row : pédagogie & langue #}
                     <tr>
                         {# Left : pédagogie #}
-                        <td>
+                        <td class="td-vertical-align">
                             <h4 class="mb-1">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&#8226;&nbsp;
                                 Pédagogie, animation, programme
                             </h4>
                             <div>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia molestiae, tempore,
-                                inventore provident ut velit voluptate debitis consectetur officiis, dolorum voluptatem
-                                deserunt libero quibusdam dolores quasi praesentium eaque reprehenderit suscipit.Nisi
-                                voluptates veniam mollitia? Laudantium excepturi quia quas! Neque, dolorem nisi, culpa
-                                illum placeat repellat labore veritatis, at deserunt esse exercitationem! Ea minima hic
-                                dolorem laudantium laborum vitae sint quas?
+                                {{ formation.pedagogie | raw }}
                             </div>
                         </td>
                         {# Right : langue #}
                         <td>
-                            <h4 class="text-muted">
+                            <h5 class="text-muted mb-2">
                                 Langue :
-                            </h4>
+                            </h5>
                             <div class="text-muted">
-                                Française.
+                                {{ formation.langue | raw }}
                             </div>
                         </td>
                     </tr>
                     {# Row : prérequis & intervenant #}
-                    <tr>
+                    <tr class="td-vertical-align">
                         {# Left : prérequis #}
                         <td>
                             <h4 class="mb-1">
@@ -165,61 +149,40 @@
                                 Prérequis à la formation
                             </h4>
                             <div>
-                                Aucun.
+                                {{ formation.prerequis | raw }}
                             </div>
                         </td>
                         {# Right : intervenant #}
                         <td>
-                            <h4 class="text-muted">
+                            <h5 class="text-muted mb-2">
                                 Intervenant :
-                            </h4>
+                            </h5>
                             <div class="text-muted">
-                                David SAUVAGEOT<br>
-                                (Psychologue du travail)<br>
-                                ou intervenant
-                                <span class="text-uppercase">
-                                    {{ project.name }}
-                                </span>
+                                {{ formation.intervenant | raw }}
                             </div>
                         </td>
                     </tr>
                     {# Row : évaluation & contact #}
                     <tr>
                         {# Left : évaluation #}
-                        <td>
+                        <td class="td-vertical-align">
                             <h4 class="mb-1">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&#8226;&nbsp;
                                 Évaluation et/ou qualification
                             </h4>
                             <div>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate officia quam neque
-                                hic est dolorum impedit, aut vel velit tenetur, fugiat fugit voluptatum distinctio atque
-                                ratione nihil dignissimos odit consequuntur?Totam et magni ea nemo voluptatem eveniet
-                                numquam perferendis, magnam distinctio voluptatum officia mollitia labore perspiciatis
-                                maxime, temporibus nihil incidunt dolorum cupiditate ducimus. Quam qui, modi nisi
-                                veritatis officia inventore.
+                                {{ formation.evaluation | raw }}
                             </div>
                         </td>
                         {# Right : contact #}
                         <td>
-                            <h4 class="text-muted">
+                            <h5 class="text-muted mb-2">
                                 Contact :
-                            </h4>
+                            </h5>
                             <div class="text-muted">
-                                <strong>
-                                    <span class="text-uppercase">
-                                        {{ project.name }}
-                                    </span>
-                                </strong>
+                                {{ formation.contact | raw }}
                                 <br>
-                                <span class="text-uppercase">
-                                    David SAUVAGEOT
-                                </span>
-                                <br>
-                                6, place au bois<br>
-                                57100 Thionville<br>
-                                (+33) 3 82 56 62 67
-                                <a href="">contact@resilience-rh.com</a>
+                                <a href="mailto:contact@resilience-rh.com">contact@resilience-rh.com</a>
                             </div>
                         </td>
                     </tr>

@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 class TestimoniesController extends AbstractController
 {
     /**
-     * @Route("/temoignages/{id<[0-9]+>}", name="app_testimonies", methods={"GET"})
+     * @Route("/temoignages/{id<[0-9]+>?}", name="app_testimonies", methods={"GET"})
      */
     public function index(SolutionRepository $sRepo, TestimonialRepository $tRepo, Request $request)
     {        
