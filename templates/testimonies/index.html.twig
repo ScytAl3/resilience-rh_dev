@@ -24,7 +24,7 @@
         {% if solutions_count > 0 %}
         {# Boucle pour afficher les boutons associés aux solutions #}
         {% for row in solutions|batch(4) %}
-        <div class="row justify-content-around my-5">
+        <div class="row justify-content-around mt-5">
             {% for solution in row %}
             <div class="mx-2 mb-2">
                 <a class="btn btn-outline-custom btn-lg" href="{{ path('app_testimonies', {id: solution.id}) }}"
