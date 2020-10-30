@@ -37,15 +37,19 @@
             </div>
         </div>
         {# Buttons #}
-        <div class="row justify-content-around my-5">
-            <a class="btn btn-outline-custom btn-lg col-md-4 mb-3" href="{{ path('app_training', {slug: 'rh'}) }}" role="button">
+        <div class="row justify-content-around mt-3">
+            <a class="btn btn-outline-custom btn-lg col-md-4 mb-3" href="{{ path('app_training', {slug: 'rh'}) }}"
+               role="button">
                 Ressources Humaines
             </a>
-            <a class="btn btn-outline-custom btn-lg col-md-4 mb-3" href="{{ path('app_training', {slug: 'other'}) }}" role="button">
+            <a class="btn btn-outline-custom btn-lg col-md-4 mb-3" href="{{ path('app_training', {slug: 'other'}) }}"
+               role="button">
                 Autre
             </a>
         </div>
     </section>
+
+    <hr>
 
     {# Section : Trainings list #}
     <section class="my-3 p-2">
@@ -76,12 +80,12 @@
                             {{ training.title }}
                         </h2>
                         <p class="card-text">
-                            {{ training.description | striptags | u.truncate(300, '...') }}
+                            {{ training.description | u.truncate(300, '...') | raw }}
                         </p>
                     </div>
                     <div class="card-footer mb-0">
                         <a class="btn btn-custom-color btn-block"
-                           href="{{ path('app_training_pdf', {id: training.id}) }}" role="button">
+                           href="{{ path('app_training_pdf', {id: training.id}) }}" target="_blank" role="button">
                             Voir les détails
                         </a>
                     </div>
@@ -90,10 +94,152 @@
             {% endfor %}
         </div>
         {% else %}
-        <div class="alert alert-danger mt-5 text-center">
+        <div class="alert alert-danger text-center mt-5">
             <p class="lead mt-3">Il y a {{ trainings_count }} Formations à afficher pour le moment.</p>
         </div>
         {% endif %}
+    </section>
+
+    <hr>
+
+    {# Section : Other solutions #}
+    <section class="my-3 p-2">
+        <h2>
+            Nos autres solutions
+        </h2>
+        {# Row #1 #}
+        <div class="row justify-content-between mt-5">
+            {# Bilan compétences #}
+            <div class="col-lg-5">
+                <div class=" text-center">
+                    <img src="{{ asset('build/images/training/bilan-competences.png') | imagine_filter("squared_thumb_small") }}"
+                         class="img-fluid mx-auto my-2" alt="Image bilan de compétences">
+                </div>
+                <h2 class="text-center">
+                    Bilan de compétences
+                </h2>
+                <p class="p-2 mb-3">
+                    Les métiers évoluent sans cesse comme vos attentes professionnelles. Pour changer de branche
+                    d’activité, évoluer dans
+                    votre entreprise, retrouver un emploi ou simplement faire le point, le bilan de compétences est
+                    souvent une étape utile.
+                    Il permet d’identifier vos connaissances, votre savoir-être et votre savoir-faire, et vous donne des
+                    pistes pour
+                    construire votre avenir professionnel.
+                </p>
+                <div>
+                    <a class="btn btn-lg btn-custom-color btn-block" href="{{ path('app_contact') }}">
+                        Nous contacter
+                    </a>
+                </div>
+            </div>
+            {# Projets RH #}
+            <div class="col-lg-5">
+                <div class="text-center">
+                    <img src="{{ asset('build/images/training/rh-projects.png') | imagine_filter("squared_thumb_small") }}"
+                         class="img-fluid mx-auto my-2" alt="Image">
+                </div>
+                <h2 class="text-center">
+                    Projets Ressources Humaines
+                </h2>
+                <p class="p-2 mb-3">
+                    <strong class="text-uppercase">
+                        {{ project.name }}
+                    </strong> accompagne votre l’Entreprise dans ses projets RH. Chaque projet débute par un audit afin
+                    de vous apporter le meilleur
+                    accompagnement.
+                    <br>
+                    <strong class="text-uppercase">
+                        {{ project.name }}
+                    </strong> intervient sur les thématiques suivantes :
+                    {# Liste #}
+                <ul class="text-left mt-4">
+                    <li>
+                        Evaluation 360
+                    </li>
+                    <li>
+                        Ecriture d'outils d'évaluation annuelle
+                    </li>
+                    <li>
+                        Ecriture de fiche de poste/emploi
+                    </li>
+                    <li>
+                        Analyse du poste de travail
+                    </li>
+                    <li>
+                        Accompagnement d'intégration
+                    </li>
+                    <li>
+                        Animation de groupe de travail
+                    </li>
+                    <li>
+                        etc...
+                    </li>
+                </ul>
+                </p>
+                <div>
+                    <a class="btn btn-lg btn-custom-color btn-block" href="{{ path('app_contact') }}">
+                        Nous contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+        {# Row #2 #}
+        <div class="row justify-content-between my-5">
+            {# Détection et évaluation #}
+            <div class="col-lg-5">
+                <div class="text-center">
+                    <img src="{{ asset('build/images/training/detect-and-evaluate.png') | imagine_filter("squared_thumb_small") }}"
+                         class="img-fluid mx-auto my-2" alt="Image détection et évaluation">
+                </div>
+                <h2 class="text-center">
+                    Détection des potentiels & évaluation des ressources internes
+                </h2>
+                <p class="p-2 mb-3">
+                    L'entreprise est une entité en perpétuel mouvement, c’est pour cette raison, qu’elle doit pouvoir
+                    s’adapter à son environnement pour rester compétitive, tout en fasisant gandir ses collaborateurs.
+                    <br>
+                    Connître le potentiel et les compétences de ses collaborateurs est primordial.
+                    <br>
+                    Basée sur des outils reconnus et validés (inventaire de personnalité, aptitudes cognitives,
+                    motivations...), l'évaluation peut s'inscrire dans un schéma de changement de poste, d'évolution
+                    verticale ou horizontale.
+                </p>
+                <div>
+                    <a class="btn btn-lg btn-custom-color btn-block" href="{{ path('app_contact') }}">
+                        Nous contacter
+                    </a>
+                </div>
+            </div>
+            {# Diagnostic climat social #}
+            <div class="col-lg-5">
+                <div class="text-center">
+                    <img src="{{ asset('build/images/training/diagnosis.png') | imagine_filter("squared_thumb_small") }}"
+                         class="img-fluid mx-auto my-2" alt="Image diagnostic climat social">
+                </div>
+                <h2 class="text-center">
+                    Diagnostic du climat social
+                </h2>
+                <p class="p-2 mb-3">
+                    <strong class="text-uppercase">
+                        {{ project.name }}
+                    </strong> vous propose d’évaluer le climat psychosocial de votre entreprise, en recueillant le degré
+                    de satisfaction et d’insatisfaction de vos salariés et de repérer à quel niveau (information,
+                    supervision, implication ...) se manifestent les dificultés.
+                    <br>
+                    Ce diagnostic est un excellent outil pour orienter ou définir les politiques RH, et ce quelque soit
+                    la taille, la structure ou le secteur d'activité de l'entreprise.
+                    <br>
+                    L'illustration du compte rendu par des représentations graphiques permet, plus aisément,
+                    l'éloboration de plan d'action et/ou de préconisations
+                </p>
+                <div>
+                    <a class="btn btn-lg btn-custom-color btn-block" href="{{ path('app_contact') }}">
+                        Nous contacter
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
 </div>
