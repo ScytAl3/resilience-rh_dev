@@ -24,14 +24,6 @@ class TrainingCrudController extends AbstractCrudController
     {
         $id = IntegerField::new('id', 'ID')
             ->onlyOnIndex();
-        // Training image
-        $imageFile = ImageField::new('pdfFile')
-            ->setLabel('Image (JPEG or PNG file)')
-            ->setFormType(VichImageType::class)->setFormTypeOptions([
-                'allow_delete' => true,
-            ]);
-        $image = ImageField::new('pdfFilename', 'PDF')
-            ->setBasePath('uploads/formations');
         // Informations sur le programme de la formation
         $name = TextField::new('title', 'Nom de la formation');
         $rh = BooleanField::new('humanResources', 'Formation RH');
@@ -57,12 +49,10 @@ class TrainingCrudController extends AbstractCrudController
             ->setNumOfRows(7);
         // Si page index on affiche les informations que l'on souhaite
         if (Crud::PAGE_INDEX === $pageName) {
-            return [$id, $image, $name, $rh, $description];
+            return [$id, $name, $rh, $description];
         }
 
         return [
-            FormField::addPanel('Image'),
-            $imageFile,
             FormField::addPanel('Programme de la formation'),
             $rh, $name, $description, $public, $pedagogie, $prerequis, $evaluation,
             FormField::addPanel('Logistique de la formation'),
