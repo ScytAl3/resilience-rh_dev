@@ -7,36 +7,36 @@ use App\Service\Formation\PdfService;
 use App\Repository\TrainingRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 class TrainingController extends AbstractController
 {
     /**
-     * @Route("/formations/{slug?}", name="app_training")
+     * @Route("/formations", name="app_training", methods={"GET"})
      */
-    public function index(?string $slug, TrainingRepository $repo): Response
+    public function index(): Response
     {
-        switch ($slug) {
-            case 'rh':
-                return $this->render('training/index.html.twig', [
-                    'trainings' => $repo->findBy(['humanResources' => true], ['createdAt' => 'DESC']),
-                    'titre' => 'Nos formation Ressources Humaines'
-                    ]);
-                break;
+        return $this->render('training/index.html.twig', []);
+    }
 
-            case 'other':
-                return $this->render('training/index.html.twig', [
-                    'trainings' => $repo->findBy(['humanResources' => false], ['createdAt' => 'DESC']),
-                    'titre' => 'Nos autres formations',
-                    ]);
-                break;
+    /**
+     * @Route("/formations/{categorie<rh|other>}", name="app_training_category", methods={"GET"})
+     */
+    public function showTrainingCategory(string $categorie, TrainingRepository $repo)
+    {
+        if ($categorie == 'rh') {
+            return $this->render('training/training_category.html.twig', [
+                'trainings' => $repo->findBy(['humanResources' => true], ['createdAt' => 'DESC']),
+                'titre' => 'Nos formation Ressources Humaines'
+            ]);
+        }
 
-            default:
-                return $this->render('training/index.html.twig', [
-                    'trainings' => $repo->findBy([], ['createdAt' => 'DESC']),
-                    'titre' => 'Toutes nos formations',
-                    ]);
-                break;
+        if ($categorie == 'other') {
+            return $this->render('training/training_category.html.twig', [
+                'trainings' => $repo->findBy(['humanResources' => false], ['createdAt' => 'DESC']),
+                'titre' => 'Nos autres formations',
+            ]);
         }
     }
 

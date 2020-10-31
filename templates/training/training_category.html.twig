@@ -1,0 +1,65 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %} Nos Formation RH | {{ parent() }} {% endblock %}
+
+{% block body %}
+{# Conteneur de la page #}
+<div class="container">
+    {# Page header #}
+    <div class="page-header">
+        <h1 class="text-center">
+            <i class="fas fa-graduation-cap"></i>
+            Partenaire de vos Formations
+        </h1>
+    </div>
+
+    {# Section : Trainings list #}
+    <section class="my-3 p-2">
+        <h2>
+            {{ titre }}
+        </h2>
+        {#  Recupère le nombre de formations #}
+        {% set trainings_count = trainings | length %}
+        {# Si la tables Partners n'est pas vide on affiche les partners #}
+        {% if trainings_count > 0 %}
+        {# Row trainings list #}
+        <div class="row mt-5">
+            {% for training in trainings %}
+            {# Affiche le type de formation dans l'entête de la card #}
+            {% if training.humanResources %}
+            {% set type_training = "RH" %}
+            {% else %}
+            {% set type_training = "AUTRE" %}
+            {% endif %}
+            {# Card training #}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <article class="card bg-white h-100 rounded shadow">
+                    <div class="card-header text-center text-muted">
+                        {{ type_training }}
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title h5">
+                            {{ training.title }}
+                        </h2>
+                        <p class="card-text">
+                            {{ training.description | u.truncate(300, '...') | raw }}
+                        </p>
+                    </div>
+                    <div class="card-footer mb-0">
+                        <a class="btn btn-custom-color btn-block"
+                           href="{{ path('app_training_pdf', {id: training.id}) }}" target="_blank" role="button">
+                            Voir les détails
+                        </a>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="alert alert-danger text-center mt-5">
+            <p class="lead mt-3">Il y a {{ trainings_count }} Formations à afficher pour le moment.</p>
+        </div>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}

@@ -9,11 +9,11 @@ parameters:
     # List of supported locales
     app_locales: en|fr|
     # Directory in which the formation PDF should be stored
-    training_directory: '%kernel.project_dir%/public/uploads/formations'
+    training_directory: "%kernel.project_dir%/public/uploads/formations"
     # Directory in which the contatc uploaded file should be stored
-    contact_directory: '%kernel.project_dir%/public/uploads/contact'
+    contact_directory: "%kernel.project_dir%/public/uploads/contact"
     # Directory src for dompdf
-    dompdf_chroot: '%kernel.project_dir%/public/'
+    dompdf_chroot: "%kernel.project_dir%/public/"
 
 services:
     # default configuration for services in *this* file
@@ -45,5 +45,5 @@ services:
     # service pour la generation et l enregistrement du PDF
     App\Service\Formation\PdfService:
         arguments: 
-            $pdfDirectory: '%training_directory%'
-            $chrootDirectory: '%dompdf_chroot%'
+            $pdfDirectory: "%training_directory%"
+            $chrootDirectory: "%dompdf_chroot%"
