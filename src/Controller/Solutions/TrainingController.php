@@ -28,14 +28,20 @@ class TrainingController extends AbstractController
         if ($categorie == 'rh') {
             return $this->render('training/training_category.html.twig', [
                 'trainings' => $repo->findBy(['humanResources' => true], ['createdAt' => 'DESC']),
-                'titre' => 'Nos formation Ressources Humaines'
+                'icon' => 'users',
+                'titre' => 'Nos formation Ressources Humaines',
+                'btn_label' => 'autres formations',
+                'btn_path' =>'other'
             ]);
         }
 
         if ($categorie == 'other') {
             return $this->render('training/training_category.html.twig', [
                 'trainings' => $repo->findBy(['humanResources' => false], ['createdAt' => 'DESC']),
+                'icon' => 'chalkboard-teacher',
                 'titre' => 'Nos autres formations',
+                'btn_label' => 'formations rh',
+                'btn_path' => 'rh'
             ]);
         }
     }

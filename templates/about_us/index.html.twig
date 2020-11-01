@@ -14,7 +14,7 @@
                 {{ project.name }}
             </span>
         </h1>
-        <p class="text-center text-muted">
+        <p class="h2 text-center text-muted">
             Organisme de formation
         </p>
     </div>
@@ -87,39 +87,10 @@
         <h2 class="text-center">
             Référencé et certifié
         </h2>
-        <div class="row row-cols-1 row-cols-md-2 justify-content-around text-center mt-5">
-            {# I-cert #}
-            <div class="col-md-5 mb-4">
-                <div class="card h-100 rounded shadow">
-                    <img src="{{ asset('build/images/about-us/i-cert.png') | imagine_filter("rectangular_thumb_small") }}"
-                         class="img-fluid mx-auto my-2" alt="I-Cert Logo">
-
-                    <div class="card-body">
-                        <p class="card-text">
-                            <strong class="text-uppercase">{{ project.name }}</strong>, organisme de formation satisfait
-                            aux éxigences du dispostif de certification FAC relatif à la qualité des
-                            actions de la formaiton professionnelle continue.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            {# Datadock #}
-            <div class="col-md-5 mb-4">
-                <div class="card h-100 rounded shadow">
-                    <img src="{{ asset('build/images/about-us/datadock.png') | imagine_filter("rectangular_thumb_small") }}"
-                         class="img-fluid mx-auto my-2" alt="Datadock Logo">
-
-                    <div class="card-body">
-                        <p class="card-text">
-                            <strong class="text-uppercase">{{ project.name }}</strong>, organisme de formation validé et
-                            référencé sur la base Datadock.
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div class="row justify-content-center text-center m-5">
             {# Qualiopi #}
             <div class="col-md-5">
-                <div class="card h-100 rounded shadow">
+                <div class="card h-100 rounded">
                     <img src="{{ asset('build/images/about-us/qualiopi.png') | imagine_filter("rectangular_thumb_small") }}"
                          class="img-fluid mx-auto my-2" alt="Qualiopi Logo">
 
@@ -128,6 +99,39 @@
                             <strong class="text-uppercase">{{ project.name }}</strong>, organisme de formation satisfait
                             aux exigences du Label Qualité Système qui applique la norme ISO 17021 applicables aux
                             organismes de certification contrôlés par le COFRAC
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-around text-center mt-5">
+            {# I-cert #}
+            <div class="col-md-5 mb-4">
+                <div class="card h-100 rounded">
+                    <img src="{{ asset('build/images/about-us/i-cert.png') | imagine_filter("rectangular_thumb_small") }}"
+                         class="img-fluid mx-auto my-2" alt="I-Cert Logo">
+
+                    <div class="card-body">
+                        <p class="card-text">
+                            <strong class="text-uppercase">{{ project.name }}</strong>, organisme de formation
+                            satisfait
+                            aux éxigences du dispostif de certification FAC relatif à la qualité des
+                            actions de la formaiton professionnelle continue.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {# Datadock #}
+            <div class="col-md-5 mb-4">
+                <div class="card h-100 rounded">
+                    <img src="{{ asset('build/images/about-us/datadock.png') | imagine_filter("rectangular_thumb_small") }}"
+                         class="img-fluid mx-auto my-2" alt="Datadock Logo">
+
+                    <div class="card-body">
+                        <p class="card-text">
+                            <strong class="text-uppercase">{{ project.name }}</strong>, organisme de formation
+                            validé et
+                            référencé sur la base Datadock.
                         </p>
                     </div>
                 </div>
@@ -145,7 +149,7 @@
         <div class="row justify-content-around text-center mt-5">
             {# Partners #}
             <div class="col-md-5">
-                <div class="card h-100 rounded shadow">
+                <div class="card h-100 card-hover rounded shadow">
                     {# Icon #}
                     <div class="card-header bg-transparent border-0">
                         <i class="far fa-handshake fa-3x"></i>
@@ -153,10 +157,16 @@
                     {# Titre #}
                     <div class="card-body">
                         <h5 class="card-title">Nos Partenaires</h5>
+                        <p class="card-text">
+                            Les partenaires de
+                            <strong class="text-uppercase">
+                                {{ project.name }}
+                            </strong>
+                        </p>
                     </div>
                     {# Button #}
                     <div class="p-2">
-                        <a href="{{ path('app_our_partners') }}" class="btn btn-custom-color btn-lg btn-block">
+                        <a href="{{ path('app_our_partners') }}" class="btn btn-custom-color btn-sm btn-block">
                             Voir
                         </a>
                     </div>
@@ -164,7 +174,7 @@
             </div>
             {# Clients #}
             <div class="col-md-5">
-                <div class="card h-100 rounded shadow">
+                <div class="card h-100 card-hover rounded shadow">
                     {# Icon #}
                     <div class="card-header bg-transparent border-0">
                         <i class="fas fa-user-check fa-3x"></i>
@@ -172,10 +182,16 @@
                     {# Titre #}
                     <div class="card-body">
                         <h5 class="card-title">Nos Clients</h5>
+                        <p class="card-text">
+                            Les clients de
+                            <strong class="text-uppercase">
+                                {{ project.name }}
+                            </strong>
+                        </p>
                     </div>
                     {# Button #}
                     <div class="p-2">
-                        <a href="{{ path('app_our_clients') }}" class="btn btn-custom-color btn-lg btn-block">
+                        <a href="{{ path('app_our_clients') }}" class="btn btn-custom-color btn-sm btn-block">
                             Voir
                         </a>
                     </div>

@@ -8,16 +8,26 @@
     {# Page header #}
     <div class="page-header">
         <h1 class="text-center">
-            <i class="fas fa-graduation-cap"></i>
-            Partenaire de vos Formations
+            <i class="fas fa-{{ icon }}"></i>
+            {{ titre }}
         </h1>
+    </div>
+
+    {# Buttons: back - Training #}
+    <div class="row justify-content-between mt-4 mx-0">
+        <a class="btn btn-custom-color btn-sm text-left mb-3" href="{{ path('app_training') }}"
+           role="button">
+           <i class="fas fa-angle-double-left mr-2"></i>
+            Retour
+        </a>
+        <a class="btn btn-custom-color btn-sm mb-3" href="{{ path('app_training_category', {categorie: btn_path}) }}" role="button">
+            Voir nos {{ btn_label }}
+            <i class="fas fa-angle-double-right ml-2"></i>
+        </a>
     </div>
 
     {# Section : Trainings list #}
     <section class="my-3 p-2">
-        <h2>
-            {{ titre }}
-        </h2>
         {#  Recupère le nombre de formations #}
         {% set trainings_count = trainings | length %}
         {# Si la tables Partners n'est pas vide on affiche les partners #}

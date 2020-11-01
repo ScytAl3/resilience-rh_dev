@@ -76,8 +76,8 @@
     <div class="container">
         {# Introduction #}
         <div class="text-center text-bg">
-            <h1 class="display-4 text-uppercase mb-4">
-                <span id="logo-left">resilience-</span><span id="logo-right">rh</span>                
+            <h1 class="display-4 logoText-shadow text-uppercase mb-4">
+                <span id="logoText-left">resilience-</span><span id="logoText-right">rh</span>
             </h1>
             <h2 class="h5 mb-4">
                 <em>
@@ -134,7 +134,8 @@
 
                     </div>
                     <div class="p-2">
-                        <a href="{{ path('app_training', {slug: 'rh'}) }}" class="btn btn-custom-color btn-lg btn-block">
+                        <a href="{{ path('app_training_category', {categorie: 'rh'}) }}"
+                           class="btn btn-custom-color btn-block">
                             Voir ces formations
                         </a>
                     </div>
@@ -155,7 +156,8 @@
                         </p>
                     </div>
                     <div class="p-2">
-                        <a href="{{ path('app_training', {slug: 'other'}) }}" class="btn btn-custom-color btn-lg btn-block">
+                        <a href="{{ path('app_training_category', {categorie: 'other'}) }}"
+                           class="btn btn-custom-color btn-block">
                             Voir ces formations
                         </a>
                     </div>
@@ -166,7 +168,7 @@
 </section>
 
 {# Image element : our solutions #}
-<section> 
+<section>
     <div class="bg-img-oursolutions parallax">
         <div class="h2 caption">
             <span class="border text-uppercase">
@@ -176,8 +178,9 @@
     </div>
     {# Content section : other solutions #}
     <div class="container content-layout">
-        {# Cards our solutions #}
-        <div class="row row-cols-1 row-cols-md-3 justify-content-around text-center">
+
+        {# Row #1: Cards our solutions #}
+        <div class="row justify-content-between text-center">
             {# Card Recrutement #}
             <div class="col-md-4 mb-5">
                 <div class="card card-hover h-100 rounded shadow">
@@ -186,9 +189,14 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Espace Recrutement</h5>
+                        <p class="card-text text-justify mt-4">
+                            Vous accompagner dans vos recrutements, dans le respect de la déontologie et de la
+                            confidentialité ; en proposant des solutions souples et adaptées à vos contraintes, pour
+                            cela vous pouvez opter pour l’une de nos 3 solutions.
+                        </p>
                     </div>
                     <div class="p-2">
-                        <a href="{{ path('app_recruitment') }}" class="btn btn-custom-color btn-lg btn-block">
+                        <a href="{{ path('app_recruitment') }}" class="btn btn-custom-color btn-sm btn-block">
                             Voir
                         </a>
                     </div>
@@ -202,14 +210,28 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Bilan de compétences</h5>
+                        <p class="card-text text-justify mt-4">
+                            Pour changer de branche
+                            d’activité, évoluer dans votre entreprise, retrouver un emploi ou simplement faire le point,
+                            le
+                            <strong>
+                                bilan de compétences
+                            </strong>
+                            est souvent une étape utile.
+
+                        </p>
                     </div>
                     <div class="p-2">
-                        <a href="{{ path('app_skills_assessment') }}" class="btn btn-custom-color btn-lg btn-block">
+                        <a href="{{ path('app_skills_assessment') }}" class="btn btn-custom-color btn-sm btn-block">
                             Voir
                         </a>
                     </div>
                 </div>
             </div>
+        </div>
+
+        {# Row #2: Cards our solutions #}
+        <div class="row justify-content-between text-center">
             {# Card Carreer #}
             <div class="col-md-4 mb-5">
                 <div class="card card-hover h-100 rounded shadow">
@@ -218,9 +240,13 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Espace Carrière</h5>
+                        <p class="card-text text-justify mt-4">
+                            Bénéficiez d’un accompagnement individuel avec un spécialiste des Ressources Humaines,
+                            expert en recrutement dans le but d’optimiser votre employabilité.
+                        </p>
                     </div>
                     <div class="p-2">
-                        <a href="{{ path('app_career') }}" class="btn btn-custom-color btn-lg btn-block">
+                        <a href="{{ path('app_career') }}" class="btn btn-custom-color btn-sm btn-block">
                             Voir
                         </a>
                     </div>
@@ -234,25 +260,39 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Espace Orientation</h5>
+                        <p class="card-text text-justify mt-4">
+                            Le choix de l’orientation est un facteur déterminant qui aura un impact fort sur
+                            l’épanouissement personnel.
+                            <br>
+                            Un accompagnement individuel et personnalisé destiné aux collégiens, lycéens et
+                            étudiants.
+                        </p>
                     </div>
                     <div class="p-2">
-                        <a href="{{ path('app_orientation') }}" class="btn btn-custom-color btn-lg btn-block">
+                        <a href="{{ path('app_orientation') }}" class="btn btn-custom-color btn-sm btn-block">
                             Voir
                         </a>
                     </div>
                 </div>
             </div>
+        </div>
+        {# Row #3: Cards our solutions #}
+        <div class="row justify-content-around text-center">
             {# Card Job opportunities #}
-            <div class="col-md-4 mb-5">
+            <div class="col-md-4 mb-3">
                 <div class="card card-hover h-100 rounded shadow">
                     <div class="card-header bg-transparent border-0">
                         <i class="fas fa-user-tie fa-3x"></i>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Offre(s) d'Emploi</h5>
+                        <p class="card-text text-justify mt-4">
+                            Pour une opportunité de carrière ou pportunité de carrière, vous pouvez remplir le
+                            questionnaire de candidature.
+                        </p>
                     </div>
                     <div class="p-2">
-                        <a href="{{ path('app_job_offer') }}" class="btn btn-custom-color btn-lg btn-block">
+                        <a href="{{ path('app_job_offer') }}" class="btn btn-custom-color btn-sm btn-block">
                             Voir
                         </a>
                     </div>
@@ -276,7 +316,7 @@
         <h6 class="text-center">
             Voici ce qu'ils en disent...
         </h6>
-    
+
         {# Récupération du nombre de témoignages #}
         {% set testimonies_count = testimonies | length %}
         {# Si la tables Témoignages n'est pas vide on affiche les témoignages #}
@@ -313,7 +353,7 @@
             </p>
         </div>
         {% endif %}
-    
+
         {# Bouton de redirection vers la page des témoignages #}
         <div class="row text-center mt-5">
             <div class="col-md-12">
@@ -328,8 +368,8 @@
 
 {# Parallax end : training #}
 <section>
-<div class="bg-img-training parallax">
-</div>
+    <div class="bg-img-training parallax">
+    </div>
 </section>
 
 {% endblock %}
