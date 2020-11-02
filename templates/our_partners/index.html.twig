@@ -16,10 +16,9 @@
     {% set partners_count = partners | length %}
     {# Si la tables Partners n'est pas vide on affiche les partners #}
     {% if partners_count > 0 %}
-    {% for row in partners|batch(5) %}
     <div class="row justify-content-around my-5">
-        {% for partner in row %}
-        <div class="mx-2">
+        {% for partner in partners %}
+        <div class="mx-2 mb-4">
             <article class="bg-white h-100 rounded shadow">
                 <div class="mw-100 rounded-top overflow-hidden client-partner">
                     <a href="{{ partner.url }}" target="_blank">
@@ -31,7 +30,6 @@
         </div>
         {% endfor %}
     </div>
-    {% endfor %}
     {% else %}
     <div class="alert alert-danger mt-5 text-center">
         <p class="lead mt-3">Il y a {{ partners_count }} Partenaires à afficher pour le moment.</p>

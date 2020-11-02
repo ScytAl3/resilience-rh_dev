@@ -16,10 +16,9 @@
     {% set clients_count = clients | length %}
     {# Si la tables Clients n'est pas vide on affiche les clients #}
     {% if clients_count > 0 %}
-    {% for row in clients|batch(5) %}
     <div class="row justify-content-around my-5">
-        {% for client in row %}
-        <div class="mx-2">
+        {% for client in clients %}
+        <div class="mx-2 mb-4">
             <article class="bg-white h-100 rounded shadow">
                 <div class="mw-100 rounded-top overflow-hidden client-partner">
                     <a href="{{ client.url }}" target="_blank">
@@ -31,7 +30,6 @@
         </div>
         {% endfor %}
     </div>
-    {% endfor %}
     {% else %}
     <div class="alert alert-danger mt-5 text-center">
         <p class="lead mt-3">Il y a {{ clients_count }} Clients à afficher pour le moment.</p>
