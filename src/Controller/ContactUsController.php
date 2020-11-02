@@ -16,20 +16,50 @@ class ContactUsController extends AbstractController
      */
     public function index(Request $request, ContactService $contactService)
     {
-        // On instancie un nouveau Contact
+        // Booléen pour savoir si un fichier a été uploadé
+        $downloaded = false;
+        // Instanciation d'un nouveau Contact
         $contact = new Contact();
-        // On récupère le builder du formulaire associé à l'entité contact
+        // Récupère le builder du formulaire associé à l'entité contact
         $contactForm = $this->createForm(ContactType::class, $contact);
         $contactForm->handleRequest($request);
-        // Appelle du service pour construire le mail
-        $contactMail = $contactService->buildMail($contact, $contactForm);
-        // Si tout s'est bien déroulé
-        if ($contactMail) {
+
+        if ($contactForm->isSubmitted() && $contactForm->isValid()) {
+            // Création du mail de contact
+            // Passage des parmètres au service pour la création du mail de contact
+            $createMail = $contactService->buildMail(
+                $contact,
+                $contactForm
+            );
+
+            // Récupère le contenu du champ du fichier à uploader
+            $attachedFile = $contactForm->get('uploadFile')->getData();
+
+            // Cette condition est nécessaire car le champ "uploadFile" n'est pas obligatoire
+            // le fichier PDF ne doit donc être traité que lorsqu'un fichier est téléchargé
+            if ($attachedFile) {
+                // Récupère le nom du fichier
+                $attachmentFilename = $contactService->uploadFile($attachedFile);
+                // Ajout du fichier en pièce jointe
+                $contactService->addAttachment($createMail, $attachmentFilename);
+                // Passe le booléen pour savoir si un fichier a été téléchargé à TRUE
+                $downloaded = true;
+            }
+            // Envoi du mail
+            $contactService->sendMail($createMail);
+
+            // Si un fichier a été uploadé le supprime
+            if ($downloaded) {
+                $contactService->deleteUplodedFile($attachmentFilename);             
+            }
+
+            // Redirige vers la page contact 
             return $this->redirectToRoute('app_contact');
         }
+
         // Affiche le formulaire
         return $this->render('contact/index.html.twig', [
             'contactForm' => $contactForm->createView()
-        ]);               
+        ]);
     }
 }
