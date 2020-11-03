@@ -233,9 +233,16 @@ section {
 }
 
 /*------------------------------
-          Contact page
+    Contact & Job offer pages
 -------------------------------*/
 /* Input file french label */
 .custom-file-input:lang(en) ~ .custom-file-label:after {
   content: "Parcourir";
+}
+
+.required:after{
+   color: red;
+   content: "*";
+   position: absolute;
+   margin-left: 4px;
 }
