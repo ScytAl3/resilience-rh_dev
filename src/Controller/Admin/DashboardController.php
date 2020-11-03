@@ -2,12 +2,13 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\User;
 use App\Entity\Client;
 use App\Entity\Partner;
-use App\Entity\Publication;
 use App\Entity\Solution;
-use App\Entity\Testimonial;
 use App\Entity\Training;
+use App\Entity\Publication;
+use App\Entity\Testimonial;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -40,7 +41,7 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::section('Dashboard', 'fa fa-table');
 
-        // Section relative à la gestion des entités
+        // Section relative à la gestion des pages dynamiques
         yield MenuItem::linkToCrud('Publications', 'fas fa-thumbtack', Publication::class)
             ->setDefaultSort(['title' => 'ASC']);
         yield MenuItem::linkToCrud('Formations', 'fas fa-graduation-cap', Training::class)
@@ -51,6 +52,9 @@ class DashboardController extends AbstractDashboardController
             ->setDefaultSort(['title' => 'ASC']);
         yield MenuItem::linkToCrud('Partenaires', 'far fa-handshake', Partner::class)
             ->setDefaultSort(['title' => 'ASC']);
+
+        // Section relative aux utilisateurs
+        yield MenuItem::linkToCrud('User', 'fa fa-users', User::class);
 
         // Section relative à la navigation sur le site
         yield MenuItem::section('Navigation', 'fa fa-folder-open');
