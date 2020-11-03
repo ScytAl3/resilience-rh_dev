@@ -17,10 +17,13 @@ use EasyCorp\Bundle\EasyAdminBundle\Router\CrudUrlGenerator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
+/**
+ * @IsGranted("ROLE_ADMIN")
+ */
 class DashboardController extends AbstractDashboardController
 {
     /**
-     * @Route("/g0d-m0D", name="app_admin_dashboard")
+     * @Route("/admin", name="app_admin_dashboard")
      */
     public function index(): Response
     {
