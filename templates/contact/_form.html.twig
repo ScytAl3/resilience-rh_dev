@@ -46,22 +46,21 @@
 {# Row: upload #}
 <div class="row mb-3">
     <div class="col-md-12">
-        <div>
-            <div class="row mx-0">
-                {{ form_label(contactForm.uploadFile, null, {
+        <div class="row mx-0">
+            {{ form_label(contactForm.uploadFile, null, {
                                 'label_attr': {'class': 'mr-2'}
-                            }) }}
-                {{ form_help(contactForm.uploadFile) }}
-            </div>
-            {{ form_widget(contactForm.uploadFile, {
+                            }) 
+                }}
+            {{ form_help(contactForm.uploadFile) }}
+        </div>
+        {{ form_widget(contactForm.uploadFile, {
                 'attr':  {
                     'placeholder': 'Choisissez un fichier',
                 }
             }) }}
 
-            <div class="form-error">
-                {{ form_errors(contactForm.uploadFile) }}
-            </div>
+        <div class="form-error">
+            {{ form_errors(contactForm.uploadFile) }}
         </div>
     </div>
 </div>
@@ -83,6 +82,13 @@
     </div>
 </div>
 
+{# CheckBox : RGPD #}
+<div class="row mb-5 mx-0">
+    <div class="col-md-12 bg-agreeTerms rounded p-3">
+        {{ form_row(contactForm.agreeTerms) }}
+    </div>
+</div>
+
 {# Button: send #}
 <div class="row justify-content-around mt-4 mx-0">
     <button class="btn btn-custom-color btn-lg col-md-4 mb-3" type="submit">
@@ -93,4 +99,4 @@
     </button>
 </div>
 
-{{ form_end(form) }}
+{{ form_end(contactForm) }}
