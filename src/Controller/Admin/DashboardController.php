@@ -54,7 +54,8 @@ class DashboardController extends AbstractDashboardController
             ->setDefaultSort(['title' => 'ASC']);
 
         // Section relative aux utilisateurs
-        yield MenuItem::linkToCrud('User', 'fa fa-users', User::class);
+        yield MenuItem::section('Authorisation', 'fas fa-lock');
+        yield MenuItem::linkToCrud('Users', 'fa fa-users', User::class);
 
         // Section relative à la navigation sur le site
         yield MenuItem::section('Navigation', 'fa fa-folder-open');

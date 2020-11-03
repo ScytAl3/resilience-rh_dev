@@ -47,6 +47,12 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * Clear password for backend
+     * @var string
+     */
+    private $clearPassword;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,6 +112,24 @@ class User implements UserInterface
         $this->password = $password;
 
         return $this;
+    }
+
+    /**
+     * @return string 
+     */
+    public function getClearPassword(): string
+    {
+        if ($this->clearPassword == null) return "";
+        return $this->clearPassword;
+    }
+
+    /**
+     * @param string $clearPassword 
+     * @return void 
+     */
+    public function setClearPassword(?string $clearPassword): void
+    {
+        $this->clearPassword = $clearPassword;
     }
 
     /**
