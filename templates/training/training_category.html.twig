@@ -15,12 +15,12 @@
 
     {# Buttons: back - Training #}
     <div class="row justify-content-between mt-4 mx-0">
-        <a class="btn btn-custom-color btn-sm text-left mb-3" href="{{ path('app_training') }}"
-           role="button">
-           <i class="fas fa-angle-double-left mr-2"></i>
+        <a class="btn btn-custom-color btn-sm text-left mb-3" href="{{ path('app_training') }}" role="button">
+            <i class="fas fa-angle-double-left mr-2"></i>
             Retour
         </a>
-        <a class="btn btn-custom-color btn-sm mb-3" href="{{ path('app_training_category', {categorie: btn_path}) }}" role="button">
+        <a class="btn btn-custom-color btn-sm mb-3" href="{{ path('app_training_category', {categorie: btn_path}) }}"
+           role="button">
             Voir nos {{ btn_label }}
             <i class="fas fa-angle-double-right ml-2"></i>
         </a>
@@ -51,9 +51,9 @@
                         <h2 class="card-title h5">
                             {{ training.title }}
                         </h2>
-                        <p class="card-text">
-                            {{ training.description | u.truncate(300, '...') | raw }}
-                        </p>
+                        <div class="card-text">
+                            {{ training.description | striptags('<br><ul><li><p>') |u.truncate(300, '...') | raw }}
+                        </div>
                     </div>
                     <div class="card-footer mb-0">
                         <a class="btn btn-custom-color btn-block"

@@ -13,9 +13,41 @@
         </h1>
     </div>
 
-    {# Section : Introduction #}
-    <section class="my-5 p-2">
-        <div class="text-muted">
+    {# Section : Job offers #}
+    <section class="my-3 p-2">
+        {# récupère le nombre d'offres d'emploi #}
+        {% set job_offers_count = jobOffers | length %}
+        {# Si la tables jobOffers n'est pas vide on affiche les offres #}
+        {% if job_offers_count > 0 %}
+        {# Row job offers list #}
+        <div class="row justify-content-around my-5">
+            {% for jobOffer in jobOffers %}
+            {# Card jobOffer #}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <article class="card bg-white h-100 rounded shadow">
+                    <div class="card-header text-center text-muted">
+                        {{ jobOffer.contract }}
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title h5">
+                            {{ jobOffer.title }}
+                        </h2>
+                        <div class="card-text">
+                            {{ jobOffer.presentation | striptags('<br><ul><li><p>') | u.truncate(300, '...') | raw }}
+                        </div>
+                    </div>
+                    <div class="card-footer mb-0">
+                        <a class="btn btn-custom-color btn-block"
+                           href="{{ path('app_training_pdf', {id: jobOffer.id}) }}" target="_blank" role="button">
+                            Voir les détails
+                        </a>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-muted bg-agreeTerms rounded mt-5 p-3">
             <p>
                 <strong class="text-uppercase">
                     {{ project.name }}
@@ -23,14 +55,20 @@
                 ne propose pas actuellement d'opportunité de carrière ; vous pouvez remplir le questionnaire ci-dessous
                 pour une candidature spontanée.
             </p>
-            <h2 class="text-center mt-4">
-                <u>
-                    Candidature spontanée
-                </u>
-            </h2>
         </div>
+        {% endif %}
+    </section>
+
+    <hr>
+    {# Section : Candidature #}
+    <section class="my-3 p-2">
+        <h2 class="text-center mt-5">
+            <u>
+                Candidature et candidature spontanée
+            </u>
+        </h2>
         {# Spontaneous application form include #}
-        <div class="my-5">
+        <div class="my-5 pt-4">
             {{ include('job_offer/_form.html.twig', {form: candidatureForm})  }}
         </div>
     </section>

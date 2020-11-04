@@ -4,6 +4,7 @@ namespace App\Controller\Solutions;
 
 use App\Entity\Candidature;
 use App\Form\CandidatureType;
+use App\Repository\JobOfferRepository;
 use App\Service\Candidature\CandidatureService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,21 +15,44 @@ class JobOfferController extends AbstractController
     /**
      * @Route("/offre-emploi", name="app_job_offer", methods={"GET", "POST"})
      */
-    public function index(Request $request, CandidatureService $candidatureService)
+    public function index(JobOfferRepository $repo, Request $request, CandidatureService $candidatureService)
     {
-        // On instancie un nouveau Contact
+        // Récupère les offres d'emploi en cours
+        $jobOffers = $repo->findBy(['isValid' => true], ['createdAt' => 'DESC']);
+        // Instanciation d'un nouveau Contact
         $candidature = new Candidature();
-        // On récupère le builder du formulaire associé à l'entité contact
+        // Récupère le builder du formulaire associé à l'entité contact
         $candidatureForm = $this->createForm(CandidatureType::class, $candidature);
         $candidatureForm->handleRequest($request);
-        // Appelle du service pour construire le mail de candidature spontanée
-        $sendMail = $candidatureService->buildMail($candidature, $candidatureForm);
-        // Si tout s"est bien déroulé
-        if ($sendMail) {
+
+        if ($candidatureForm->isSubmitted() && $candidatureForm->isValid()) {
+            // Récupère le contenu du champ fichier uploadé
+            $attachedFile = $candidatureForm->get('uploadFile')->getData();
+            // Récupère le nom du fichier uploadé
+            $attachmentFilename = $candidatureService->uploadFile($attachedFile);
+
+            // Création du mail de contact
+            // Passage des parmètres au service pour la création du mail de contact
+            $createMail = $candidatureService->buildMail(
+                $candidature,
+                $candidatureForm
+            );
+            // Ajout du fichier en pièce jointe
+            $candidatureService->addAttachment($createMail, $attachmentFilename);
+
+            // Envoi du mail
+            $candidatureService->sendMail($createMail);
+
+            // Suppression du CV uploadé
+            $candidatureService->deleteUplodedFile($attachmentFilename);
+
+            // Redirige vers la page des offre(s) d'emploi
             return $this->redirectToRoute('app_job_offer');
         }
+
         // Affiche le formulaire 
         return $this->render('job_offer/index.html.twig', [
+            'jobOffers' => $jobOffers,
             'candidatureForm' => $candidatureForm->createView()
         ]);
     }

@@ -2,9 +2,12 @@
 
 namespace App\Form;
 
+use App\Entity\JobOffer;
 use App\Entity\Candidature;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -26,6 +29,18 @@ class CandidatureType extends AbstractType
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Votre email',
+            ])
+            ->add('jobOffer', EntityType::class, [
+                'mapped' => false,
+                'required' => false,
+                'placeholder' => 'Candidature spontanée',
+                'class' => JobOffer::class,
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->andWhere('u.isValid = true')
+                        ->orderBy('u.title', 'ASC');
+                },
+                'choice_label' => 'title',
             ])
             ->add('uploadFile', FileType::class, [
                 'mapped' => false,
