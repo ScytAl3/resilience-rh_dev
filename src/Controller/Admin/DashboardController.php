@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use App\Entity\Client;
+use App\Entity\JobOffer;
 use App\Entity\Partner;
 use App\Entity\Solution;
 use App\Entity\Training;
@@ -51,6 +52,7 @@ class DashboardController extends AbstractDashboardController
             ->setDefaultSort(['title' => 'ASC']);
         yield MenuItem::linkToCrud('Solutions', 'fas fa-list-ol', Solution::class);
         yield MenuItem::linkToCrud('Témoignages', 'fas fa-comment-dots', Testimonial::class);
+        yield MenuItem::linkToCrud('Offres d\'emploi', 'fas fa-user-tie', JobOffer::class);
         yield MenuItem::linkToCrud('Clients', 'fas fa-user-check', Client::class)
             ->setDefaultSort(['title' => 'ASC']);
         yield MenuItem::linkToCrud('Partenaires', 'far fa-handshake', Partner::class)
