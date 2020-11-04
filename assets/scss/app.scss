@@ -179,6 +179,33 @@ section {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
+  @media only screen and (max-device-width: 1366px) {
+    .parallax {
+      background-attachment: scroll;
+    }
+  }
+  .bg-img-training {
+    background-image: url($bg-img-1);
+    background-position: center center;
+    /* Force the background image to fill the whole element. */
+    background-size: cover;
+    /* Keep the image from overlapping sibling elements. */
+    z-index: -1;
+    height: 75vh;
+    // min-height: 600px;
+  }
+  .bg-img-oursolutions {
+    background-image: url($bg-img-2);
+    min-height: 550px;
+  }
+  .bg-img-feedback {
+    background-image: url($bg-img-3);
+    min-height: 550px;
   }
   .caption {
     position: absolute;
@@ -197,27 +224,14 @@ section {
       span.border {
         font-size: 15px;
       }
-    }    
+    }
   }
   .card-custom-bg {
-      background-color: #fafafa;
-    }
+    background-color: #fafafa;
+  }
   .card-hover:hover {
     box-shadow: 0 0.5rem 2rem rgba(1, 13, 182, 0.15) !important;
   }
-}
-
-.bg-img-training {
-  background-image: url($bg-img-1);
-  min-height: 600px;
-}
-.bg-img-oursolutions {
-  background-image: url($bg-img-2);
-  min-height: 550px;
-}
-.bg-img-feedback {
-  background-image: url($bg-img-3);
-  min-height: 550px;
 }
 
 /*------------------------------
@@ -240,11 +254,11 @@ section {
   content: "Parcourir";
 }
 
-.required:after{
-   color: red;
-   content: "*";
-   position: absolute;
-   margin-left: 4px;
+.required:after {
+  color: red;
+  content: "*";
+  position: absolute;
+  margin-left: 4px;
 }
 
 .bg-agreeTerms {
