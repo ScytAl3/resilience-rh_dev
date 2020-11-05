@@ -8,12 +8,14 @@ parameters:
     locale: 'fr'
     # List of supported locales
     app_locales: en|fr|
-    # Directory in which the formation PDF should be stored
-    training_directory: "%kernel.project_dir%/public/uploads/formations"
-    # Directory in which the contatc uploaded file should be stored
+    # Directory in which the contact uploaded file should be stored
     contact_directory: "%kernel.project_dir%/public/uploads/contact"
     # Directory src for dompdf
     dompdf_chroot: "%kernel.project_dir%/public/"
+    # Directory in which the formation PDF should be stored
+    training_directory: "%kernel.project_dir%/public/uploads/formations"
+    # Directory in which the formation PDF should be stored
+    jobOffer_directory: "%kernel.project_dir%/public/uploads/jobOffers"       
 
 services:
     # default configuration for services in *this* file
@@ -42,8 +44,13 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    # service pour la generation et l enregistrement du PDF
+    # service pour la generation et l enregistrement des PDF
     App\Service\Formation\PdfService:
         arguments: 
             $pdfDirectory: "%training_directory%"
+            $chrootDirectory: "%dompdf_chroot%"
+
+    App\Service\Offre_emploi\PdfJobService:
+        arguments: 
+            $pdfJobDirectory: "%jobOffer_directory%"
             $chrootDirectory: "%dompdf_chroot%"

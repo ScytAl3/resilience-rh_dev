@@ -2,11 +2,13 @@
 
 namespace App\Controller\Solutions;
 
+use App\Entity\JobOffer;
 use App\Entity\Candidature;
 use App\Form\CandidatureType;
 use App\Repository\JobOfferRepository;
-use App\Service\Candidature\CandidatureService;
+use App\Service\Offre_emploi\PdfJobService;
 use Symfony\Component\HttpFoundation\Request;
+use App\Service\Candidature\CandidatureService;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -55,5 +57,17 @@ class JobOfferController extends AbstractController
             'jobOffers' => $jobOffers,
             'candidatureForm' => $candidatureForm->createView()
         ]);
+    }
+
+    /**
+     * @Route("/offre-emploi/{id<[0-9]+>}/pdf", name="app_job_offer_pdf", methods={"GET"})
+     * @param JobOffer $jobOffer 
+     * @param PdfJobService $pdfJobService 
+     * @return void 
+     */
+    public function showOfferPdf(JobOffer $jobOffer, PdfJobService $pdfJobService)
+    {
+        $pdfJobService->getJobOfferPdf($jobOffer);
+        exit;
     }
 }

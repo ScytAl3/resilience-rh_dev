@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+
+    <head>
+        {# Default meta tags #}
+        <meta charset="UTF-8">
+        {# Title #}
+        <title>
+            {% block title %}
+            {{ job.slug}} | {{ project.name }}
+            {% endblock %}
+        </title>
+
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('build/training-pdf.css')[1:] }}">
+        {% endblock %}
+    </head>
+
+    <body class="d-flex flex-column p-2">
+
+        {# Footer du tableau #}
+        <footer>
+            <table>
+                <tbody>
+                    <tr class="text-muted">
+                        <td class="text-center xxsmall" colspan="2">
+                            <strong class="text-uppercase">resilience-rh</strong> - 6, place au bois 57100 Thionville
+                            <br>
+                            Siret : 80112329000018 - SARL au capital de 2000€ - R.C.S. Thionville TI 801123290 – TVA
+                            : FR09801123290 – DIRECCTE : 4157033755741570337557
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </footer>
+
+        {# Layout for PDF files #}
+        <main role="main">
+
+            <table>
+                {# Entête du tableau : logos #}
+                <thead>
+                    <tr>
+                        <th class="pb-3" colspan="2">
+                            {# uncomment the line ;extension=gd2 in the php.in file #}
+                            <img src="{{ asset('build/images/default/Resilience-RH_small.png')[1:] }}" height="80"
+                                 alt="{{ project.name }} logo">
+                        </th>
+                    </tr>
+                </thead>
+                {# Corps du tableau #}
+                <tbody>
+                    {# Row : Introduction #}
+                    <tr>
+                        <td class="text-justify" colspan="2">
+                            <div class="mt-2">
+                                {{ job.introduction | raw }} <strong class="text-uppercase">resilience-rh</strong>
+                                recherche :
+                            </div>
+                        </td>
+                    </tr>
+                    {# Row : Titre & contrat #}
+                    <tr>
+                        <td class="text-center" colspan="2">
+                            <h2 class="mb-0">
+                                {{ job.title | raw }}
+                            </h2>
+                            <p class="mt-0">
+                                {{ job.contract | raw }}
+                            </p>
+                        </td>
+                    </tr>
+                    {# Row : Présentation du poste #}
+                    <tr>
+                        <td class="text-justify" colspan="2">
+                            <div class="py-2">
+                                {{ job.presentation | raw }}
+                            </div>
+                        </td>
+                    </tr>
+                    {# Row : Mission #}
+                    <tr>
+                        <td class="text-justify" colspan="2">
+                            <h4 class="border-bottom mt-2 mb-1">
+                                Votre mission
+                            </h4>
+                            <div class="py-2">
+                                {{ job.mission | raw }}
+                            </div>
+                        </td>
+                    </tr>
+                    {# Row : Profil #}
+                    <tr>
+                        <td class="text-justify" colspan="2">
+                            <h4 class="border-bottom mt-2 mb-1">
+                                Votre profil
+                            </h4>
+                            <div class="py-2">
+                                {{ job.profile | raw }}
+                            </div>
+                        </td>
+                    </tr>
+                    {# Row 1 : Informations complémentaires #}
+                    <tr>
+                        <td>
+                            <div class="mb-1">
+                                <strong>Type de contrat : </strong>
+                                <span class=""></span>{{ job.contractType }}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="mb-1">
+                                <strong>Lieu : </strong>
+                                {{ job.location }}
+                            </div>
+                        </td>
+                    </tr>
+                    {# Row 2 : Informations complémentaires #}
+                    <tr>
+                        <td>
+                            <div class="mb-2">
+                                <strong>Rémunération : </strong>
+                                {{ job.remuneration }}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="mb-2">
+                                <strong>Date de prise de fonction : </strong>
+                                {{ job.startDate }}
+                            </div>
+                        </td>
+                    </tr>
+                    {# Row : Interested #}
+                    <tr>
+                        <td class="xsmall pt-3 pb-2" colspan="2">
+                            <div>
+                                Vous êtes intéressé(e) par un travail motivant dans un environnement diversifié, alors
+                                postulez en utilisant l’adresse mail ci-dessous, en y joignant votre CV :
+                            </div>
+                        </td>
+                    </tr>
+                    {# Row : Application #}
+                    <tr>
+                        <td class="text-center xsmall" colspan="2">
+                            <a class="a-custom" href="mailto:contact@resilience-rh.com">
+                                <span class="">
+                                    recrutement@resilience-rh.com
+                                </span>
+                            </a>
+                            <p class="">
+                                Toutes les candidatures seront étudiées en toute <strong>confidentialité</strong>.
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </main>
+    </body>
+
+</html>

@@ -38,12 +38,35 @@ h6 {
   text-transform: uppercase;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left ;
+}
+
 .text-right {
   text-align: right ;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
+
 div, li {
   font-size: smaller;
+}
+
+.small {
+  font-size: small;
+  font-weight: 400;
+}
+
+.smaller {
+  font-size: smaller;
+  font-weight: 400;
 }
 
 .xsmall {
@@ -51,9 +74,19 @@ div, li {
   font-weight: 400;
 }
 
+.xxsmall {
+  font-size: xx-small;
+  font-weight: 400;
+}
+
 a:link {
   text-decoration: none;
   color: #6c757d;
+}
+
+.a-custom:link {
+  text-decoration: underline;
+  color: blue;
 }
 
 /* Spacing */
@@ -63,6 +96,10 @@ a:link {
 
 .m-0 {
   margin: 0;
+}
+
+.p-2 {
+  padding: 0.5em;
 }
 
 .pr-0,
@@ -125,6 +162,15 @@ a:link {
   padding-bottom: 0.5rem;
 }
 
+.pt-3,
+.py-3 {
+  padding-top: 0.75rem;
+}
+
+.pb-3,
+.py-3 {
+  padding-bottom: 0.75rem;
+}
 /*----------------------------
             Table
 -----------------------------*/
@@ -162,6 +208,10 @@ table {
 
 .border-bottom-right {
   border-bottom: 4px solid #6c757d;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #000;
 }
 
 .td-vertical-align {
