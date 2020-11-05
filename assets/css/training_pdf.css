@@ -112,6 +112,11 @@ a:link {
   margin-right: 0;
 }
 
+.ml-0,
+.mx-0 {
+  margin-left: 0;
+}
+
 .mb-0,
 .my-0 {
   margin-bottom: 0;
@@ -171,9 +176,17 @@ a:link {
 .py-3 {
   padding-bottom: 0.75rem;
 }
+
+.mr-3, 
+.mx-3 {
+  margin-right: 0.75em;
+}
 /*----------------------------
             Table
 -----------------------------*/
+.justify-content-between {
+  justify-content: space-between;
+}
 
 .d-flex {
   display: flex;
