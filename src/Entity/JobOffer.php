@@ -35,6 +35,7 @@ class JobOffer
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      * @Assert\Length(
      *      min = 10,
      *      minMessage = "Le texte doit comporter au moins {{ limit }} caractères",
@@ -48,7 +49,7 @@ class JobOffer
      * @Assert\NotBlank
      * @Assert\Length(
      *      min = 3,
-     *      minMessage = "Le titre de l'offre' doit comporter au moins {{ limit }} caractères",
+     *      minMessage = "Le titre de l'offre doit comporter au moins {{ limit }} caractères",
      *      allowEmptyString = false
      * )
      */
@@ -56,9 +57,10 @@ class JobOffer
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      * @Assert\Length(
      *      min = 3,
-     *      minMessage = "Le titre de l'offre' doit comporter au moins {{ limit }} caractères",
+     *      minMessage = "Le contrat de l'offre doit comporter au moins {{ limit }} caractères",
      *      allowEmptyString = false
      * )
      */
@@ -66,6 +68,7 @@ class JobOffer
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      * @Assert\Length(
      *      min = 10,
      *      minMessage = "Le texte doit comporter au moins {{ limit }} caractères",
@@ -76,6 +79,7 @@ class JobOffer
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      * @Assert\Length(
      *      min = 10,
      *      minMessage = "Le texte doit comporter au moins {{ limit }} caractères",
@@ -86,6 +90,7 @@ class JobOffer
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      * @Assert\Length(
      *      min = 10,
      *      minMessage = "Le texte doit comporter au moins {{ limit }} caractères",
@@ -98,6 +103,50 @@ class JobOffer
      * @ORM\Column(type="boolean", options={"default": true})
      */
     private $isValid;
+
+    /**
+     * @ORM\Column(type="string", length=255, options={"default": "CDI"})
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 3,
+     *      minMessage = "Le type de contrat doit comporter au moins {{ limit }} caractères",
+     *      allowEmptyString = false
+     * )
+     */
+    private $contractType;
+
+    /**
+     * @ORM\Column(type="string", length=255, options={"default": "Région lorraine"})
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 3,
+     *      minMessage = "Le lieu de l'offre doit comporter au moins {{ limit }} caractères",
+     *      allowEmptyString = false
+     * )
+     */
+    private $location;
+
+    /**
+     * @ORM\Column(type="string", length=255, options={"default": "fixe + primes"})
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 3,
+     *      minMessage = "La rémunération doit comporter au moins {{ limit }} caractères",
+     *      allowEmptyString = false
+     * )
+     */
+    private $remuneration;
+
+    /**
+     * @ORM\Column(type="string", length=255, options={"default": "au plus tôt"})
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 3,
+     *      minMessage = "La date de prise de fonction doit comporter au moins {{ limit }} caractères",
+     *      allowEmptyString = false
+     * )
+     */
+    private $startDate;
 
     #endregion
 
@@ -206,6 +255,54 @@ class JobOffer
     public function setIsValid(bool $isValid): self
     {
         $this->isValid = $isValid;
+
+        return $this;
+    }
+
+    public function getContractType(): ?string
+    {
+        return $this->contractType;
+    }
+
+    public function setContractType(string $contractType): self
+    {
+        $this->contractType = $contractType;
+
+        return $this;
+    }
+
+    public function getLocation(): ?string
+    {
+        return $this->location;
+    }
+
+    public function setLocation(string $location): self
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    public function getRemuneration(): ?string
+    {
+        return $this->remuneration;
+    }
+
+    public function setRemuneration(string $remuneration): self
+    {
+        $this->remuneration = $remuneration;
+
+        return $this;
+    }
+
+    public function getStartDate(): ?string
+    {
+        return $this->startDate;
+    }
+
+    public function setStartDate(string $startDate): self
+    {
+        $this->startDate = $startDate;
 
         return $this;
     }

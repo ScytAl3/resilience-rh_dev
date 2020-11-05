@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Factory\FormFactory;
 
 class JobOfferCrudController extends AbstractCrudController
 {
@@ -34,6 +35,11 @@ class JobOfferCrudController extends AbstractCrudController
             ->setNumOfRows(7);
         $profile = TextEditorField::new('profile', 'Profil')
             ->setNumOfRows(7);
+        // Information complémentaires
+        $contractType = TextField::new('contractType', 'Type de contrat');
+        $location = TextField::new('location', 'Localisation du poste');
+        $remuneration = TextField::new('remuneration', 'Rémunération');
+        $startDate = TextField::new('startDate', 'Date de prise de fonction');
         // Si page index on affiche les informations que l'on souhaite
         if (Crud::PAGE_INDEX === $pageName) {
             return [$id, $name, $isValid, $presentation];
@@ -44,6 +50,9 @@ class JobOfferCrudController extends AbstractCrudController
             $isValid, $introduction, $name, $contract,
             FormField::addPanel('Détails de l\'offre'),
             $presentation, $mission, $profile,
+            FormField::addPanel('Informations complémentaires'),
+            $contractType, $location,
+            $remuneration, $startDate,
         ];
     }
 }
