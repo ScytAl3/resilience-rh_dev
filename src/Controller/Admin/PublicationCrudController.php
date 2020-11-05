@@ -28,14 +28,15 @@ class PublicationCrudController extends AbstractCrudController
         // Publication image
         $imageFile = ImageField::new('imageFile')
             ->setLabel('Image (JPEG or PNG file)')
+            ->setHelp('idéalement de dimension 900x300')
             ->setFormType(VichImageType::class)->setFormTypeOptions([
                 'allow_delete' => true,
             ]);
         $image = ImageField::new('imageName', 'Image')
             ->setBasePath('uploads/publications');
         // Publication title
-        $title = TextField::new('title', 'Titre de la formation');
-        $description = TextEditorField::new('description', 'Description')
+        $title = TextField::new('title', 'Titre de la publication');
+        $description = TextEditorField::new('description', 'Contenu')
             ->setNumOfRows(10);
         $create = DateField::new('createdAt', 'Publiée le');
         // Si page index on affiche les informations que l'on souhaite
@@ -46,7 +47,7 @@ class PublicationCrudController extends AbstractCrudController
         return [
             FormField::addPanel('Image'),
             $imageFile,
-            FormField::addPanel('Basic information'),
+            FormField::addPanel('Publication'),
             $title, $description, $create
         ];
     }
