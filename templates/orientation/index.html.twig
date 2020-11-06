@@ -15,111 +15,113 @@
 
     {# Section : Introduction #}
     <section class="my-5 p-2">
-        <div class="text-muted">
-            <p>
-                <strong class="text-uppercase">
-                    {{ project.name }}
-                </strong>
-                , vous accompagne dans votre orientation.
-                <br>
-                En effet, le choix de l’orientation est un facteur déterminant qui aura un impact fort sur
-                l’épanouissement personnel.
-            </p>
-            <p>
-                <strong class="text-uppercase">
-                    {{ project.name }}
-                </strong>
-                met en place un accompagnement individuel et personnalisé destiné aux :
-            </p>
-            {# Cards orientation support #}
-            <div class="pt-5">
-                <div class="row row-cols-1 row-cols-md-3 justify-content-around text-center">
-                    {# Card Schoolchildren #}
-                    <div class="col-md-3 mb-5">
-                        <div class="card h-100 rounded shadow">
-                            <h5 class="card-header bg-transparent border-0">
-                                Collégiens
-                            </h5>
-                            <div class="card-body">
-                                <i class="fas fa-school fa-3x"></i>
-                            </div>
-                            <div class="p-2">
-                                <a href="{{ path('app_orientation', {'_fragment': 'anchor-school'}) }}"
-                                   class="btn btn-custom-color btn-sm btn-block">
-                                    Voir
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    {# Card High school students #}
-                    <div class="col-md-3 mb-5">
-                        <div class="card h-100 rounded shadow">
-                            <h5 class="card-header bg-transparent border-0">
-                                Lycéens
-                            </h5>
-                            <div class="card-body">
-                                <i class="fas fa-university fa-3x"></i>
-                            </div>
-                            <div class="p-2">
-                                <a href="{{ path('app_orientation', {'_fragment': 'anchor-highschool'}) }}"
-                                   class="btn btn-custom-color btn-sm btn-block">
-                                    Voir
-                                </a>
+        <div class="row">
+            <div class="col-12 text-muted">
+                <p>
+                    <strong class="text-uppercase">
+                        {{ project.name }}
+                    </strong>
+                    , vous accompagne dans votre orientation.
+                    <br>
+                    En effet, le choix de l’orientation est un facteur déterminant qui aura un impact fort sur
+                    l’épanouissement personnel.
+                </p>
+                <p>
+                    <strong class="text-uppercase">
+                        {{ project.name }}
+                    </strong>
+                    met en place un accompagnement individuel et personnalisé destiné aux :
+                </p>
+                {# Cards orientation support #}
+                <div class="pt-5">
+                    <div class="row row-cols-1 row-cols-md-3 justify-content-around text-center">
+                        {# Card Schoolchildren #}
+                        <div class="col-md-3 mb-5">
+                            <div class="card h-100 rounded shadow">
+                                <h5 class="card-header bg-transparent border-0">
+                                    Collégiens
+                                </h5>
+                                <div class="card-body">
+                                    <i class="fas fa-school fa-3x"></i>
+                                </div>
+                                <div class="p-2">
+                                    <a href="{{ path('app_orientation', {'_fragment': 'anchor-school'}) }}"
+                                       class="btn btn-custom-color btn-sm btn-block">
+                                        Voir
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    {# Card Students #}
-                    <div class="col-md-3 mb-5">
-                        <div class="card h-100 rounded shadow">
-                            <h6 class="card-header bg-transparent border-0">
-                                Étudiants
-                            </h6>
-                            <div class="card-body">
-                                <i class="fas fa-graduation-cap fa-3x"></i>
+                        {# Card High school students #}
+                        <div class="col-md-3 mb-5">
+                            <div class="card h-100 rounded shadow">
+                                <h5 class="card-header bg-transparent border-0">
+                                    Lycéens
+                                </h5>
+                                <div class="card-body">
+                                    <i class="fas fa-university fa-3x"></i>
+                                </div>
+                                <div class="p-2">
+                                    <a href="{{ path('app_orientation', {'_fragment': 'anchor-highschool'}) }}"
+                                       class="btn btn-custom-color btn-sm btn-block">
+                                        Voir
+                                    </a>
+                                </div>
                             </div>
-                            <div class="p-2">
-                                <a href="{{ path('app_orientation', {'_fragment': 'anchor-studient'}) }}"
-                                   class="btn btn-custom-color btn-sm btn-block">
-                                    Voir
-                                </a>
+                        </div>
+                        {# Card Students #}
+                        <div class="col-md-3 mb-5">
+                            <div class="card h-100 rounded shadow">
+                                <h6 class="card-header bg-transparent border-0">
+                                    Étudiants
+                                </h6>
+                                <div class="card-body">
+                                    <i class="fas fa-graduation-cap fa-3x"></i>
+                                </div>
+                                <div class="p-2">
+                                    <a href="{{ path('app_orientation', {'_fragment': 'anchor-studient'}) }}"
+                                       class="btn btn-custom-color btn-sm btn-block">
+                                        Voir
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {# Alert - success #}
+                <div class="alert alert-success text-muted" role="alert">
+                    <p>
+                        Réaliser une bonne ou une mauvaise orientation a des impacts sur l’avenir professionnel.
+                    </p>
+                    <p>
+                        Réaliser un choix pertinent de son orientation, et donc ce que l’on peut qualifier de « bonne
+                        orientation », permet d’obtenir facilement son premier emploi et s’y épanouir professionnellement et
+                        donc personnellement.
+                    </p>
+                    <hr>
+                    <p class="mb-0">
+                        Le métier choisi correspondant à ses motivations personnelles, à sa personnalité.
+                    </p>
+                </div>
+                {# Alert - danger #}
+                <div class="alert alert-danger text-muted" role="alert">
+                    <p>
+                        A l’inverse, un choix inapproprié de son orientation ne permettra cet épanouissement. Les chances de
+                        trouver rapidement un emploi seront réduites.
+                    </p>
+                    <hr>
+                    <p class="mb-0">
+                        Le métier ne correspondant pas à ses motivations personnelles et sa personnalité, il correspondra à
+                        une
+                        situation « imposée » et « non choisie ».
+                    </p>
+                </div>
+                <p class="h5 mt-4">
+                    <strong>
+                        Le choix d’une bonne orientation est donc crucial !!!
+                    </strong>
+                </p>
             </div>
-            {# Alert - success #}
-            <div class="alert alert-success text-muted" role="alert">
-                <p>
-                    Réaliser une bonne ou une mauvaise orientation a des impacts sur l’avenir professionnel.
-                </p>
-                <p>
-                    Réaliser un choix pertinent de son orientation, et donc ce que l’on peut qualifier de « bonne
-                    orientation », permet d’obtenir facilement son premier emploi et s’y épanouir professionnellement et
-                    donc personnellement.
-                </p>
-                <hr>
-                <p class="mb-0">
-                    Le métier choisi correspondant à ses motivations personnelles, à sa personnalité.
-                </p>
-            </div>
-            {# Alert - danger #}
-            <div class="alert alert-danger text-muted" role="alert">
-                <p>
-                    A l’inverse, un choix inapproprié de son orientation ne permettra cet épanouissement. Les chances de
-                    trouver rapidement un emploi seront réduites.
-                </p>
-                <hr>
-                <p class="mb-0">
-                    Le métier ne correspondant pas à ses motivations personnelles et sa personnalité, il correspondra à
-                    une
-                    situation « imposée » et « non choisie ».
-                </p>
-            </div>
-            <p class="h5 mt-4">
-                <strong>
-                    Le choix d’une bonne orientation est donc crucial !!!
-                </strong>
-            </p>
         </div>
     </section>
 
@@ -128,7 +130,7 @@
     {# Section : Schoolchildren #}
     <section class="my-5 p-2">
         <div class="row">
-            <div>
+            <div class="col-12">
                 {# Titre #}
                 <h2>
                     Orientation pour collégiens
@@ -175,7 +177,7 @@
     {# Section : High school students #}
     <section class="my-5 p-2">
         <div class="row">
-            <div>
+            <div class="col-12">
                 {# Titre #}
                 <h2>
                     Orientation pour lycéens
@@ -220,7 +222,7 @@
     {# Section : Students #}
     <section class="my-5 p-2">
         <div class="row">
-            <div>
+            <div class="col-12">
                 {# Titre #}
                 <h2>
                     Orientation pour Étudiants
