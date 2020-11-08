@@ -22,18 +22,33 @@
         <footer>
             <table>
                 <tbody>
+                    {# Row last update #}
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div class="text-muted xxsmall">
+                                <em>
+                                    Dernière mise à jour le
+                                    <span>{{ formation.updatedAt | date('d-m-Y') }}</span>
+                                </em>
+                            </div>
+                        </td>
+                    </tr>
+                    {# Row title & site address #}
                     <tr class="text-muted">
-                        <td class="column-left border-top-left">
+                        <td class="column-left border-top-left td-vertical-align">
                             <span class="xsmall">
                                 {{ formation.title }}
                             </span>
                         </td>
-                        <td class="border-top-right td-vertical-align text-right">
-                            <span class="xsmall">
-                                <a href="http://resilience-rh.com/">
-                                    www.resilience.com
-                                </a>
-                            </span>
+                        <td class="border-top-right td-vertical-align">
+                            <div class="xsmall">
+                                <span class="right">
+                                    <a href="http://resilience-rh.com/">
+                                        www.resilience.com
+                                    </a>
+                                </span>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
@@ -134,12 +149,12 @@
                             </div>
                         </td>
                         {# Right : langue #}
-                        <td>
+                        <td class="smaller">
                             <h5 class="text-muted mb-2">
                                 Langue :
                             </h5>
                             <div class="text-muted">
-                                {{ formation.langue | raw }}
+                                {{ formation.langue }}
                             </div>
                         </td>
                     </tr>
@@ -156,7 +171,7 @@
                             </div>
                         </td>
                         {# Right : intervenant #}
-                        <td>
+                        <td class="smaller">
                             <h5 class="text-muted mb-2">
                                 Intervenant :
                             </h5>
@@ -178,7 +193,7 @@
                             </div>
                         </td>
                         {# Right : contact #}
-                        <td>
+                        <td class="smaller">
                             <h5 class="text-muted mb-2">
                                 Contact :
                             </h5>

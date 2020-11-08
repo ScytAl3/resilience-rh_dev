@@ -29,6 +29,18 @@ h6 {
   color: #2363b6;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
 /* Typography */
 .text-muted {
   color: #6c757d;
