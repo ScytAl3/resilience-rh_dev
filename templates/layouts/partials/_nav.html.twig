@@ -1,8 +1,8 @@
 {# navbar #}
 {% if is_granted('ROLE_ADMIN') %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
     {% else %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-custom-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom-navbar shadow">
         {% endif %}
         <div class="container py-2">
             {# navbar brand & logo #}

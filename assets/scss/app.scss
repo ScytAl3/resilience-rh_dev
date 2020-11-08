@@ -161,6 +161,15 @@ h6 {
   background-color: $header-color;
 }
 
+.carousel .carousel-item-size {
+  width: 50% !important;
+}
+@media only screen and (max-device-width: 500px) {
+  .carousel .carousel-item-size {
+    width: 75% !important;
+  }
+}
+
 section {
   &.presentation {
     padding-top: 70px;
