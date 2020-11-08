@@ -72,15 +72,16 @@ $(document).ready(function () {
     };
 })
 
-
 /*
  *
  * Écoute de l'événement associé à l'upload de fichier lors de l'envoi d'un message de contact
  * 
  */
-$('.custom-file-input').on('change', function (e) {
-    // Récupération de l'input
-    var inputFile = e.currentTarget;
-    // Récupération du parent <div class="custom-file"> et on cherche l'enfant qui représente le label
-    $(inputFile).parent().find('.custom-file-label').html(inputFile.files[0].name);
-})
+$(document).ready(function () {
+    $('.custom-file-input').on('change', function (e) {
+        // Récupération de l'input
+        var inputFile = e.currentTarget;
+        // Récupération du parent <div class="custom-file"> et on cherche l'enfant qui représente le label
+        $(inputFile).parent().find('.custom-file-label').html(inputFile.files[0].name);
+    });
+});
