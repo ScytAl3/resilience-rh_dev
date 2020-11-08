@@ -7,7 +7,6 @@ use App\Service\Formation\PdfService;
 use App\Repository\TrainingRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 class TrainingController extends AbstractController
