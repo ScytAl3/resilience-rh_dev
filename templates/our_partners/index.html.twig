@@ -18,6 +18,8 @@
     {% if partners_count > 0 %}
     <div class="row justify-content-around my-5">
         {% for partner in partners %}
+        {# Si une url a été défini #}
+        {% set url, target = (partner.url != null) ? partner.url : '', (partner.url != null) ? '_blank' : '_self' %}
         <div class="mx-2 mb-4">
             <article class="bg-white h-100 rounded shadow">
                 <div class="mw-100 rounded-top overflow-hidden client-partner">
