@@ -18,7 +18,7 @@ class ClientCrudController extends AbstractCrudController
         return Client::class;
     }
 
-    
+
     public function configureFields(string $pageName): iterable
     {
         $id = IntegerField::new('id', 'ID')
@@ -26,8 +26,12 @@ class ClientCrudController extends AbstractCrudController
         // Client image
         $imageFile = ImageField::new('imageFile')
             ->setLabel('Image (JPEG or PNG file)')
+            ->setHelp('idéalement de dimension 400x400')
             ->setFormType(VichImageType::class)->setFormTypeOptions([
-                'allow_delete' => true,
+                'allow_delete' => false,
+                'required' => true,
+                'delete_label' => 'form.label.delete',
+                'translation_domain' => 'VichUploaderBundle',
             ]);
         $image = ImageField::new('imageName', 'Logo')
             ->setBasePath('uploads/clients');
@@ -39,7 +43,7 @@ class ClientCrudController extends AbstractCrudController
         if (Crud::PAGE_INDEX === $pageName) {
             return [$id, $image, $name, $url];
         }
-        
+
         return [
             FormField::addPanel('Image'),
             $imageFile,
@@ -47,5 +51,4 @@ class ClientCrudController extends AbstractCrudController
             $name, $url,
         ];
     }
-    
 }

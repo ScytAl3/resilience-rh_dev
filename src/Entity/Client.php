@@ -35,7 +35,7 @@ class Client
      * @Assert\NotBlank
      * @Assert\Length(
      *      min = 3,
-     *      max = 50,
+     *      max = 100,
      *      minMessage = "The name of the client must be at least {{ limit }} characters long",
      *      maxMessage = "The name of the client cannot be longer than {{ limit }} characters",
      *      allowEmptyString = false

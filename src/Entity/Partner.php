@@ -35,7 +35,7 @@ class Partner
      * @Assert\NotBlank
      * @Assert\Length(
      *      min = 3,
-     *      max = 50,
+     *      max = 100,
      *      minMessage = "The name of the partner must be at least {{ limit }} characters long",
      *      maxMessage = "The name of the partner cannot be longer than {{ limit }} characters",
      *      allowEmptyString = false

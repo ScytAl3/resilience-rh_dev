@@ -25,8 +25,10 @@ class PartnerCrudController extends AbstractCrudController
         // Partner image
         $imageFile = ImageField::new('imageFile')
             ->setLabel('Image (JPEG or PNG file)')
+            ->setHelp('idéalement de dimension 400x400')
             ->setFormType(VichImageType::class)->setFormTypeOptions([
-                'allow_delete' => true,
+                'allow_delete' => false,
+                'required' => true,
             ]);
         $image = ImageField::new('imageName', 'Logo')
             ->setBasePath('uploads/partenaires');
