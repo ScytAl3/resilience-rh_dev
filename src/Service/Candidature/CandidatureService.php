@@ -120,6 +120,7 @@ class CandidatureService
             ->htmlTemplate('job_offer/candidature_email.html.twig')
             // Pass variables to the template
             ->context([
+                'title' => $subject,
                 'firstname' => $candidature->getFirstName(),
                 'lastname' => $candidature->getLastName(),
                 'mail' => $candidature->getEmail(),
