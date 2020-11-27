@@ -3,12 +3,11 @@
 namespace App\Service\Formation;
 
 // Include Dompdf required namespaces
-
-use App\Entity\Training;
-use App\Repository\TrainingRepository;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
+use App\Entity\Training;
+use App\Repository\TrainingRepository;
 use Twig\Environment;
 
 class PdfService
