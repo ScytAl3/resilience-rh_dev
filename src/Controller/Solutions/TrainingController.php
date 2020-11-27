@@ -46,8 +46,11 @@ class TrainingController extends AbstractController
     }
 
     /**
-     * @Route("/formations/{id<[0-9]+>}/pdf", name="app_training_pdf", methods={"GET"})
-     */
+     * @Route("/formations/{id<[0-9]+>}/pdf", name="app_training_pdf", methods={"GET"})     *
+     * @param Training $training
+     * @param PdfService $pdfService
+     * @return void
+     */ 
     public function generatePdf(Training $training, PdfService $pdfService)
     {
         $pdfService->getTrainingPdf($training);
