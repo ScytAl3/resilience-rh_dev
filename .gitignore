@@ -24,3 +24,7 @@ yarn-error.log
 ###> liip/imagine-bundle ###
 /public/media/cache/
 ###< liip/imagine-bundle ###
+
+###> vscod/sftp ###
+/.vscode/sftp.json
+###< vscod/sftp ###
