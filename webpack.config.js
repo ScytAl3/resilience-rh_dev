@@ -28,10 +28,20 @@ Encore
         // only copy files matching this pattern
         //pattern: /\.(png|jpg|jpeg)$/
     })
-    .configureFilenames({
-        images: 'images/[folder]/[name].[ext]',
-        fonts: 'fonts/[name].[ext]'
-    })
+    .configureFontRule(
+        { type: 'javascript/auto' },
+        (rule) => {
+            rule.loader = 'file-loader';
+            rule.options = { outputPath: 'fonts', name: '[name].[hash:8].[ext]', publicPath: './fonts/' };
+        }
+    )
+    .configureImageRule(
+        { type: 'javascript/auto' },
+        (rule) => {
+            rule.loader = 'file-loader';
+            rule.options = { outputPath: 'images', name: '[folder]/[name].[hash:8].[ext]', publicPath: './images/' };
+        }
+    )
 
     /*
      * ENTRY CONFIG
@@ -40,6 +50,7 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
+    .addEntry('pdf', './assets/training_pdf.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
@@ -75,7 +86,7 @@ Encore
     })
 
     // enables Sass/SCSS support
-    //.enableSassLoader()
+    .enableSassLoader()
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
