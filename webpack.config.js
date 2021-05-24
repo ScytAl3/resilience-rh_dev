@@ -50,7 +50,8 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
-    .addEntry('pdf', './assets/training_pdf.js')
+    // .addEntry('pdf', './assets/training_pdf.js')
+    .addStyleEntry('training-pdf', './assets/styles/training_pdf.css')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
