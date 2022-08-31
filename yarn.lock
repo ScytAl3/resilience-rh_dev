@@ -1577,10 +1577,10 @@ boolbase@^1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==
 
-bootstrap@5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.0.1.tgz#e7939d599119dc818a90478a2a299bdaff037e09"
-  integrity sha512-Fl79+wsLOZKoiU345KeEaWD0ik8WKRI5zm0YSPj2oF1Qr+BO7z0fco6GbUtqjoG1h4VI89PeKJnMsMMVQdKKTw==
+bootstrap@^5.2.*:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.2.0.tgz#838727fb60f1630db370fe57c63cbcf2962bb3d3"
+  integrity sha512-qlnS9GL6YZE6Wnef46GxGv1UpGGzAwO0aPL1yOjzDIJpeApeMvqV24iL+pjr2kU4dduoBA9fINKWKgMToobx9A==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -1646,9 +1646,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001370:
-  version "1.0.30001385"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001385.tgz#51d5feeb60b831a5b4c7177f419732060418535c"
-  integrity sha512-MpiCqJGhBkHgpyimE9GWmZTnyHyEEM35u115bD3QBrXpjvL/JgcP8cUhKJshfmg4OtEHFenifcK5sZayEw5tvQ==
+  version "1.0.30001387"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001387.tgz#90d2b9bdfcc3ab9a5b9addee00a25ef86c9e2e1e"
+  integrity sha512-fKDH0F1KOJvR+mWSOvhj8lVRr/Q/mc5u5nabU2vi1/sgvlSqEsE8dOq0Hy/BqVbDkCYQPRRHB1WRjW6PGB/7PA==
 
 chalk@^2.0.0, chalk@^2.3.2:
   version "2.4.2"
@@ -2081,9 +2081,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.202:
-  version "1.4.235"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.235.tgz#48ac33c4e869a1795013788099470061463d1890"
-  integrity sha512-eNU2SmVZYTzYVA5aAWmhAJbdVil5/8H5nMq6kGD0Yxd4k2uKIuT8YmS46I0QXY7iOoPPcb6jjem9/2xyuH5+XQ==
+  version "1.4.237"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.237.tgz#c695c5fedc3bb48f04ba1b39470c5aef2aaafd84"
+  integrity sha512-vxVyGJcsgArNOVUJcXm+7iY3PJAfmSapEszQD1HbyPLl0qoCmNQ1o/EX3RI7Et5/88In9oLxX3SGF8J3orkUgA==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -3185,11 +3185,6 @@ pkg-up@^3.1.0:
   integrity sha512-nDywThFk1i4BQK4twPQ6TA4RT8bDY96yeuCVBWL3ePARCiEKDRSrNGbFIgUJpLp+XeIR65v8ra7WuJOFUBtkMA==
   dependencies:
     find-up "^3.0.0"
-
-popper.js@^1.16.1:
-  version "1.16.1"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
-  integrity sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==
 
 postcss-calc@^8.2.3:
   version "8.2.4"
