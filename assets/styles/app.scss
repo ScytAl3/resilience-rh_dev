@@ -20,137 +20,135 @@
             Global
 -------------------------------*/
 html {
-  font-size: 100%;
-}
-
-body {
-  font-family: $primary-font, sans-serif;
-  background-color: #fff;
-  .page-header {
-    padding-bottom: 10px;
-    margin: 40px 0 20px;
-    border-bottom: 1px solid #eee;
-  }
-  #page-container {
-    padding-top: 79px;
-    overflow-y: hidden;
-    margin-top: -1px;
-  }
-  @media screen and (max-width: 500px) {
-    font-size: 75%;
-    #page-container {
-      padding-top: 76px;
+    font-size: $base-font-size;
+    body {
+        font-family: $primary-font, sans-serif;
+        background-color: #fff;
+        .page-header {
+            padding-bottom: 10px;
+            margin: 40px 0 20px;
+            border-bottom: 1px solid #eee;
+        }
+        #page-container {
+            padding-top: 79px;
+            overflow-y: hidden;
+            margin-top: -1px;
+        }
+        @media screen and (max-width: 500px) {
+            font-size: 75%;
+            #page-container {
+                padding-top: 76px;
+            }
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: $title-font, sans-serif;
+            color: $title-color !important;
+        }
     }
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $title-font, sans-serif;
-  color: $title-color !important;
 }
 
 /* Buttons : custom color */
 .btn-custom-color {
-  color: #fff;
-  background-color: $btn-color;
-  border-color: $btn-color;
+    color: #fff;
+    background-color: $btn-color;
+    border-color: $btn-color;
 }
 .btn-custom-color:hover {
-  color: #fff;
-  background-color: $btn-color-hover;
-  border-color: $btn-color-hover;
+    color: #fff;
+    background-color: $btn-color-hover;
+    border-color: $btn-color-hover;
 }
 
 .btn-outline-custom {
-  color: $btn-color;
-  border-color: $btn-color;
+    color: $btn-color;
+    border-color: $btn-color;
 }
 
 .btn-outline-custom:hover {
-  color: #fff;
-  background-color: $btn-color;
-  border-color: $btn-color;
+    color: #fff;
+    background-color: $btn-color;
+    border-color: $btn-color;
 }
 
 .btn-custom-rounded {
-  font-size: 15px;
-  color: $btn-color;
-  letter-spacing: 1px;
-  line-height: 15px;
-  border: 2px solid $btn-color;
-  border-radius: 40px;
-  background: transparent;
-  transition: all 0.3s ease 0s;
+    font-size: 15px;
+    color: $btn-color;
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px solid $btn-color;
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
 }
 .btn-custom-rounded:hover {
-  color: #fff;
-  background: $btn-color;
-  border: 2px solid $btn-color;
+    color: #fff;
+    background: $btn-color;
+    border: 2px solid $btn-color;
 }
 
 /* Button : back to top */
 #back-to-top-btn {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 2em; /* Place the button at the bottom of the page */
-  right: 0; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: $header-color; /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-  transition-property: background-color, color;
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 2em; /* Place the button at the bottom of the page */
+    right: 0; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: $header-color; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-property: background-color, color;
 }
 
 #back-to-top-btn:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
+    background-color: #555; /* Add a dark-grey background on hover */
 }
 
 /* Animations */
 .btnEntrance {
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-name: btnEntrance;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-name: btnEntrance;
 }
 
 /* fadeInUp */
 @keyframes btnEntrance {
-  from {
-    opacity: 0;
-    transform: translate3d(100%, 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+    from {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
 }
 
 .btnExit {
-  animation-duration: 0.25s;
-  animation-fill-mode: both;
-  animation-name: btnExit;
+    animation-duration: 0.25s;
+    animation-fill-mode: both;
+    animation-name: btnExit;
 }
 
 /* fadeOutDown */
 @keyframes btnExit {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    transform: translate3d(100%, 0, 0);
-  }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
 }
 
 /*------------------------------
@@ -158,90 +156,90 @@ h6 {
 -------------------------------*/
 /* Carousel */
 #carousel-custom-bg {
-  background-color: $header-color;
+    background-color: $header-color;
 }
 #resilienceCarouselIndicators {
-  .carousel-item-size {
-    width: 50% !important;
-  }
+    .carousel-item-size {
+        width: 50% !important;
+    }
 }
 @media only screen and (max-device-width: 500px) {
-  .carousel .carousel-item-size {
-    width: 75% !important;
-  }
+    .carousel .carousel-item-size {
+        width: 75% !important;
+    }
 }
 
 section {
-  &.presentation {
-    padding-top: 70px;
-    padding-bottom: 70px;
-    background-color: #eee;
-  }
-  .content-layout {
-    padding: 70px 80px;
-    text-align: justify;
-  }
-  .parallax {
-    position: relative;
-    opacity: 0.75;
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
-  @media only screen and (max-device-width: 1366px) {
+    &.presentation {
+        padding-top: 70px;
+        padding-bottom: 70px;
+        background-color: #eee;
+    }
+    .content-layout {
+        padding: 70px 80px;
+        text-align: justify;
+    }
     .parallax {
-      background-attachment: scroll;
+        position: relative;
+        opacity: 0.75;
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-  }
-  .bg-img-training {
-    background-image: url($bg-img-1);
-    background-position: center center;
-    /* Force the background image to fill the whole element. */
-    background-size: cover;
-    /* Keep the image from overlapping sibling elements. */
-    z-index: -1;
-    height: 75vh;
-    // min-height: 600px;
-  }
-  .bg-img-oursolutions {
-    background-image: url($bg-img-2);
-    min-height: 550px;
-  }
-  .bg-img-feedback {
-    background-image: url($bg-img-3);
-    min-height: 550px;
-  }
-  .caption {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-    span.border {
-      background-color: #000;
-      color: #fff;
-      padding: 18px;
-      font-size: 25px;
-      letter-spacing: 10px;
+    /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
+    @media only screen and (max-device-width: 1366px) {
+        .parallax {
+            background-attachment: scroll;
+        }
     }
-    @media screen and (max-width: 500px) {
-      span.border {
-        font-size: 15px;
-      }
+    .bg-img-training {
+        background-image: url($bg-img-1);
+        background-position: center center;
+        /* Force the background image to fill the whole element. */
+        background-size: cover;
+        /* Keep the image from overlapping sibling elements. */
+        z-index: -1;
+        height: 75vh;
+        // min-height: 600px;
     }
-  }
-  .card-custom-bg {
-    background-color: #fafafa;
-  }
-  .card-hover:hover {
-    box-shadow: 0 0.5rem 2rem rgba(1, 13, 182, 0.15) !important;
-  }
+    .bg-img-oursolutions {
+        background-image: url($bg-img-2);
+        min-height: 550px;
+    }
+    .bg-img-feedback {
+        background-image: url($bg-img-3);
+        min-height: 550px;
+    }
+    .caption {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        span.border {
+            background-color: #000;
+            color: #fff;
+            padding: 18px;
+            font-size: 25px;
+            letter-spacing: 10px;
+        }
+        @media screen and (max-width: 500px) {
+            span.border {
+                font-size: 15px;
+            }
+        }
+    }
+    .card-custom-bg {
+        background-color: #fafafa;
+    }
+    .card-hover:hover {
+        box-shadow: 0 0.5rem 2rem rgba(1, 13, 182, 0.15) !important;
+    }
 }
 
 /*------------------------------
@@ -249,11 +247,11 @@ section {
 -------------------------------*/
 /* Animation image client & partner */
 .client-partner img {
-  transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
 
-  &:hover {
-    transform: scale(1.075);
-  }
+    &:hover {
+        transform: scale(1.075);
+    }
 }
 
 /*------------------------------
@@ -261,123 +259,123 @@ section {
 -------------------------------*/
 /* Input file french label */
 .custom-file-input:lang(en) ~ .custom-file-label:after {
-  content: "Parcourir";
+    content: "Parcourir";
 }
 
 .required:after {
-  color: red;
-  content: "*";
-  position: absolute;
-  margin-left: 4px;
+    color: red;
+    content: "*";
+    position: absolute;
+    margin-left: 4px;
 }
 
 .bg-agreeTerms {
-  background-color: #94c3ff;
+    background-color: #94c3ff;
 }
 
 /*------------------------------
           Error pages
 -------------------------------*/
 #notfound {
-  position: relative;
-  height: 50vh;
+    position: relative;
+    height: 50vh;
 }
 
 #notfound .notfound {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .notfound {
-  max-width: 520px;
-  width: 100%;
-  line-height: 1.4;
-  text-align: center;
+    max-width: 520px;
+    width: 100%;
+    line-height: 1.4;
+    text-align: center;
 }
 
 .notfound .notfound-500,
 .notfound .notfound-404 {
-  position: relative;
-  height: 200px;
-  margin: 0px auto 20px;
-  z-index: -1;
+    position: relative;
+    height: 200px;
+    margin: 0px auto 20px;
+    z-index: -1;
 }
 
 .notfound .notfound-500 h1,
 .notfound .notfound-404 h1 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 236px;
-  font-weight: 200;
-  margin: 0px;
-  color: #211b19;
-  text-transform: uppercase;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+    font-family: "Montserrat", sans-serif;
+    font-size: 236px;
+    font-weight: 200;
+    margin: 0px;
+    color: #211b19;
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .notfound .notfound-500 h2,
 .notfound .notfound-404 h2 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 28px;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: #211b19;
-  background: #fff;
-  padding: 10px 5px;
-  margin: auto;
-  display: inline-block;
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  right: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #211b19;
+    background: #fff;
+    padding: 10px 5px;
+    margin: auto;
+    display: inline-block;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
 }
 
 .notfound a {
-  font-family: "Montserrat", sans-serif;
-  display: inline-block;
-  font-weight: 700;
-  text-decoration: none;
-  color: #fff;
-  text-transform: uppercase;
-  padding: 13px 23px;
-  background: #ff6300;
-  font-size: 18px;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
+    font-family: "Montserrat", sans-serif;
+    display: inline-block;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 13px 23px;
+    background: #ff6300;
+    font-size: 18px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
 }
 
 .notfound a:hover {
-  color: #ff6300;
-  background: #211b19;
+    color: #ff6300;
+    background: #211b19;
 }
 
 @media only screen and (max-width: 767px) {
-  .notfound .notfound-404 h1 {
-    font-size: 148px;
-  }
+    .notfound .notfound-404 h1 {
+        font-size: 148px;
+    }
 }
 
 @media only screen and (max-width: 480px) {
-  .notfound .notfound-404 {
-    height: 148px;
-    margin: 0px auto 10px;
-  }
-  .notfound .notfound-404 h1 {
-    font-size: 86px;
-  }
-  .notfound .notfound-404 h2 {
-    font-size: 16px;
-  }
-  .notfound a {
-    padding: 7px 15px;
-    font-size: 14px;
-  }
+    .notfound .notfound-404 {
+        height: 148px;
+        margin: 0px auto 10px;
+    }
+    .notfound .notfound-404 h1 {
+        font-size: 86px;
+    }
+    .notfound .notfound-404 h2 {
+        font-size: 16px;
+    }
+    .notfound a {
+        padding: 7px 15px;
+        font-size: 14px;
+    }
 }

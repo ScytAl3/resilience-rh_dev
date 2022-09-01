@@ -1,79 +1,81 @@
 {# Footer: top #}
-<div class="container mt-4">
-    <div class="row">
-        {# Left part #}
-        <div class="col-12 col-md pl-5">
-            <div class="footer-content">
-                <h4 class="">
-                    <strong class="text-uppercase">{{ project.name }}</strong>
-                </h4>
-                <p class="font-weight-bold">organisme de formation</p>
-                {# Left part: Address #}
-                <ul class="list-icons">
-                    <li>
-                        <i class="fa fa-map-marker pr-1 text-default"></i>
-                        6, place au bois
-                        57100 Thionville
-                    </li>
-                    <li>
-                        <i class="fa fa-phone pr-1 text-default"></i>
-                        (+33) 3 82 56 62 67
-                    </li>
-                    <li>
-                        <i class="fa fa-envelope-o pr-1 text-default"></i>
-                        <a href="{{ path('app_contact') }}">
-                            Contactez nous
-                        </a>
-                    </li>
-                </ul>
-                {# Left part: social network #}
-                <ul class="social-links list-inline">
-                    <li class="linkedin">
-                        <a href="https://www.linkedin.com/in/davidsauvageotresiliencerh" target="_blank">
-                            <i class="fab fa-linkedin-in"></i>
-                            <span class="sr-only">Lien vers le profil Linkedin</span>
-                        </a>
-                    </li>
-                </ul>
+<footer>
+    <div class="container mt-4">
+        <div class="row">
+            {# Left part #}
+            <div class="col-12 col-md pl-5">
+                <div class="footer-content">
+                    <h4 class="">
+                        <strong class="text-uppercase">{{ project.name }}</strong>
+                    </h4>
+                    <p class="font-weight-bold">organisme de formation</p>
+                    {# Left part: Address #}
+                    <ul class="list-icons">
+                        <li>
+                            <i class="fa fa-map-marker pr-1 text-default"></i>
+                            6, place au bois
+                            57100 Thionville
+                        </li>
+                        <li>
+                            <i class="fa fa-phone pr-1 text-default"></i>
+                            (+33) 3 82 56 62 67
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope-o pr-1 text-default"></i>
+                            <a href="{{ path('app_contact') }}">
+                                Contactez nous
+                            </a>
+                        </li>
+                    </ul>
+                    {# Left part: social network #}
+                    <ul class="social-links list-inline">
+                        <li class="linkedin">
+                            <a href="https://www.linkedin.com/in/davidsauvageotresiliencerh" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span class="sr-only">Lien vers le profil Linkedin</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        {# Middle: useful links #}
-        <div class="col-12 col-md pl-5">
-            <div class="footer-content">
-                <h4>Liens utiles</h4>
-                <ul class="list-icons footer-link">
-                    <li><a href="{{ path('app_training') }}">Formations</a></li>
-                    <li><a href="{{ path('app_skills_assessment') }}">Bilan de compétences</a></li>
-                    <li><a href="{{ path('app_career') }}">Espace carrière</a></li>
-                    <li><a href="{{ path('app_publication') }}">Publication</a></li>
-                </ul>
+            {# Middle: useful links #}
+            <div class="col-12 col-md pl-5">
+                <div class="footer-content">
+                    <h4>Liens utiles</h4>
+                    <ul class="list-icons footer-link">
+                        <li><a href="{{ path('app_training') }}">Formations</a></li>
+                        <li><a href="{{ path('app_skills_assessment') }}">Bilan de compétences</a></li>
+                        <li><a href="{{ path('app_career') }}">Espace carrière</a></li>
+                        <li><a href="{{ path('app_publication') }}">Publication</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        {# Right: other links #}
-        <div class="col-12 col-md pl-5">
-            <div class="footer-content">
-                <h4>Autres</h4>
-                <ul class="list-icons footer-link">
-                    <li><a href="{{ path('app_about_us') }}">A propos</a></li>
-                    <li><a href="{{ path('app_contact') }}">Contact</a></li>
-                    <li><a href="{{ path('app_legal_notice') }}">Mentions légales</a></li>
-                </ul>
+            {# Right: other links #}
+            <div class="col-12 col-md pl-5">
+                <div class="footer-content">
+                    <h4>Autres</h4>
+                    <ul class="list-icons footer-link">
+                        <li><a href="{{ path('app_about_us') }}">A propos</a></li>
+                        <li><a href="{{ path('app_contact') }}">Contact</a></li>
+                        <li><a href="{{ path('app_legal_notice') }}">Mentions légales</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
-{# /Footer: top #}
+    {# /Footer: top #}
 
-{# Footer: bottom #}
-<div class="undergroundfooter bg-dark">
-    <div class="container">
-        <p class="text-muted text-center">
-            &copy; Copyright {{ 'now'|date('Y') }} &middot;
-            <span class="text-uppercase">
-                {{ project.name }}.
-            </span>
-            Tous droits réservés.
-        </p>
+    {# Footer: bottom #}
+    <div class="undergroundfooter bg-dark">
+        <div class="container">
+            <p class="text-muted text-center">
+                &copy; Copyright {{ 'now'|date('Y') }} &middot;
+                <span class="text-uppercase">
+                    {{ project.name }}.
+                </span>
+                Tous droits réservés.
+            </p>
+        </div>
     </div>
-</div>
+</footer>
 {# /Footer: bottom #}

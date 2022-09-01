@@ -8,7 +8,7 @@
         <meta name="author" content="Franck Jakubowski">
         <meta name="description"
               content="Site vitrine du cabinet conseil résilience-rh spécialisédans la Formation, l’Evaluation, le Recrutement et l’Accompagnement dans la recherche d’Emploi.">
-        {#  Favicons #}
+        {# Favicons #}
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon/favicon-32x32.png') }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png') }}">
@@ -26,35 +26,41 @@
         {% endblock %}
     </head>
 
-    <body>
+    <body id="{% block body_id %}{% endblock %}">
+
+        {% block header %}
+        <header>
+            {% block navbar %}
+            {# Navbar import #}
+            {{ include('layouts/partials/_nav.html.twig') }}
+            {% endblock %}
+        </header>
+        {% endblock %}
+
+        {# Begin page content #}
         <div id="page-container">
-            {# Scroll to top button #}
-            <button id="back-to-top-btn" title="Haut de page">
-                <i class="fas fa-arrow-circle-up"></i>
-            </button>
-
-            <header class="fixed-top py-0">
-                {% block header %}
-                {# Navbar import #}
-                {{ include('layouts/partials/_nav.html.twig') }}
-                {% endblock %}
-            </header>
-
-            {# Message flash area #}
-            {{ include('layouts/partials/_flash_messages.html.twig') }}
-            {# /Message flash area #}
-
+            {% block body %}
+            {# content #}
             <main role="main">
-                {% block body %}{% endblock %}
-            </main>
-
-            <footer>
-                {% block footer %}
-                {# footer import #}
-                {{ include('layouts/partials/_footer.html.twig') }}
-                {# /footer import #}
+                {# Scroll to top button #}
+                <button onclick="smoothScrollBackToTop()" id="back-to-top-btn" title="Haut de page">
+                    <i class="fas fa-arrow-circle-up"></i>
+                </button>
+                {% block flash_message %}
+                {# Message flash area #}
+                {{ include('layouts/partials/_flash_messages.html.twig') }}
+                {# /Message flash area #}
                 {% endblock %}
-            </footer>
+
+                {% block main %}{% endblock %}
+            </main>
+            {% endblock %}
+
+            {% block footer %}
+            {# footer import #}
+            {{ include('layouts/partials/_footer.html.twig') }}
+            {# /footer import #}
+            {% endblock %}
         </div>
 
         {% block javascripts %}
