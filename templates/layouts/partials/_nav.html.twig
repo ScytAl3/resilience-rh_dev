@@ -25,60 +25,80 @@
             {# collapsible content #}
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 {# Navigation bar menu #}
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ms-auto">
                     {# Accueil #}
-                    <li class="nav-item {{ set_active_route('app_home') }}">
-                        <a class="nav-link" href="{{ path('app_home') }}">
+                    <li class="nav-item">
+                        <a class="nav-link {{ set_active_route('app_home') }}" href="{{ path('app_home') }}">
                             Accueil
                         </a>
                     </li>
                     {# Resilence-rh dropdown #}
-                    <li
-                        class="nav-item dropdown {{ set_active_route('app_about_us') }} {{ set_active_route('app_testimonies') }} {{ set_active_route('app_our_clients') }} {{ set_active_route('app_our_partners') }}">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuAbout" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle {{ set_active_route('app_about_us') }} {{ set_active_route('app_testimonies') }} {{ set_active_route('app_our_clients') }} {{ set_active_route('app_our_partners') }}"
+                           href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ project.name }}
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuAbout">
-                            <a class="dropdown-item" href="{{ path('app_about_us') }}">À propos</a>
-                            <a class="dropdown-item" href="{{ path('app_testimonies') }}">Témoignages</a>
-                            <a class="dropdown-item" href="{{ path('app_our_clients') }}">Nos Clients</a>
-                            <a class="dropdown-item" href="{{ path('app_our_partners') }}">Nos Partenaires</a>
-                        </div>
-                    </li>
+                        <ul class="nav-item dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="{{ path('app_about_us') }}">À propos</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ path('app_testimonies') }}">Témoignages</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ path('app_our_clients') }}">Nos Clients</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ path('app_our_partners') }}">Nos Partenaires</a>
+                            </li>
+                        </ul>
+                    </div>
                     {# Nos solutions #}
-                    <li
-                        class="nav-item dropdown {{ set_active_route('app_training') }} {{ set_active_route('app_recruitment') }} {{ set_active_route('app_skills_assessment') }} {{ set_active_route('app_career') }} {{ set_active_route('app_orientation') }} {{ set_active_route('app_job_offer') }}">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle {{ set_active_route('app_training') }} {{ set_active_route('app_recruitment') }} {{ set_active_route('app_skills_assessment') }} {{ set_active_route('app_career') }} {{ set_active_route('app_orientation') }} {{ set_active_route('app_job_offer') }}"
+                           href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Nos Solutions
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="{{ path('app_skills_assessment') }}">Bilan de Compétences</a>
-                            <a class="dropdown-item" href="{{ path('app_training') }}">Espace Formation</a>
-                            <a class="dropdown-item" href="{{ path('app_recruitment') }}">Espace Recrutement</a>
-                            <a class="dropdown-item" href="{{ path('app_career') }}">Espace Carrière</a>
-                            <a class="dropdown-item" href="{{ path('app_orientation') }}">Espace Orientation</a>
-                            <a class="dropdown-item" href="{{ path('app_job_offer') }}">Offre(s) d'Emploi</a>
-                        </div>
-                    </li>
+                        <ul class="nav-item dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="{{ path('app_skills_assessment') }}">Bilan de
+                                    Compétences</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ path('app_training') }}">Espace Formation</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ path('app_recruitment') }}">Espace Recrutement</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ path('app_career') }}">Espace Carrière</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ path('app_orientation') }}">Espace Orientation</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ path('app_job_offer') }}">Offre(s) d'Emploi</a>
+                            </li>
+                        </ul>
+                    </div>
                     {# Publication #}
-                    <li class="nav-item {{ set_active_route('app_publication') }}">
-                        <a class="nav-link" href="{{ path('app_publication') }}">
+                    <li class="nav-item">
+                        <a class="nav-link {{ set_active_route('app_publication') }}"
+                           href="{{ path('app_publication') }}">
                             Publication
                         </a>
                     </li>
                     {# Contact #}
-                    <li class="nav-item {{ set_active_route('app_contact') }}">
-                        <a class="nav-link" href="{{ path('app_contact') }}">
+                    <li class="nav-item">
+                        <a class="nav-link {{ set_active_route('app_contact') }}" href="{{ path('app_contact') }}">
                             Contact
                         </a>
                     </li>
                     {# this link is only visible to an admin #}
                     {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item dropdown {{ set_active_route('app_admin_dashboard') }}">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuAdmin" role="button" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuAdmin" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Administration
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuAdmin">

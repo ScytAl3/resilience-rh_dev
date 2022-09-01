@@ -13,9 +13,8 @@ nav {
       max-width: 207px;
     }
   }
-}
-
-.dropdown-menu > a:hover {
-  background-color: #0088cc;
-  background-image: none;
+  ul.dropdown-menu a:hover {
+    background-color: #0088cc;
+    background-image: none;
+  }
 }
