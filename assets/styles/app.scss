@@ -160,9 +160,10 @@ h6 {
 #carousel-custom-bg {
   background-color: $header-color;
 }
-
-.carousel .carousel-item-size {
-  width: 50% !important;
+#resilienceCarouselIndicators {
+  .carousel-item-size {
+    width: 50% !important;
+  }
 }
 @media only screen and (max-device-width: 500px) {
   .carousel .carousel-item-size {
