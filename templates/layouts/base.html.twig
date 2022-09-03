@@ -39,13 +39,15 @@
 
         {# Begin page content #}
         <div id="page-container">
+
+            {# Scroll to top button #}
+            <button id="js-back-to-top-btn" title="Haut de page">
+                <i class="fas fa-arrow-circle-up"></i>
+            </button>
+
             {% block body %}
             {# content #}
             <main role="main">
-                {# Scroll to top button #}
-                <button onclick="smoothScrollBackToTop()" id="back-to-top-btn" title="Haut de page">
-                    <i class="fas fa-arrow-circle-up"></i>
-                </button>
                 {% block flash_message %}
                 {# Message flash area #}
                 {{ include('layouts/partials/_flash_messages.html.twig') }}

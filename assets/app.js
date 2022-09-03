@@ -9,6 +9,7 @@
 import './styles/app.scss';
 
 const $ = require('jquery');
+
 // this "modifies" the jquery module: adding behavior to it
 // the bootstrap module doesn't export/return anything
 require('bootstrap');
@@ -21,11 +22,11 @@ import './bootstrap';
  * Gestion du bouton pour retourner en haut de la page
  *
  */
-$(document).ready(function () {
+$(function () {
     //Get the button:
-    const backToTopBtn = document.querySelector("#back-to-top-btn");
+    const backToTopBtn = document.getElementById("js-back-to-top-btn");
     // When the user scrolls down 300px from the top of the document, show the button
-    window.addEventListener("scroll", scrollFunction);
+    window.onscroll = function () { scrollFunction(); };
 
     function scrollFunction() {
         if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -44,14 +45,15 @@ $(document).ready(function () {
             }
         }
     }
+
     // When the user clicks on the button, scroll to the top of the document
-    backToTopBtn.addEventListener("click", smoothScrollBackToTop);
+    backToTopBtn.onclick = function () { smoothScrollBackToTop()};
 
     function smoothScrollBackToTop() {
         const targetPosition = 0;
         const startPosition = window.pageYOffset;
         const distance = targetPosition - startPosition;
-        const duration = 750;
+        const duration = 500;
         let start = null;
 
         window.requestAnimationFrame(step);
@@ -77,7 +79,7 @@ $(document).ready(function () {
  * Écoute de l'événement associé à l'upload de fichier lors de l'envoi d'un message de contact
  * 
  */
-$(document).ready(function () {
+$(function () {
     $('.custom-file-input').on('change', function (e) {
         // Récupération de l'input
         var inputFile = e.currentTarget;
