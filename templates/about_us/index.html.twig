@@ -6,15 +6,15 @@
 {# Conteneur de la page #}
 <div class="container">
     {# Page header #}
-    <div class="page-header">
-        <h1 class="text-center">
+    <div class="page-header text-bg-light">
+        <h1 class="display-5 text-center">
             <i class="fas fa-comment-alt"></i>
             À propos de
             <span class="text-uppercase">
                 {{ project.name }}
             </span>
         </h1>
-        <p class="h2 text-center text-muted">
+        <p class="h3 text-center">
             Organisme de formation
         </p>
     </div>
@@ -23,9 +23,9 @@
     <section>
         <div class="row">
             {# Image #}
-            <div class="col-md-12 text-center mt-3 mb-4">
+            <div class="col-md-12 mt-3 mb-4">
                 <img src="{{ asset('build/images/about-us/about_us.jpg') | imagine_filter("rectangular_img_thumb") }}"
-                     class="img-thumbnail" alt="Photo de David Sauvageot">
+                     class="rounded mx-auto d-block" alt="Photo de David Sauvageot">
             </div>
 
             {# Texte #}
@@ -80,70 +80,66 @@
         </div>
     </section>
 
-    <hr>
-
     {# Section: Certification et validation #}
-    <section class="my-5">
-        <h2 class="text-center">
-            Référencé et certifié
-        </h2>
-        <div class="row justify-content-center text-center m-5">
-            {# Qualiopi #}
-            <div class="col-md-5">
-                <div class="card h-100 rounded">
-                    <img src="{{ asset('build/images/about-us/qualiopi.png') | imagine_filter("rectangular_thumb_small") }}"
-                         class="img-fluid mx-auto my-2" alt="Qualiopi Logo">
-
-                    <div class="card-body">
-                        <p class="card-text">
-                            <strong class="text-uppercase">{{ project.name }}</strong>, organisme de formation satisfait
-                            aux exigences du Label Qualité Système qui applique la norme ISO 17021 applicables aux
-                            organismes de certification contrôlés par le COFRAC
-                        </p>
+    <section class="text-bg-light pt-5">
+            <h2 class="display-6 text-center">
+                Référencé et certifié
+            </h2>
+            <div class="row justify-content-center text-center mt-5">
+                {# Qualiopi #}
+                <div class="col-md-5">
+                    <div class="card h-100 rounded">
+                        <img src="{{ asset('build/images/about-us/qualiopi.png') | imagine_filter("rectangular_thumb_small") }}"
+                             class="img-fluid mx-auto my-2" alt="Qualiopi Logo">
+    
+                        <div class="card-body">
+                            <p class="card-text">
+                                <strong class="text-uppercase">{{ project.name }}</strong>, organisme de formation satisfait
+                                aux exigences du Label Qualité Système qui applique la norme ISO 17021 applicables aux
+                                organismes de certification contrôlés par le COFRAC
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-around text-center mt-5">
-            {# I-cert #}
-            <div class="col-md-5 mb-4">
-                <div class="card h-100 rounded">
-                    <img src="{{ asset('build/images/about-us/i-cert.png') | imagine_filter("rectangular_thumb_small") }}"
-                         class="img-fluid mx-auto my-2" alt="I-Cert Logo">
-
-                    <div class="card-body">
-                        <p class="card-text">
-                            <strong class="text-uppercase">{{ project.name }}</strong>, organisme de formation
-                            satisfait
-                            aux éxigences du dispostif de certification FAC relatif à la qualité des
-                            actions de la formaiton professionnelle continue.
-                        </p>
+            <div class="row justify-content-around text-center mt-5">
+                {# I-cert #}
+                <div class="col-md-5 mb-5">
+                    <div class="card h-100 rounded">
+                        <img src="{{ asset('build/images/about-us/i-cert.png') | imagine_filter("rectangular_thumb_small") }}"
+                             class="img-fluid mx-auto my-2" alt="I-Cert Logo">
+    
+                        <div class="card-body">
+                            <p class="card-text">
+                                <strong class="text-uppercase">{{ project.name }}</strong>, organisme de formation
+                                satisfait
+                                aux éxigences du dispostif de certification FAC relatif à la qualité des
+                                actions de la formaiton professionnelle continue.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {# Datadock #}
+                <div class="col-md-5 mb-5">
+                    <div class="card h-100 rounded">
+                        <img src="{{ asset('build/images/about-us/datadock.png') | imagine_filter("rectangular_thumb_small") }}"
+                             class="img-fluid mx-auto my-2" alt="Datadock Logo">
+    
+                        <div class="card-body">
+                            <p class="card-text">
+                                <strong class="text-uppercase">{{ project.name }}</strong>, organisme de formation
+                                validé et
+                                référencé sur la base Datadock.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-            {# Datadock #}
-            <div class="col-md-5 mb-4">
-                <div class="card h-100 rounded">
-                    <img src="{{ asset('build/images/about-us/datadock.png') | imagine_filter("rectangular_thumb_small") }}"
-                         class="img-fluid mx-auto my-2" alt="Datadock Logo">
-
-                    <div class="card-body">
-                        <p class="card-text">
-                            <strong class="text-uppercase">{{ project.name }}</strong>, organisme de formation
-                            validé et
-                            référencé sur la base Datadock.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
-
-    <hr>
 
     {# Section: Nos partenaires & clients #}
     <section class="my-5">
-        <h2 class="text-center">
+        <h2 class="display-6 text-center">
             Ils nous font confiance
         </h2>
         <div class="row justify-content-around text-center mt-5">
@@ -165,8 +161,8 @@
                         </p>
                     </div>
                     {# Button #}
-                    <div class="p-2">
-                        <a href="{{ path('app_our_partners') }}" class="btn btn-custom-color btn-sm btn-block">
+                    <div class="d-grid p-2">
+                        <a href="{{ path('app_our_partners') }}" class="btn btn-custom-color">
                             Voir
                         </a>
                     </div>
@@ -190,8 +186,8 @@
                         </p>
                     </div>
                     {# Button #}
-                    <div class="p-2">
-                        <a href="{{ path('app_our_clients') }}" class="btn btn-custom-color btn-sm btn-block">
+                    <div class="d-grid p-2">
+                        <a href="{{ path('app_our_clients') }}" class="btn btn-custom-color">
                             Voir
                         </a>
                     </div>
