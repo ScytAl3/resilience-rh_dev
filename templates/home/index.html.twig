@@ -32,48 +32,48 @@
         <div class="carousel-inner">
             {# Qualiopi #}
             <div class="carousel-item active">
-                <img src="{{ asset('build/images/homepage/qualiopi.png') | imagine_filter("carousel_container_thumb")
+                <img src="{{ asset('build/images/homepage/qualiopi.png') | imagine_filter('carousel_container_thumb')
                      }}" class="d-block carousel-item-size mx-auto" alt="Qualiopi Image">
             </div>
             {# DataDock #}
             <div class="carousel-item">
-                <img src="{{ asset('build/images/homepage/datadock.png') | imagine_filter("carousel_container_thumb")
+                <img src="{{ asset('build/images/homepage/datadock.png') | imagine_filter('carousel_container_thumb')
                      }}" class="d-block carousel-item-size mx-auto" alt="Data Dock Image">
             </div>
             {# I-cert #}
             <div class="carousel-item">
-                <img src="{{ asset('build/images/homepage/i-cert.png') | imagine_filter("carousel_container_thumb") }}"
+                <img src="{{ asset('build/images/homepage/i-cert.png') | imagine_filter('carousel_container_thumb') }}"
                      class="d-block carousel-item-size mx-auto" alt="I-Cert Image">
             </div>
             {# Best practice #}
             <div class="carousel-item">
-                <img src="{{ asset('build/images/homepage/best practice.jpg') | imagine_filter("carousel_container_thumb") }}" class="d-block carousel-item-size mx-auto"
-                     alt="Best Practice Image">
+                <img src="{{ asset('build/images/homepage/best practice.jpg') | imagine_filter('carousel_container_thumb') }}"
+                     class="d-block carousel-item-size mx-auto" alt="Best Practice Image">
             </div>
             {# Carreer #}
             <div class="carousel-item">
-                <img src="{{ asset('build/images/homepage/carreer.jpg') | imagine_filter("carousel_container_thumb")
+                <img src="{{ asset('build/images/homepage/carreer.jpg') | imagine_filter('carousel_container_thumb')
                      }}" class="d-block carousel-item-size mx-auto" alt="Career Image">
             </div>
             {# Consulting #}
             <div class="carousel-item">
-                <img src="{{ asset('build/images/homepage/consulting.jpg') | imagine_filter("carousel_container_thumb")
+                <img src="{{ asset('build/images/homepage/consulting.jpg') | imagine_filter('carousel_container_thumb')
                      }}" class="d-block carousel-item-size mx-auto" alt="Consulting image">
             </div>
             {# Job search #}
             <div class="carousel-item">
-                <img src="{{ asset('build/images/homepage/job search.jpg') | imagine_filter("carousel_container_thumb")
+                <img src="{{ asset('build/images/homepage/job search.jpg') | imagine_filter('carousel_container_thumb')
                      }}" class="d-block carousel-item-size mx-auto" alt="Job Search Image">
             </div>
             {# success #}
             <div class="carousel-item">
-                <img src="{{ asset('build/images/homepage/success.jpg') | imagine_filter("carousel_container_thumb")
+                <img src="{{ asset('build/images/homepage/success.jpg') | imagine_filter('carousel_container_thumb')
                      }}" class="d-block carousel-item-size mx-auto" alt="Success Image">
             </div>
             {# Bilan compétences #}
             <div class="carousel-item">
-                <img src="{{ asset('build/images/homepage/bilan competence.png') | imagine_filter("carousel_container_thumb") }}" class="d-block carousel-item-size mx-auto"
-                     alt="Bilan Compétences Image">
+                <img src="{{ asset('build/images/homepage/bilan competence.png') | imagine_filter('carousel_container_thumb') }}"
+                     class="d-block carousel-item-size mx-auto" alt="Bilan Compétences Image">
             </div>
         </div>
         {# Arrow: Left #}
@@ -106,9 +106,13 @@
                     en vous proposant des solutions souples et adaptées
                 </em>
             </h1>
-            <a href="{{ path('app_about_us') }}" class="btn btn-custom-rounded btn-lg">
-                À propos
-                <i class="fas fa-angle-double-right ml-2"></i>
+            <a href="{{ path('app_about_us') }}" class="btn btn-about-us btn-lg">
+                <div>
+                    <span class="align-baseline">
+                        À propos
+                    </span>
+                    <span class="align-middle"><i class="far fa-eye ms-2"></i></span>
+                </div>
             </a>
         </div>
     </div>
@@ -138,7 +142,7 @@
             <div class="col-md-5 mb-3">
                 <div class="card h-100 rounded">
                     <div class="card-header bg-transparent border-0">
-                        <i class="fas fa-users fa-3x"></i>
+                        <i class="fa-solid fa-users-line fa-3x"></i>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Ressources Humaines</h5>
@@ -149,9 +153,8 @@
                         </p>
 
                     </div>
-                    <div class="p-2">
-                        <a href="{{ path('app_training_category', {categorie: 'rh'}) }}"
-                           class="btn btn-custom-color btn-block">
+                    <div class="d-grid p-2">
+                        <a href="{{ path('app_training_category', {categorie: 'rh'}) }}" class="btn btn-custom-color">
                             Voir ces formations
                         </a>
                     </div>
@@ -171,9 +174,9 @@
                             à un besoin. Chaque formation est adaptable à vos besoins et attentes.
                         </p>
                     </div>
-                    <div class="p-2">
+                    <div class="d-grid p-2">
                         <a href="{{ path('app_training_category', {categorie: 'other'}) }}"
-                           class="btn btn-custom-color btn-block">
+                           class="btn btn-custom-color">
                             Voir ces formations
                         </a>
                     </div>
@@ -219,8 +222,8 @@
 
                         </p>
                     </div>
-                    <div class="p-2">
-                        <a href="{{ path('app_skills_assessment') }}" class="btn btn-custom-color btn-sm btn-block">
+                    <div class="d-grid p-2">
+                        <a href="{{ path('app_skills_assessment') }}" class="btn btn-custom-color btn-sm">
                             Voir
                         </a>
                     </div>
@@ -240,8 +243,8 @@
                             cela vous pouvez opter pour l’une de nos 3 solutions.
                         </p>
                     </div>
-                    <div class="p-2">
-                        <a href="{{ path('app_recruitment') }}" class="btn btn-custom-color btn-sm btn-block">
+                    <div class="d-grid p-2">
+                        <a href="{{ path('app_recruitment') }}" class="btn btn-custom-color btn-sm">
                             Voir
                         </a>
                     </div>
@@ -255,7 +258,7 @@
             <div class="col-md-4 mb-5">
                 <div class="card card-hover h-100 card-custom-bg rounded shadow">
                     <div class="card-header bg-transparent border-0">
-                        <i class="fas fa-file-pdf fa-3x"></i>
+                        <i class="fa-solid fa-briefcase fa-3x"></i>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Espace Carrière</h5>
@@ -264,8 +267,8 @@
                             expert en recrutement dans le but d’optimiser votre employabilité.
                         </p>
                     </div>
-                    <div class="p-2">
-                        <a href="{{ path('app_career') }}" class="btn btn-custom-color btn-sm btn-block">
+                    <div class="d-grid p-2">
+                        <a href="{{ path('app_career') }}" class="btn btn-custom-color btn-sm">
                             Voir
                         </a>
                     </div>
@@ -287,8 +290,8 @@
                             étudiants.
                         </p>
                     </div>
-                    <div class="p-2">
-                        <a href="{{ path('app_orientation') }}" class="btn btn-custom-color btn-sm btn-block">
+                    <div class="d-grid p-2">
+                        <a href="{{ path('app_orientation') }}" class="btn btn-custom-color btn-sm">
                             Voir
                         </a>
                     </div>
@@ -310,8 +313,8 @@
                             questionnaire de candidature.
                         </p>
                     </div>
-                    <div class="p-2">
-                        <a href="{{ path('app_job_offer') }}" class="btn btn-custom-color btn-sm btn-block">
+                    <div class="d-grid p-2">
+                        <a href="{{ path('app_job_offer') }}" class="btn btn-custom-color btn-sm">
                             Voir
                         </a>
                     </div>
@@ -380,8 +383,10 @@
         <div class="row text-center mt-5">
             <div class="col-md-12">
                 <a href="{{ path('app_testimonies') }}" class="btn btn-lg btn-outline-custom">
-                    Pas encore sûr ? Découvrez plus de témoignages
-                    <i class="fas fa-angle-double-right ml-2"></i>
+                    <span class="align-baseline">
+                        Pas encore sûr ? Découvrez plus de témoignages
+                    </span>
+                    <span class="align-middle"><i class="far fa-eye ms-2"></i></span>
                 </a>
             </div>
         </div>

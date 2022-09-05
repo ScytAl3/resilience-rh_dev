@@ -1,4 +1,8 @@
-// the ~ allows you to reference things in node_modules
+// Import our variable overrides
+// Go here to set custom values for bootstrap vars
+@import "./shared/variables";
+
+// Import Bootstrap functions, vars, mixins...
 @import "~bootstrap/scss/bootstrap";
 
 /* fontawesome 5 free */
@@ -13,31 +17,35 @@
 /* header & footer */
 @import "./layouts/footer";
 @import "./layouts/navbar";
-/* variables */
-@import "./shared/variables";
 
 /*------------------------------
             Global
 -------------------------------*/
 html {
     font-size: $base-font-size;
+
     body {
         font-family: $primary-font, sans-serif;
         background-color: #fff;
+
         .page-header {
             padding: 40px 0 20px;
         }
+
         #page-container {
             padding-top: 79px;
             overflow-y: hidden;
             margin-top: -1px;
         }
+
         @media screen and (max-width: 500px) {
             font-size: 75%;
+
             #page-container {
                 padding-top: 76px;
             }
         }
+
         h1,
         h2,
         h3,
@@ -45,7 +53,7 @@ html {
         h5,
         h6 {
             font-family: $title-font, sans-serif;
-            color: $title-color !important;
+            color: $title-color  !important;
         }
     }
 }
@@ -57,62 +65,50 @@ html {
     background-color: $btn-color;
     border-color: $btn-color;
 }
+
 .btn-custom-color:hover {
     color: #fff;
     background-color: $btn-color-hover;
     border-color: $btn-color-hover;
 }
 
-.btn-outline-custom {
-    color: $btn-color;
-    border-color: $btn-color;
-}
-
-.btn-outline-custom:hover {
-    color: #fff;
-    background-color: $btn-color;
-    border-color: $btn-color;
-}
-
-.btn-custom-rounded {
-    font-size: 15px;
-    color: $btn-color;
-    letter-spacing: 1px;
-    line-height: 15px;
-    border: 2px solid $btn-color;
-    border-radius: 40px;
-    background: transparent;
-    transition: all 0.3s ease 0s;
-}
-.btn-custom-rounded:hover {
-    color: #fff;
-    background: $btn-color;
-    border: 2px solid $btn-color;
-}
-
 /*  JS Button : back to top 
 ------------------------------*/
 #js-back-to-top-btn {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 2em; /* Place the button at the bottom of the page */
-    right: 0; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    background-color: $header-color; /* Set a background color */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 15px; /* Some padding */
-    border-radius: 10px; /* Rounded corners */
-    font-size: 18px; /* Increase font size */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Fixed/sticky position */
+    bottom: 2em;
+    /* Place the button at the bottom of the page */
+    right: 0;
+    /* Place the button 30px from the right */
+    z-index: 99;
+    /* Make sure it does not overlap */
+    border: none;
+    /* Remove borders */
+    outline: none;
+    /* Remove outline */
+    background-color: $header-color;
+    /* Set a background color */
+    color: white;
+    /* Text color */
+    cursor: pointer;
+    /* Add a mouse pointer on hover */
+    padding: 15px;
+    /* Some padding */
+    border-radius: 10px;
+    /* Rounded corners */
+    font-size: 18px;
+    /* Increase font size */
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
     transition-property: background-color, color;
 }
 
 #js-back-to-top-btn:hover {
-    background-color: #555; /* Add a dark-grey background on hover */
+    background-color: #555;
+    /* Add a dark-grey background on hover */
 }
 
 /* Animations */
@@ -128,6 +124,7 @@ html {
         opacity: 0;
         transform: translate3d(100%, 0, 0);
     }
+
     to {
         opacity: 1;
         transform: translate3d(0, 0, 0);
@@ -145,6 +142,7 @@ html {
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
         transform: translate3d(100%, 0, 0);
@@ -158,15 +156,51 @@ html {
 #carousel-custom-bg {
     background-color: $header-color;
 }
+
 #resilienceCarouselIndicators {
     .carousel-item-size {
         width: 50% !important;
     }
 }
+
 @media only screen and (max-device-width: 500px) {
     .carousel .carousel-item-size {
         width: 75% !important;
     }
+}
+
+/* about us button */
+.btn-about-us {
+    font-size: 15px;
+    font-weight: bold;
+    color: $btn-color;
+    letter-spacing: 2px;
+    border: 2px solid $btn-color;
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+}
+
+.btn-about-us:hover {
+    color: #fff;
+    background: $btn-color;
+    border: 2px solid $btn-color;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.btn-outline-custom {
+    color: $btn-color;
+    border-color: $btn-color;
+    transition: all 0.3s ease 0s;
+}
+
+.btn-outline-custom:hover {
+    color: #fff;
+    background-color: $btn-color;
+    border-color: $btn-color;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 section {
@@ -175,10 +209,12 @@ section {
         padding-bottom: 70px;
         background-color: #eee;
     }
+
     .content-layout {
         padding: 70px 80px;
         text-align: justify;
     }
+
     .parallax {
         position: relative;
         opacity: 0.75;
@@ -191,12 +227,14 @@ section {
         align-items: center;
         justify-content: center;
     }
+
     /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
     @media only screen and (max-device-width: 1366px) {
         .parallax {
             background-attachment: scroll;
         }
     }
+
     .bg-img-training {
         background-image: url($bg-img-1);
         background-position: center center;
@@ -207,20 +245,24 @@ section {
         height: 75vh;
         // min-height: 600px;
     }
+
     .bg-img-oursolutions {
         background-image: url($bg-img-2);
         min-height: 550px;
     }
+
     .bg-img-feedback {
         background-image: url($bg-img-3);
         min-height: 550px;
     }
+
     .caption {
         position: absolute;
         left: 0;
         top: 50%;
         width: 100%;
         text-align: center;
+
         span.border {
             background-color: #000;
             color: #fff;
@@ -228,15 +270,18 @@ section {
             font-size: 25px;
             letter-spacing: 10px;
         }
+
         @media screen and (max-width: 500px) {
             span.border {
                 font-size: 15px;
             }
         }
     }
+
     .card-custom-bg {
         background-color: #fafafa;
     }
+
     .card-hover:hover {
         box-shadow: 0 0.5rem 2rem rgba(1, 13, 182, 0.15) !important;
     }
@@ -258,7 +303,7 @@ section {
     Contact & Job offer pages
 -------------------------------*/
 /* Input file french label */
-.custom-file-input:lang(en) ~ .custom-file-label:after {
+.custom-file-input:lang(en)~.custom-file-label:after {
     content: "Parcourir";
 }
 
@@ -368,12 +413,15 @@ section {
         height: 148px;
         margin: 0px auto 10px;
     }
+
     .notfound .notfound-404 h1 {
         font-size: 86px;
     }
+
     .notfound .notfound-404 h2 {
         font-size: 16px;
     }
+
     .notfound a {
         padding: 7px 15px;
         font-size: 14px;
