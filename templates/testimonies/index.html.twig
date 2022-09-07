@@ -2,13 +2,16 @@
 
 {% block title %} Témoignages | {{ parent() }} {% endblock %}
 
-{% block body %}
+{% block body_id 'testimonies' %}
+
+{% block main %}
+
 {# Conteneur de la page #}
 <div class="container">
     {# Page header #}
     <div class="page-header">
         <h1 class="text-center">
-            <i class="fas fa-comment-dots"></i>
+            <i class="fa-solid fa-comment-dots"></i>
             Témoignages
         </h1>
     </div>
@@ -24,13 +27,16 @@
         {% if solutions_count > 0 %}
         {# Boucle pour afficher les boutons associés aux solutions #}
         {% for row in solutions|batch(4) %}
-        <div class="row justify-content-around mt-5">
+        <div class="row row-cols-auto justify-content-around mt-5">
             {% for solution in row %}
-            <div class="mx-2 mb-2">
-                <a class="btn btn-outline-custom btn-lg" href="{{ path('app_testimonies', {id: solution.id}) }}"
-                   role="button">
-                    {{ solution.label }}
-                </a>
+            <div class="col-md-3 mb-2">
+                <div class="d-grid">
+                    <a class="btn btn-outline-custom btn-lg" href="{{ path('app_testimonies', {id: solution.id}) }}"
+                       role="button">
+                        {{ solution.label }}
+                    </a>
+
+                </div>
             </div>
             {% endfor %}
         </div>

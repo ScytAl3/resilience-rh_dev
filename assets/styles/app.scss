@@ -72,6 +72,23 @@ html {
             }
         }
 
+        /* Button feedback */
+        .btn-outline-custom {
+            color: $btn-color;
+            border-color: $btn-color;
+            transition: all 0.3s ease 0s;
+
+            &:hover,
+            &:focus {
+                color: #fff;
+                background: $btn-color;
+                border-color: $btn-color;
+                box-shadow: rgb(49, 132, 253) 0 0 10px;
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+        }
+
         /*  JS Button : back to top 
         ------------------------------*/
         #js-back-to-top-btn {
@@ -182,23 +199,6 @@ body#accueil {
         border-color: $btn-color;
         border-radius: 40px;
         background: transparent;
-        transition: all 0.3s ease 0s;
-
-        &:hover,
-        &:focus {
-            color: #fff;
-            background: $btn-color;
-            border-color: $btn-color;
-            box-shadow: rgb(49, 132, 253) 0 0 10px;
-            padding-left: 40px;
-            padding-right: 40px;
-        }
-    }
-
-    /* Button feedback */
-    .btn-outline-custom {
-        color: $btn-color;
-        border-color: $btn-color;
         transition: all 0.3s ease 0s;
 
         &:hover,
