@@ -2,196 +2,235 @@
 
 {% block title %} Nos Formation | {{ parent() }} {% endblock %}
 
-{% block body %}
+{% block body_id 'training' %}
+
+{% block main %}
+
 {# Conteneur de la page #}
 <div class="container">
-    {# Page header #}
-    <div class="page-header">
-        <h1 class="text-center">
-            <i class="fas fa-graduation-cap"></i>
-            Partenaire de vos Formations
-        </h1>
-    </div>
-
-    {# Section : Introduction & trainings buttons #}
-    <section class="my-3 p-2">
-        {# Introduction #}
-        <div class="row">
-            <div class="col-12 text-muted">
-                <h2 class="text-center h5 mb-4">
-                    Organisme de formation référencé sur <em><u>dataDock</u></em> et certifié qualité
-                    <em><u>Qualiopi</u></em>.
-                </h2>
-                <p class="mb-4">
-                    <strong class="text-uppercase">
-                        {{ project.name }}
-                    </strong> se veut être votre partenaire dans le domaine de la Formation en Ressources Humaines, de
-                    l'ingénierie pédagogique à l'animation
-                </p>
-                {# Button training - RH#}
-                <div class="text-center mb-5">
-                    <a class="btn btn-outline-custom btn-lg"
-                       href="{{ path('app_training_category', {categorie: 'rh'}) }}" role="button">
-                        Voir nos formations en Ressources Humaines
-                        <i class="fas fa-angle-double-right ml-2"></i>
-                    </a>
-                </div>
-                <p class="mb-4">
-                    <strong class="text-uppercase">
-                        {{ project.name }}
-                    </strong> propose également d'autres formations dans d'autres domaines. La conception d'un module
-                    doit répondre à vos attentes et à un besoin. Chaque formation est adaptable à vos besoins et
-                    attentes.
-                </p>
-                {# Button training - Other #}
-                <div class="text-center mb-3">
-                    <a class="btn btn-outline-custom btn-lg"
-                       href="{{ path('app_training_category', {categorie: 'other'}) }}" role="button">
-                        Voir nos autres formations
-                        <i class="fas fa-angle-double-right ml-2"></i>
-                    </a>
+    <div class="text-bg-light pb-3">
+        {# Page header #}
+        <div class="page-header">
+            <h1 class="display-5 text-center">
+                <i class="fas fa-graduation-cap"></i>
+                Partenaire de vos Formations
+            </h1>
+        </div>
+    
+        {# Section : Introduction & trainings buttons #}
+        <section class="my-3 p-2">
+            {# Introduction #}
+            <div class="row">
+                <div class="col-12 text-muted">
+                    <h2 class="text-center h5 mb-4">
+                        Organisme de formation référencé sur <em><u>dataDock</u></em> et certifié qualité
+                        <em><u>Qualiopi</u></em>.
+                    </h2>
+                    <p class="mb-4">
+                        <strong class="text-uppercase">
+                            {{ project.name }}
+                        </strong> se veut être votre partenaire dans le domaine de la Formation en Ressources Humaines, de
+                        l'ingénierie pédagogique à l'animation
+                    </p>
+                    {# Button training - RH#}
+                    <div class="d-grid col-6 mx-auto mb-5">
+                        <a class="btn btn-outline-custom btn-lg"
+                           href="{{ path('app_training_category', {categorie: 'rh'}) }}" role="button">
+                            <span class="align-baseline">
+                                Voir nos formations en Ressources Humaines
+                            </span>
+                            <span class="align-middle"><i class="far fa-eye ms-2"></i></span>
+                        </a>
+                    </div>
+                    <p class="mb-4">
+                        <strong class="text-uppercase">
+                            {{ project.name }}
+                        </strong> propose également d'autres formations dans d'autres domaines. La conception d'un module
+                        doit répondre à vos attentes et à un besoin. Chaque formation est adaptable à vos besoins et
+                        attentes.
+                    </p>
+                    {# Button training - Other #}
+                    <div class="d-grid col-6 mx-auto mb-3">
+                        <a class="btn btn-outline-custom btn-lg"
+                           href="{{ path('app_training_category', {categorie: 'other'}) }}" role="button">
+                            <span class="align-baseline">
+                                Voir nos autres formations
+                            </span>
+                            <span class="align-middle"><i class="far fa-eye ms-2"></i></span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <hr>
+        </section>
+    </div>
 
     {# Section : Other solutions #}
     <section class="my-3 p-2">
-        <h2>
+        <h2 class="display-6">
             Nos autres solutions
         </h2>
-        {# Row #1 #}
-        <div class="row justify-content-between mt-5">
+        <div class="row row-cols-1 row-cols-md-2 justify-content-around g-4 my-5">
+            {# Row #1 #}
             {# Bilan compétences #}
             <div class="col-lg-5">
-                <div class=" text-center">
-                    <img src="{{ asset('build/images/training/bilan-competences.png') | imagine_filter("squared_thumb_small") }}"
-                         class="img-fluid mx-auto my-2" alt="Image bilan de compétences">
-                </div>
-                <h2 class="text-center">
-                    Bilan de compétences
-                </h2>
-                <p class="p-2 mb-3">
-                    Les métiers évoluent sans cesse comme vos attentes professionnelles. Pour changer de branche
-                    d’activité, évoluer dans
-                    votre entreprise, retrouver un emploi ou simplement faire le point, le bilan de compétences est
-                    souvent une étape utile.
-                    Il permet d’identifier vos connaissances, votre savoir-être et votre savoir-faire, et vous donne des
-                    pistes pour
-                    construire votre avenir professionnel.
-                </p>
-                <div>
-                    <a class="btn btn-lg btn-custom-color btn-block" href="{{ path('app_contact') }}">
-                        Nous contacter
-                    </a>
+                <div class="card border border-0 h-100">
+                    <div class="text-center">
+                        <img src="{{ asset('build/images/training/bilan-competences.png') | imagine_filter('squared_thumb_small') }}"
+                             class="img-fluid mx-auto my-2" alt="Image bilan de compétences">
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title text-center">
+                            Bilan de compétences
+                        </h2>
+                        <p class="card-text p-2">
+                            Les métiers évoluent sans cesse comme vos attentes professionnelles. Pour changer de branche
+                            d’activité, évoluer dans
+                            votre entreprise, retrouver un emploi ou simplement faire le point, le bilan de compétences est
+                            souvent une étape utile.
+                            Il permet d’identifier vos connaissances, votre savoir-être et votre savoir-faire, et vous donne
+                            des
+                            pistes pour
+                            construire votre avenir professionnel.
+                        </p>
+                    </div>
+                    <div class="d-grid mb-3">
+                        <a class="btn btn-custom-color btn-lg" href="{{ path('app_contact') }}">
+                            <span class="align-baseline">
+                                Nous contacter
+                            </span>
+                            <span><i class="fa-regular fa-pen-to-square ms-2"></i></i></span>
+                        </a>
+                    </div>
                 </div>
             </div>
             {# Projets RH #}
             <div class="col-lg-5">
-                <div class="text-center">
-                    <img src="{{ asset('build/images/training/rh-projects.png') | imagine_filter("squared_thumb_small") }}"
-                         class="img-fluid mx-auto my-2" alt="Image">
-                </div>
-                <h2 class="text-center">
-                    Projets Ressources Humaines
-                </h2>
-                <p class="p-2 mb-3">
-                    <strong class="text-uppercase">
-                        {{ project.name }}
-                    </strong> accompagne votre l’Entreprise dans ses projets RH. Chaque projet débute par un audit afin
-                    de vous apporter le meilleur
-                    accompagnement.
-                    <br>
-                    <strong class="text-uppercase">
-                        {{ project.name }}
-                    </strong> intervient sur les thématiques suivantes :
-                    {# Liste #}
-                <ul class="text-left mt-4">
-                    <li>
-                        Evaluation 360
-                    </li>
-                    <li>
-                        Ecriture d'outils d'évaluation annuelle
-                    </li>
-                    <li>
-                        Ecriture de fiche de poste/emploi
-                    </li>
-                    <li>
-                        Analyse du poste de travail
-                    </li>
-                    <li>
-                        Accompagnement d'intégration
-                    </li>
-                    <li>
-                        Animation de groupe de travail
-                    </li>
-                    <li>
-                        etc...
-                    </li>
-                </ul>
-                </p>
-                <div>
-                    <a class="btn btn-lg btn-custom-color btn-block" href="{{ path('app_contact') }}">
-                        Nous contacter
-                    </a>
+                <div class="card border border-0 h-100">
+                    <div class="text-center">
+                        <img src="{{ asset('build/images/training/rh-projects.png') | imagine_filter('squared_thumb_small')}}"
+                             class="img-fluid mx-auto my-2" alt="Image">
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title text-center">
+                            Projets Ressources Humaines
+                        </h2>
+                        <p class="card-text p-2">
+                            <strong class="text-uppercase">
+                                {{ project.name }}
+                            </strong> accompagne votre l’Entreprise dans ses projets RH. Chaque projet débute par un audit
+                            afin
+                            de vous apporter le meilleur
+                            accompagnement.
+                            <br>
+                            <strong class="text-uppercase">
+                                {{ project.name }}
+                            </strong> intervient sur les thématiques suivantes :
+                            {# Liste #}
+                        <ul class="text-left mt-4">
+                            <li>
+                                Evaluation 360
+                            </li>
+                            <li>
+                                Ecriture d'outils d'évaluation annuelle
+                            </li>
+                            <li>
+                                Ecriture de fiche de poste/emploi
+                            </li>
+                            <li>
+                                Analyse du poste de travail
+                            </li>
+                            <li>
+                                Accompagnement d'intégration
+                            </li>
+                            <li>
+                                Animation de groupe de travail
+                            </li>
+                            <li>
+                                etc...
+                            </li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="d-grid mb-3">
+                        <a class="btn btn-custom-color btn-lg" href="{{ path('app_contact') }}">
+                            <span class="align-baseline">
+                                Nous contacter
+                            </span>
+                            <span><i class="fa-regular fa-pen-to-square ms-2"></i></i></span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        {# Row #2 #}
-        <div class="row justify-content-between my-5">
+            {# Row #2 #}
             {# Détection et évaluation #}
             <div class="col-lg-5">
-                <div class="text-center">
-                    <img src="{{ asset('build/images/training/detect-and-evaluate.png') | imagine_filter("squared_thumb_small") }}"
-                         class="img-fluid mx-auto my-2" alt="Image détection et évaluation">
-                </div>
-                <h2 class="text-center">
-                    Détection des potentiels & évaluation des ressources internes
-                </h2>
-                <p class="p-2 mb-3">
-                    L'entreprise est une entité en perpétuel mouvement, c’est pour cette raison, qu’elle doit pouvoir
-                    s’adapter à son environnement pour rester compétitive, tout en fasisant gandir ses collaborateurs.
-                    <br>
-                    Connître le potentiel et les compétences de ses collaborateurs est primordial.
-                    <br>
-                    Basée sur des outils reconnus et validés (inventaire de personnalité, aptitudes cognitives,
-                    motivations...), l'évaluation peut s'inscrire dans un schéma de changement de poste, d'évolution
-                    verticale ou horizontale.
-                </p>
-                <div>
-                    <a class="btn btn-lg btn-custom-color btn-block" href="{{ path('app_contact') }}">
-                        Nous contacter
-                    </a>
+                <div class="card border border-0 h-100">
+                    <div class="text-center">
+                        <img src="{{ asset('build/images/training/detect-and-evaluate.png') | imagine_filter('squared_thumb_small') }}"
+                             class="img-fluid mx-auto my-2" alt="Image détection et évaluation">
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title text-center">
+                            Détection des potentiels & évaluation des ressources internes
+                        </h2>
+                        <p class="card-text p-2">
+                            L'entreprise est une entité en perpétuel mouvement, c’est pour cette raison, qu’elle doit
+                            pouvoir
+                            s’adapter à son environnement pour rester compétitive, tout en fasisant gandir ses
+                            collaborateurs.
+                            <br>
+                            Connître le potentiel et les compétences de ses collaborateurs est primordial.
+                            <br>
+                            Basée sur des outils reconnus et validés (inventaire de personnalité, aptitudes cognitives,
+                            motivations...), l'évaluation peut s'inscrire dans un schéma de changement de poste, d'évolution
+                            verticale ou horizontale.
+                        </p>
+                    </div>
+                    <div class="d-grid mb-3">
+                        <a class="btn btn-custom-color btn-lg" href="{{ path('app_contact') }}">
+                            <span class="align-baseline">
+                                Nous contacter
+                            </span>
+                            <span><i class="fa-regular fa-pen-to-square ms-2"></i></i></span>
+                        </a>
+                    </div>
                 </div>
             </div>
             {# Diagnostic climat social #}
             <div class="col-lg-5">
-                <div class="text-center">
-                    <img src="{{ asset('build/images/training/diagnosis.png') | imagine_filter("squared_thumb_small") }}"
-                         class="img-fluid mx-auto my-2" alt="Image diagnostic climat social">
-                </div>
-                <h2 class="text-center">
-                    Diagnostic du climat social
-                </h2>
-                <p class="p-2 mb-3">
-                    <strong class="text-uppercase">
-                        {{ project.name }}
-                    </strong> vous propose d’évaluer le climat psychosocial de votre entreprise, en recueillant le degré
-                    de satisfaction et d’insatisfaction de vos salariés et de repérer à quel niveau (information,
-                    supervision, implication ...) se manifestent les dificultés.
-                    <br>
-                    Ce diagnostic est un excellent outil pour orienter ou définir les politiques RH, et ce quelque soit
-                    la taille, la structure ou le secteur d'activité de l'entreprise.
-                    <br>
-                    L'illustration du compte rendu par des représentations graphiques permet, plus aisément,
-                    l'éloboration de plan d'action et/ou de préconisations
-                </p>
-                <div>
-                    <a class="btn btn-lg btn-custom-color btn-block" href="{{ path('app_contact') }}">
-                        Nous contacter
-                    </a>
+                <div class="card border border-0 h-100">
+                    <div class="text-center">
+                        <img src="{{ asset('build/images/training/diagnosis.png') | imagine_filter('squared_thumb_small')
+                                 }}" class="img-fluid mx-auto my-2" alt="Image diagnostic climat social">
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title text-center">
+                            Diagnostic du climat social
+                        </h2>
+                        <p class="card-text p-2">
+                            <strong class="text-uppercase">
+                                {{ project.name }}
+                            </strong> vous propose d’évaluer le climat psychosocial de votre entreprise, en recueillant le
+                            degré
+                            de satisfaction et d’insatisfaction de vos salariés et de repérer à quel niveau (information,
+                            supervision, implication ...) se manifestent les dificultés.
+                            <br>
+                            Ce diagnostic est un excellent outil pour orienter ou définir les politiques RH, et ce quelque
+                            soit
+                            la taille, la structure ou le secteur d'activité de l'entreprise.
+                            <br>
+                            L'illustration du compte rendu par des représentations graphiques permet, plus aisément,
+                            l'éloboration de plan d'action et/ou de préconisations
+                        </p>
+                    </div>
+                    <div class="d-grid mb-3">
+                        <a class="btn btn-custom-color btn-lg" href="{{ path('app_contact') }}">
+                            <span class="align-baseline">
+                                Nous contacter
+                            </span>
+                            <span><i class="fa-regular fa-pen-to-square ms-2"></i></i></span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
