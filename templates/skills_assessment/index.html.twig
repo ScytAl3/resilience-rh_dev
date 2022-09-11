@@ -2,7 +2,10 @@
 
 {% block title %} Bilan compétences | {{ parent() }} {% endblock %}
 
-{% block body %}
+{% block body_id 'skills-assessment' %}
+
+{% block main %}
+
 {# Conteneur de la page #}
 <div class="container">
     {# Page header #}
@@ -40,9 +43,11 @@
                         </p>
                     </div>
                     <div class="col-md-4">
-                        <a class="btn btn-sm btn-custom-color btn-block" href="{{ path('app_contact') }}">
-                            Nous contacter
-                        </a>
+                        <div class="d-grid">
+                            <a class="btn btn-custom-color btn-sm" href="{{ path('app_contact') }}">
+                                Nous contacter
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
