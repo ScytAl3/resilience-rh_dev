@@ -4,6 +4,7 @@ namespace App\Controller\Resilience_rh;
 
 use App\Repository\SolutionRepository;
 use App\Repository\TestimonialRepository;
+use Doctrine\ORM\Mapping\Id;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,38 +15,41 @@ class TestimoniesController extends AbstractController
      * @Route("/temoignages/{id<[0-9]+>?}", name="app_testimonies", methods={"GET"})
      */
     public function index(SolutionRepository $sRepo, TestimonialRepository $tRepo, Request $request)
-    {        
-        // Initialisation d'un tableau vide
-        $list = array();
-        // Recupère un tableau de tableaux associatifs [id => value] :
-        // la liste des identifiants des solutions proposées
-        $solution_ids = $sRepo->getId();
-        // Boucle pour récupérer la valeur des identifiants
-        foreach ($solution_ids as $solution_id) {
-            foreach ($solution_id as $key => $value) {
-                array_push($list, $value);
-            }
-        }
-        // dd($list);
+    {
+        // Tableau pour récupérer tous les témoignages
+        $testimonies = [];
+        // Tableau multidimensionnel pour récupérer les informations des témoignages associés aux solutions
+        // [id-1 => [label-1, témoignages[]], ..., id-n => [label-n, témoignages[]]]
+        $testimoniesBySolution = [];
 
-        // Vérifie que l'identifiant passer dans l'url existe bien
-        if (in_array($request->get('id'), $list)) {
-            // Si identifiant existe retourne la liste des témoignages à cet identifiant de solution
-            $testimonies = $tRepo->findBy(['solution' => $request->get('id')]);  
-            // Recupération du nom de la solution (bouton) pour mettre à jour dynamiquement
-            // le titre des témoignages affichés   
-            $title = $sRepo->find($request->get('id'))->getLabel();   
-        } else {
-            // Sinon retourne la liste complète des témoignages            
-            $testimonies = $tRepo->findAll();
-            // Titre par défaut des témoignages
-            $title = 'Tous les témoignages';
+        // Récupère la liste des témoignages
+        $testimonies = $tRepo->getAllTestimonies();
+
+        // dd($testimonies);
+
+        // Pour chaque témoignage
+        foreach ($testimonies as $testimonie) {
+            // Si l'identifiant de la solution (key) n'est pas dans le tableau des témoignages par solution
+            if (!array_key_exists($testimonie->getSolution()->getId(), $testimoniesBySolution)) {
+                // Initialise un tableau multidimensionnel key => [label => nom, témoignages => []]
+                $testimoniesBySolution[$testimonie->getSolution()->getId()] = [
+                    'label' => $testimonie->getSolution()->getLabel(),
+                    'testimonies' => []
+                ];
+            }
+            // Ajoute le témoignage aux témoignages associés à la solution
+            array_push($testimoniesBySolution[$testimonie->getSolution()->getId()]['testimonies'], [
+                "initials" => $testimonie->getInitials(),
+                "job" => $testimonie->getJob(),
+                "testimony" => $testimonie->getTestimony()
+            ]);
         }
+
+        // dd($testimoniesBySolution);
 
         return $this->render('testimonies/index.html.twig', [
             'solutions' => $sRepo->findAll(),
-            'testimonies' => $testimonies,
-            'title' => $title,
+            'testimoniesBySolution' => $testimoniesBySolution,
         ]);
     }
 }

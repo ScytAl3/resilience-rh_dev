@@ -87,6 +87,12 @@ html {
                 padding-left: 40px;
                 padding-right: 40px;
             }
+
+            &.active {
+                color: #fff;
+                background: $btn-color;
+                border-color: $btn-color;
+            }
         }
 
         /*  JS Button : back to top 

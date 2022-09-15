@@ -27,15 +27,17 @@
         {% if solutions_count > 0 %}
         {# Boucle pour afficher les boutons associés aux solutions #}
         {% for row in solutions|batch(4) %}
-        <div class="row row-cols-auto justify-content-around mt-5">
+        <div class="row row-cols-auto justify-content-around mt-5" id="solution-tab" role="tablist">
             {% for solution in row %}
             <div class="col-md-3 mb-2">
                 <div class="d-grid">
-                    <a class="btn btn-outline-custom btn-lg" href="{{ path('app_testimonies', {id: solution.id}) }}"
-                       role="button">
+                    {# Ajoute la classe 'active' lors de la première itération #}
+                    <button class="btn btn-outline-custom btn-lg {{ loop.first ? 'active' : ''}}"
+                            id="solution-{{ solution.id }}-tab" data-bs-toggle="tab"
+                            data-bs-target="#solution-{{ solution.id }}-tab-pane" type="button" role="tab"
+                            aria-controls="solution-{{ solution.id }}-tab-pane" aria-selected="true">
                         {{ solution.label }}
-                    </a>
-
+                    </button>
                 </div>
             </div>
             {% endfor %}
@@ -51,50 +53,71 @@
         {% endif %}
     </section>
 
-    <hr>
-
     {# Section : Testimonies list #}
-    <section class="my-3 p-2">
-        <h2 class="display-6">
-            {{ title }}
-        </h2>
+    <section class="my-5 p-2">
 
-        {# {{ dump(testimonies) }} #}
+        {# {{ dump(testimoniesBySolution) }} #}
 
-        {# Récupération du nombre de témoignages #}
-        {% set testimonies_count = testimonies | length %}
+        {# Récupération du nombre de solutions avec des témoignages #}
+        {% set testimoniesBySolution_count = testimoniesBySolution | length %}
         {# Si la tables Témoignages n'est pas vide on affiche les témoignages #}
-        {% if testimonies_count > 0 %}
+        {% if testimoniesBySolution_count > 0 %}
         <div class="row">
-            {# Affichage des témoignages correspondants #}
-            {% for testimonial in testimonies %}
-            <div class="card border-0  my-3">
-                <div class="card-body">
-                    <h5 class="card-title mb-1">
-                        {{ testimonial.initials }}
-                    </h5>
-                    <p class="card-text">
-                        <em class="text-muted">
-                            {{ testimonial.job }}
-                        </em>
-                    </p>
-                    <p>
-                        <i class="fas fa-quote-left"></i>
-                    </p>
-                    <div class="text-muted">
-                        {{ testimonial.testimony|raw }}
+            <div class="tab-content" id="solution-tab-content">
+                {# Pour chaque solution #}
+                {% for key, value in testimoniesBySolution %}
+                {# Ajoute les classes 'show active' lors de la première itération #}
+                <div class="tab-pane fade{{ loop.first ? 'show active' : ''}}" id="solution-{{key}}-tab-pane"
+                     role="tabpanel" aria-labelledby="solution-{{key}}-tab" tabindex="0">
+                    <h2 class="display-6">
+                        {# Affiche le label de la solution #}
+                        {{ value.label }}
+                    </h2>
+                    {# Récupération du nombre de témoignages pour cette solution #}
+                    {% set testimonies_count = value.testimonies | length %}
+                    {# S'il y a au moins 1 témoignage #}
+                    {% if testimonies_count > 0 %}
+                    {# Affichage les témoignages correspondants à la solution #}
+                    {% for testimonial in value.testimonies %}
+                    <div class="card border-0 my-3">
+                        <div class="card-body">
+                            <h5 class="card-title mb-1">
+                                {{ testimonial.initials }}
+                            </h5>
+                            <p class="card-text">
+                                <em class="text-muted">
+                                    {{ testimonial.job }}
+                                </em>
+                            </p>
+                            <p>
+                                <i class="fas fa-quote-left"></i>
+                            </p>
+                            <div class="text-muted">
+                                {{ testimonial.testimony | raw }}
+                            </div>
+                            <p class="text-right">
+                                <i class="fas fa-quote-right"></i>
+                            </p>
+                        </div>
                     </div>
-                    <p class="text-right">
-                        <i class="fas fa-quote-right"></i>
-                    </p>
+                    {% endfor %}
+                    {# Sinon on affiche un message #}
+                    {% else %}
+                    <div class="alert alert-danger mt-5 text-center">
+                        <p class="lead mt-3">
+                            Il y a {{ testimonies_count }} Témoignages à afficher
+                            pour le moment.
+                        </p>
+                    </div>
+                    {% endif %}
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
         {% else %}
         <div class="alert alert-danger mt-5 text-center">
             <p class="lead mt-3">
-                Il y a {{ testimonies_count }} Témoignages à afficher pour le moment.
+                Il y a {{ testimoniesBySolution_count }} Témoignages à afficher pour le moment.
             </p>
         </div>
         {% endif %}
